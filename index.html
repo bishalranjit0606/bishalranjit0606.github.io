@@ -257,8 +257,9 @@
       }
 
       .skills-grid {
+        /* This creates a fixed 4-column layout */
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        grid-template-columns: repeat(4, 1fr);
         gap: 20px;
       }
 
@@ -831,6 +832,11 @@
         .hero-buttons {
           justify-content: center;
         }
+
+        /* For tablets, show 3 columns on skills grid */
+        .skills-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
       }
 
       @media (max-width: 768px) {
@@ -863,7 +869,20 @@
         .certificates-grid {
           grid-template-columns: 1fr;
         }
+
+        /* For mobile phones, show 2 columns on skills grid for better spacing */
+        .skills-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
       }
+
+      /* Add this extra media query for very small screens to revert to 1 column */
+      @media (max-width: 480px) {
+        .skills-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
     </style>
   </head>
   <body>
