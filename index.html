@@ -257,11 +257,12 @@
       }
 
       .skills-grid {
-        /* This creates a fixed 4-column layout */
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 20px;
-      }
+  /* This creates a fixed 3-column layout */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
 
       .skill-card {
         background-color: var(--secondary-bg);
@@ -832,11 +833,6 @@
         .hero-buttons {
           justify-content: center;
         }
-
-        /* For tablets, show 3 columns on skills grid */
-        .skills-grid {
-          grid-template-columns: repeat(3, 1fr);
-        }
       }
 
       @media (max-width: 768px) {
@@ -869,20 +865,34 @@
         .certificates-grid {
           grid-template-columns: 1fr;
         }
-
-        /* For mobile phones, show 2 columns on skills grid for better spacing */
-        .skills-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
       }
 
-      /* Add this extra media query for very small screens to revert to 1 column */
-      @media (max-width: 480px) {
+      /* *** NEW MEDIA QUERY FOR SKILLS GRID ON SMALL SCREENS *** */
+      @media (max-width: 500px) {
         .skills-grid {
-          grid-template-columns: 1fr;
+          /* This will force a 3-column layout on smaller screens */
+          grid-template-columns: repeat(3, 1fr);
+          gap: 10px; /* Reduce the gap for a tighter fit */
+        }
+        
+        .skill-card {
+            padding: 15px 10px; /* Reduce padding to make cards smaller */
+        }
+        
+        .skill-card h4 {
+            font-size: 0.9rem; /* Make the title smaller */
+            margin-bottom: 5px;
+        }
+        
+        .skill-card p {
+            font-size: 0.7rem; /* Make the description smaller */
+        }
+        
+        .skill-card .icon {
+            font-size: 2rem; /* Make the icon smaller */
+            margin-bottom: 5px;
         }
       }
-
     </style>
   </head>
   <body>
