@@ -294,15 +294,24 @@
       
       /* --- Project and Certificate Card Styles --- */
       .projects-grid,
-      .certificates-grid {
+      .certificates-grid,
+      .blog-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
         gap: 30px;
         margin-top: 30px;
       }
 
+      /* Style for the initially hidden items */
+      .project-card.hidden,
+      .certificate-card.hidden,
+      .blog-card.hidden {
+        display: none;
+      }
+
       .project-card,
-      .certificate-card {
+      .certificate-card,
+      .blog-card {
         background-color: var(--secondary-bg);
         border-radius: 15px;
         overflow: hidden;
@@ -318,7 +327,8 @@
       }
 
       .project-card:hover,
-      .certificate-card:hover {
+      .certificate-card:hover,
+      .blog-card:hover {
         transform: translateY(-8px);
         border-color: #333;
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
@@ -731,6 +741,30 @@
         max-width: 600px;
       }
 
+      /* Load More button style */
+      .load-more-btn {
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+      }
+
+      .load-more-btn button {
+        background: var(--secondary-bg);
+        color: var(--highlight-color);
+        border: 2px solid var(--highlight-color);
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 1rem;
+      }
+
+      .load-more-btn button:hover {
+        background: var(--highlight-color);
+        color: var(--text-color);
+      }
+
       /* Responsive Design - Mobile View (Dropdown Menu) */
       .mobile-menu-toggle {
         display: none; /* Hide on desktop */
@@ -1050,9 +1084,7 @@
             </p>
           </div>
 
-          <div class="projects-grid">
-
-         
+          <div class="projects-grid" id="projects-container">
 
             <a href="https://github.com/bishalranjit0606/terraform-aws-project" class="project-card">
               <div class="project-image">
@@ -1162,6 +1194,27 @@
               </div>
             </a>
 
+   <a href="https://github.com/bishalranjit0606/terraform-aws-project" class="project-card">
+              <div class="project-image">
+                <img src="images/Terraform aws project.png" alt="Terraform aws project"/>
+              </div>
+              <div class="project-content">
+                <h3 class="project-title">Terraform AWS Project</h3>
+                <p class="project-description">
+                 Terraform project to deploy a scalable AWS environment with VPC, EC2 Auto
+                  Scaling and Application Load Balancer. Demonstrates Infrastructure as Code (IaC) and cloud automation.
+                </p>
+                <div class="project-tech">
+                  <span class="tech-tag">Terraform</span>
+                  <span class="tech-tag">AWS</span>
+                  <span class="tech-tag">Networking</span>
+                </div>
+              </div>
+            </a>
+
+          </div>
+          <div class="load-more-btn" id="load-more-projects">
+            <button>Load More</button>
           </div>
         </section>
 
@@ -1171,8 +1224,7 @@
             <p>Thoughts, tutorials, and insights from my development journey.</p>
           </div>
 
-          <div class="blog-grid">
-
+          <div class="blog-grid" id="blog-container">
 
             <article class="blog-card">
               <div class="blog-date">September 24, 2025</div>
@@ -1204,8 +1256,10 @@
               </p>
               <a href="https://medium.com/@bishalranjit2002/mastering-amazon-s3-encryption-security-a-simple-guide-0dd3d30970b4" class="read-more">Read More →</a>
             </article>
-
           
+          </div>
+          <div class="load-more-btn" id="load-more-blog">
+            <button>Load More</button>
           </div>
         </section>
 
@@ -1233,142 +1287,142 @@
               </div>
             </div>
 
-          
-
-        
         </section>
 
         <section id="certificates" class="section">
-  <div class="section-header">
-    <h2>Certifications</h2>
-    <p>
-      Professional certifications and achievements that validate my technical expertise.
-    </p>
-  </div>
-  <div class="certificates-grid">
-    <a href="https://cp.certmetrics.com/amazon/en/public/verify/credential/9d548433416649208f29cbe572265c54" class="certificate-card">
-      <div class="certificate-header">
-        <div class="certificate-info">
-          <h3>AWS Solutions Architect Associate <span class="certified-tag">Certified</span></h3>
-          <div class="certificate-issuer">Amazon Web Services</div>
-        </div>
-      </div>
-      <div class="certificate-date">
-        Issued: September 2025 • Valid until: September 2028
-      </div>
-      <p class="certificate-description">
-        Demonstrates expertise in designing distributed systems on AWS, including compute, networking, storage, and database AWS services for cloud-based applications.
-      </p>
-      <div class="certificate-skills">
-        <span class="certificate-skill-tag">AWS EC2</span>
-        <span class="certificate-skill-tag">S3</span>
-        <span class="certificate-skill-tag">RDS</span>
-        <span class="certificate-skill-tag">Lambda</span>
-        <span class="certificate-skill-tag">CloudFormation</span>
-      </div>
-    </a>
-    <a href="https://github.com/bishalranjit0606/certified-aws-testing/blob/main/Advanced%20Testing%20Practices%20Using%20AWS%20DevOps%20Tools.pdf" class="certificate-card">
-      <div class="certificate-header">
-        <div class="certificate-info">
-          <h3>Advanced Testing Practices Using AWS DevOps Tools</h3>
-          <div class="certificate-issuer">Amazon Web Services (AWS)</div>
-        </div>
-      </div>
-      <div class="certificate-date">
-        Issued: September 2025 • No Expiration
-      </div>
-      <p class="certificate-description">
-        Covers advanced testing methodologies and their implementation using AWS DevOps tools to ensure application quality and reliability.
-      </p>
-      <div class="certificate-skills">
-        <span class="certificate-skill-tag">AWS</span>
-        <span class="certificate-skill-tag">DevOps</span>
-        <span class="certificate-skill-tag">CI/CD</span>
-        <span class="certificate-skill-tag">Testing</span>
-      </div>
-    </a>
-    <a href="https://github.com/bishalranjit0606/Certificate-Deploy-an-End-to-End-IoT-Application/blob/main/3b201b5d-2be4-4cc1-a556-917160a11c67.pdf" class="certificate-card">
-      <div class="certificate-header">
-        <div class="certificate-info">
-          <h3>Deploy an End-to-End IoT Application from AWS</h3>
-          <div class="certificate-issuer">Amazon Web Services (AWS)</div>
-        </div>
-      </div>
-      <div class="certificate-date">
-        Issued: September 2025 • No Expiration
-      </div>
-      <p class="certificate-description">
-        Demonstrates the ability to design, deploy, and manage a complete Internet of Things (IoT) solution using various AWS services.
-      </p>
-      <div class="certificate-skills">
-        <span class="certificate-skill-tag">AWS IoT</span>
-        <span class="certificate-skill-tag">Cloud</span>
-        <span class="certificate-skill-tag">IoT Core</span>
-        <span class="certificate-skill-tag">Data Management</span>
-      </div>
-    </a>
-    <a href="https://www.coursera.org/account/accomplishments/certificate/RTS6DS58N42W" class="certificate-card">
-      <div class="certificate-header">
-        <div class="certificate-info">
-          <h3>AWS Cloud Technical Essentials</h3>
-          <div class="certificate-issuer">Amazon Web Services (AWS)</div>
-        </div>
-      </div>
-      <div class="certificate-date">
-        Issued: March 2025 • No Expiration
-      </div>
-      <p class="certificate-description">
-        Validates foundational knowledge of core AWS services, including compute, storage, databases, networking, and security.
-      </p>
-      <div class="certificate-skills">
-        <span class="certificate-skill-tag">AWS</span>
-        <span class="certificate-skill-tag">Cloud Computing</span>
-        <span class="certificate-skill-tag">EC2</span>
-        <span class="certificate-skill-tag">S3</span>
-      </div>
-    </a>
-    <a href="https://www.coursera.org/account/accomplishments/specialization/SGQUR3LL8S4U" class="certificate-card">
-      <div class="certificate-header">
-        <div class="certificate-info">
-          <h3>Google Cloud Cybersecurity Specialization</h3>
-          <div class="certificate-issuer">Google Cloud</div>
-        </div>
-      </div>
-      <div class="certificate-date">
-        Issued: November 2024 • No Expiration
-      </div>
-      <p class="certificate-description">
-        Demonstrates expertise in securing Google Cloud environments, covering topics like identity and access management, network security, and data protection.
-      </p>
-      <div class="certificate-skills">
-        <span class="certificate-skill-tag">GCP</span>
-        <span class="certificate-skill-tag">Cybersecurity</span>
-        <span class="certificate-skill-tag">IAM</span>
-        <span class="certificate-skill-tag">Cloud Security</span>
-      </div>
-    </a>
-    <a href="https://www.coursera.org/account/accomplishments/specialization/DE8XO7ZN6C84" class="certificate-card">
-      <div class="certificate-header">
-        <div class="certificate-info">
-          <h3>Google Cybersecurity Certificate</h3>
-          <div class="certificate-issuer">Google</div>
-        </div>
-      </div>
-      <div class="certificate-date">
-        Issued: October 2024 • No Expiration
-      </div>
-      <p class="certificate-description">
-        Validates foundational knowledge of cybersecurity principles and practices, including threat detection, risk management, and security analysis.
-      </p>
-      <div class="certificate-skills">
-        <span class="certificate-skill-tag">Cybersecurity</span>
-        <span class="certificate-skill-tag">Security Analysis</span>
-        <span class="certificate-skill-tag">Networking</span>
-        <span class="certificate-skill-tag">Threat Detection</span>
-      </div>
-    </a>
-  </div>
-</section>
+          <div class="section-header">
+            <h2>Certifications</h2>
+            <p>
+              Professional certifications and achievements that validate my technical expertise.
+            </p>
+          </div>
+          <div class="certificates-grid" id="certificates-container">
+            <a href="https://cp.certmetrics.com/amazon/en/public/verify/credential/9d548433416649208f29cbe572265c54" class="certificate-card">
+              <div class="certificate-header">
+                <div class="certificate-info">
+                  <h3>AWS Solutions Architect Associate <span class="certified-tag">Certified</span></h3>
+                  <div class="certificate-issuer">Amazon Web Services</div>
+                </div>
+              </div>
+              <div class="certificate-date">
+                Issued: September 2025 • Valid until: September 2028
+              </div>
+              <p class="certificate-description">
+                Demonstrates expertise in designing distributed systems on AWS, including compute, networking, storage, and database AWS services for cloud-based applications.
+              </p>
+              <div class="certificate-skills">
+                <span class="certificate-skill-tag">AWS EC2</span>
+                <span class="certificate-skill-tag">S3</span>
+                <span class="certificate-skill-tag">RDS</span>
+                <span class="certificate-skill-tag">Lambda</span>
+                <span class="certificate-skill-tag">CloudFormation</span>
+              </div>
+            </a>
+            <a href="https://github.com/bishalranjit0606/certified-aws-testing/blob/main/Advanced%20Testing%20Practices%20Using%20AWS%20DevOps%20Tools.pdf" class="certificate-card">
+              <div class="certificate-header">
+                <div class="certificate-info">
+                  <h3>Advanced Testing Practices Using AWS DevOps Tools</h3>
+                  <div class="certificate-issuer">Amazon Web Services (AWS)</div>
+                </div>
+              </div>
+              <div class="certificate-date">
+                Issued: September 2025 • No Expiration
+              </div>
+              <p class="certificate-description">
+                Covers advanced testing methodologies and their implementation using AWS DevOps tools to ensure application quality and reliability.
+              </p>
+              <div class="certificate-skills">
+                <span class="certificate-skill-tag">AWS</span>
+                <span class="certificate-skill-tag">DevOps</span>
+                <span class="certificate-skill-tag">CI/CD</span>
+                <span class="certificate-skill-tag">Testing</span>
+              </div>
+            </a>
+            <a href="https://github.com/bishalranjit0606/Certificate-Deploy-an-End-to-End-IoT-Application/blob/main/3b201b5d-2be4-4cc1-a556-917160a11c67.pdf" class="certificate-card">
+              <div class="certificate-header">
+                <div class="certificate-info">
+                  <h3>Deploy an End-to-End IoT Application from AWS</h3>
+                  <div class="certificate-issuer">Amazon Web Services (AWS)</div>
+                </div>
+              </div>
+              <div class="certificate-date">
+                Issued: September 2025 • No Expiration
+              </div>
+              <p class="certificate-description">
+                Demonstrates the ability to design, deploy, and manage a complete Internet of Things (IoT) solution using various AWS services.
+              </p>
+              <div class="certificate-skills">
+                <span class="certificate-skill-tag">AWS IoT</span>
+                <span class="certificate-skill-tag">Cloud</span>
+                <span class="certificate-skill-tag">IoT Core</span>
+                <span class="certificate-skill-tag">Data Management</span>
+              </div>
+            </a>
+            <a href="https://www.coursera.org/account/accomplishments/certificate/RTS6DS58N42W" class="certificate-card">
+              <div class="certificate-header">
+                <div class="certificate-info">
+                  <h3>AWS Cloud Technical Essentials</h3>
+                  <div class="certificate-issuer">Amazon Web Services (AWS)</div>
+                </div>
+              </div>
+              <div class="certificate-date">
+                Issued: March 2025 • No Expiration
+              </div>
+              <p class="certificate-description">
+                Validates foundational knowledge of core AWS services, including compute, storage, databases, networking, and security.
+              </p>
+              <div class="certificate-skills">
+                <span class="certificate-skill-tag">AWS</span>
+                <span class="certificate-skill-tag">Cloud Computing</span>
+                <span class="certificate-skill-tag">EC2</span>
+                <span class="certificate-skill-tag">S3</span>
+              </div>
+            </a>
+            <a href="https://www.coursera.org/account/accomplishments/specialization/SGQUR3LL8S4U" class="certificate-card">
+              <div class="certificate-header">
+                <div class="certificate-info">
+                  <h3>Google Cloud Cybersecurity Specialization</h3>
+                  <div class="certificate-issuer">Google Cloud</div>
+                </div>
+              </div>
+              <div class="certificate-date">
+                Issued: November 2024 • No Expiration
+              </div>
+              <p class="certificate-description">
+                Demonstrates expertise in securing Google Cloud environments, covering topics like identity and access management, network security, and data protection.
+              </p>
+              <div class="certificate-skills">
+                <span class="certificate-skill-tag">GCP</span>
+                <span class="certificate-skill-tag">Cybersecurity</span>
+                <span class="certificate-skill-tag">IAM</span>
+                <span class="certificate-skill-tag">Cloud Security</span>
+              </div>
+            </a>
+            <a href="https://www.coursera.org/account/accomplishments/specialization/DE8XO7ZN6C84" class="certificate-card">
+              <div class="certificate-header">
+                <div class="certificate-info">
+                  <h3>Google Cybersecurity Certificate</h3>
+                  <div class="certificate-issuer">Google</div>
+                </div>
+              </div>
+              <div class="certificate-date">
+                Issued: October 2024 • No Expiration
+              </div>
+              <p class="certificate-description">
+                Validates foundational knowledge of cybersecurity principles and practices, including threat detection, risk management, and security analysis.
+              </p>
+              <div class="certificate-skills">
+                <span class="certificate-skill-tag">Cybersecurity</span>
+                <span class="certificate-skill-tag">Security Analysis</span>
+                <span class="certificate-skill-tag">Networking</span>
+                <span class="certificate-skill-tag">Threat Detection</span>
+              </div>
+            </a>
+          </div>
+          <div class="load-more-btn" id="load-more-certificates">
+            <button>Load More</button>
+          </div>
+        </section>
 
       <section id="contact" class="section">
           <div class="section-header">
@@ -1425,6 +1479,40 @@
       const sidebar = document.querySelector('.sidebar');
       const menuIcon = document.querySelector('.menu-icon');
 
+      // Load More button functionality
+      function setupLoadMore(containerId, buttonId, initialItems) {
+        const container = document.getElementById(containerId);
+        const button = document.getElementById(buttonId);
+        const items = Array.from(container.children);
+        
+        // Hide all items beyond the initial count
+        items.forEach((item, index) => {
+          if (index >= initialItems) {
+            item.classList.add('hidden');
+          }
+        });
+
+        if (button) {
+          if (items.length <= initialItems) {
+            button.style.display = 'none'; // Hide button if all items are visible
+          }
+
+          button.addEventListener('click', () => {
+            items.forEach(item => {
+              item.classList.remove('hidden');
+            });
+            button.style.display = 'none'; // Hide button after all items are shown
+          });
+        }
+      }
+
+      // Initial setup for each section
+      document.addEventListener('DOMContentLoaded', () => {
+        setupLoadMore('projects-container', 'load-more-projects', 6);
+        setupLoadMore('blog-container', 'load-more-blog', 6);
+        setupLoadMore('certificates-container', 'load-more-certificates', 6);
+      });
+
       // 1. Mobile Menu Toggle Logic
       mobileMenuToggle.addEventListener('click', function () {
           sidebar.classList.toggle('open');
@@ -1473,13 +1561,13 @@
           document.getElementById(targetSection).classList.add('active');
           
           // Scroll to the top when switching sections
-if (window.innerWidth <= 1024) {
-  // Mobile view scrolls the content area
-  document.querySelector('.main-content').scrollIntoView({ behavior: 'smooth' });
-} else {
-  // Desktop view scrolls the window itself
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
+          if (window.innerWidth <= 1024) {
+            // Mobile view scrolls the content area
+            document.querySelector('.main-content').scrollIntoView({ behavior: 'smooth' });
+          } else {
+            // Desktop view scrolls the window itself
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }
 
 
           
