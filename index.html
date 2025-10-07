@@ -1458,10 +1458,68 @@
         }
       }
 
+      function setActiveSection(targetSectionId, pushState = true) {
+        // Deactivate all nav items and sections
+        navItems.forEach(nav => {
+            nav.classList.remove('active');
+            if (window.innerWidth > 1024) {
+              nav.style.borderLeft = '';
+            }
+        });
+        sections.forEach(section => section.classList.remove('active'));
+
+        // Activate the new section and nav item
+        const targetNavItem = document.querySelector(`.nav-item[data-section="${targetSectionId}"]`);
+        const targetSection = document.getElementById(targetSectionId);
+
+        if (targetNavItem && targetSection) {
+            targetNavItem.classList.add('active');
+            targetSection.classList.add('active');
+
+            if (window.innerWidth > 1024) {
+                targetNavItem.style.borderLeft = '3px solid var(--highlight-color)';
+            }
+            
+            // Push state to browser history only if pushState is true (i.e., from a click)
+            if (pushState) {
+                history.pushState({ section: targetSectionId }, targetSectionId, `#${targetSectionId}`);
+            }
+
+            // Smooth transition/scroll logic
+            smoothTransition();
+            if (window.innerWidth <= 1024) {
+              // Close mobile menu if open
+              if (sidebar.classList.contains('open')) {
+                sidebar.classList.remove('open');
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+              }
+              document.querySelector('.main-content').scrollIntoView({ behavior: 'smooth' });
+            } else {
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+      }
+
+      function handleInitialLoadAndPopState() {
+        // Determine the section to load from the URL hash, default to 'about'
+        let initialSection = window.location.hash.substring(1) || 'about';
+        // Use replaceState on load to ensure the 'back' button from the first load is correct
+        history.replaceState({ section: initialSection }, initialSection, `#${initialSection}`);
+        setActiveSection(initialSection, false); // Don't push state again on initial load
+
+        // Handle browser's back/forward buttons (popstate event)
+        window.addEventListener('popstate', (event) => {
+            let sectionFromHistory = event.state ? event.state.section : 'about';
+            setActiveSection(sectionFromHistory, false); // Don't push state on popstate
+        });
+      }
+
       document.addEventListener('DOMContentLoaded', () => {
         setupLoadMore('projects-container', 'load-more-projects', 6);
         setupLoadMore('blog-container', 'load-more-blog', 6);
         setupLoadMore('certificates-container', 'load-more-certificates', 6);
+        handleInitialLoadAndPopState();
       });
 
       mobileMenuToggle.addEventListener('click', function () {
@@ -1478,35 +1536,9 @@
 
       navItems.forEach(item => {
         item.addEventListener('click', function () {
-          navItems.forEach(nav => {
-            nav.classList.remove('active');
-            if (window.innerWidth > 1024) {
-              nav.style.borderLeft = '';
-            }
-          });
-
-          this.classList.add('active');
-
-          if (window.innerWidth > 1024) {
-            this.style.borderLeft = '3px solid var(--highlight-color)';
-          }
-
-          if (window.innerWidth <= 1024 && sidebar.classList.contains('open')) {
-              sidebar.classList.remove('open');
-              menuIcon.classList.remove('fa-xmark');
-              menuIcon.classList.add('fa-bars');
-          }
-
-          sections.forEach(section => section.classList.remove('active'));
-
-          const targetSection = this.getAttribute('data-section');
-          document.getElementById(targetSection).classList.add('active');
-          
-          if (window.innerWidth <= 1024) {
-            document.querySelector('.main-content').scrollIntoView({ behavior: 'smooth' });
-          } else {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          }
+          const targetSectionId = this.getAttribute('data-section');
+          // Call the central function to change section and update history
+          setActiveSection(targetSectionId, true);
         });
       });
 
@@ -1571,11 +1603,12 @@
         }
       }
 
-      navItems.forEach(item => {
+      // Smooth transition logic is now called inside setActiveSection
+      /* navItems.forEach(item => {
         item.addEventListener('click', function () {
           smoothTransition();
         });
-      });
+      }); */
 
       document.addEventListener('DOMContentLoaded', function () {
         document.body.style.opacity = '0';
