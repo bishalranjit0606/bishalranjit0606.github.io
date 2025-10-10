@@ -288,6 +288,64 @@
         transform: scale(1.1);
       }
       
+      /* ✨ New Modal Styles */
+      .skill-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.7);
+        justify-content: center;
+        align-items: center;
+        z-index: 2000;
+        padding: 20px;
+      }
+      .skill-modal.active {
+        display: flex;
+        animation: fadeIn 0.3s ease;
+      }
+      .modal-content {
+        background-color: var(--secondary-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        padding: 30px;
+        max-width: 500px;
+        width: 100%;
+        text-align: center;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+        position: relative;
+        animation: slideUp 0.3s ease;
+      }
+      .modal-content h3 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+      }
+      .modal-content p {
+        color: var(--secondary-text);
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+      .close-modal {
+        position: absolute;
+        top: 12px;
+        right: 16px;
+        font-size: 1.3rem;
+        color: var(--secondary-text);
+        cursor: pointer;
+        transition: color 0.2s ease;
+      }
+      .close-modal:hover {
+        color: var(--highlight-color);
+      }
+
+      @keyframes slideUp {
+        from { transform: translateY(20px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+      }
+      /* End New Modal Styles */
+      
       .projects-grid,
       .certificates-grid,
       .blog-grid {
@@ -977,70 +1035,70 @@
           <div class="skills-section">
             <h3>Technologies & Skills</h3>
             <div class="skills-grid">
-              <div class="skill-card">
+              <div class="skill-card" data-skill="aws">
                 <div class="icon">
                   <i class="fa-brands fa-aws"></i>
                 </div>
                 <h4>AWS</h4>
                 <p>Cloud Platform</p>
               </div>
-              <div class="skill-card">
+              <div class="skill-card" data-skill="jenkins">
                 <div class="icon">
                   <i class="fa-brands fa-jenkins"></i>
                 </div>
                 <h4>Jenkins</h4>
                 <p>CI/CD</p>
               </div>
-              <div class="skill-card">
+              <div class="skill-card" data-skill="docker">
                 <div class="icon">
                   <i class="fa-brands fa-docker"></i>
                 </div>
                 <h4>Docker</h4>
                 <p>Containerization</p>
               </div>
-              <div class="skill-card">
+              <div class="skill-card" data-skill="terraform">
                 <div class="icon">
                   <i class="fa-solid fa-cloud"></i>
                 </div>
                 <h4>Terraform</h4>
                 <p>Infrastructure as Code</p>
               </div>
-              <div class="skill-card">
+              <div class="skill-card" data-skill="git">
                 <div class="icon">
                   <i class="fa-brands fa-git-alt"></i>
                 </div>
                 <h4>Git</h4>
                 <p>Version Control</p>
               </div>
-              <div class="skill-card">
+              <div class="skill-card" data-skill="github">
                 <div class="icon">
                   <i class="fa-brands fa-github"></i>
                 </div>
                 <h4>GitHub</h4>
                 <p>Code Management</p>
               </div>
-              <div class="skill-card">
+              <div class="skill-card" data-skill="bash">
                 <div class="icon">
                   <i class="fa-solid fa-terminal"></i>
                 </div>
                 <h4>Bash</h4>
                 <p>Scripting</p>
               </div>
-              <div class="skill-card">
+              <div class="skill-card" data-skill="python">
                 <div class="icon">
                   <i class="fa-brands fa-python"></i>
                 </div>
                 <h4>Python</h4>
                 <p>Programming Language</p>
               </div>
-              <div class="skill-card">
+              <div class="skill-card" data-skill="linux">
                 <div class="icon">
                   <i class="fa-brands fa-linux"></i>
                 </div>
                 <h4>Linux</h4>
                 <p>Operating System</p>
               </div>
-              <div class="skill-card">
+              <div class="skill-card" data-skill="kubernetes">
                 <div class="icon">
                   <i class="fa-solid fa-dharmachakra"></i>
                 </div>
@@ -1428,6 +1486,14 @@
         </section>
       </main>
     </div>
+    
+    <div class="skill-modal" id="skillModal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h3 id="modalTitle">Skill Title</h3>
+        <p id="modalDescription">Skill description here.</p>
+      </div>
+    </div>
 
     <script>
       const navItems = document.querySelectorAll('.nav-item');
@@ -1694,6 +1760,50 @@
             }
         `;
       document.head.appendChild(style);
+      
+      // ✨ Skill Modal Functionality
+      const skillData = {
+        aws: { title: "AWS", desc: "Used AWS EC2 and S3 for cloud deployment automation and scalable infrastructure setup." },
+        jenkins: { title: "Jenkins", desc: "Implemented CI/CD pipelines automating testing, building, and deployment processes." },
+        docker: { title: "Docker", desc: "Built and deployed containerized applications for consistent environments across dev and production." },
+        terraform: { title: "Terraform", desc: "Created reusable IaC templates for provisioning cloud environments efficiently." },
+        git: { title: "Git", desc: "Managed source control workflows using branching, merging, and version management best practices." },
+        github: { title: "GitHub", desc: "Hosted and collaborated on projects, integrated CI/CD actions, and managed repositories." },
+        bash: { title: "Bash", desc: "Automated server setup and deployments through scripting and command-line utilities." },
+        python: { title: "Python", desc: "Developed automation scripts and tools for data processing and backend integration." },
+        linux: { title: "Linux", desc: "Configured, secured, and managed Linux servers for cloud infrastructure." },
+        kubernetes: { title: "Kubernetes", desc: "Deployed and managed containerized workloads with Kubernetes clusters for scalability." },
+      };
+
+      const modal = document.getElementById("skillModal");
+      const modalTitle = document.getElementById("modalTitle");
+      const modalDescription = document.getElementById("modalDescription");
+      const closeModal = document.querySelector(".close-modal");
+
+      document.querySelectorAll(".skill-card").forEach(card => {
+        card.addEventListener("click", () => {
+          const skillKey = card.getAttribute("data-skill");
+          const skill = skillData[skillKey];
+          if (skill) {
+            modalTitle.textContent = skill.title;
+            modalDescription.textContent = skill.desc;
+            modal.classList.add("active");
+            document.body.style.overflow = "hidden";
+          }
+        });
+      });
+
+      closeModal.addEventListener("click", () => {
+        modal.classList.remove("active");
+        document.body.style.overflow = "auto";
+      });
+
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+          modal.classList.remove("active");
+          document.body.style.overflow = "auto";
+        }
+      });
     </script>
   </body>
 </html>
