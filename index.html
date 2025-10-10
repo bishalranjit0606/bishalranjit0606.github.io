@@ -135,6 +135,8 @@
       .section {
         display: none;
         animation: fadeIn 0.8s ease-in-out;
+        /* Add scroll-margin-top to ensure content is below the fixed mobile header */
+        scroll-margin-top: 80px; 
       }
 
       .section.active {
@@ -786,7 +788,8 @@
           height: auto;
           min-height: 100vh;
           position: fixed;
-          top: 60px;
+          /* FIX: Set top to 60px, the height of the fixed mobile-menu-toggle */
+          top: 60px; 
           left: 0;
           padding: 0;
           z-index: 1000;
@@ -836,7 +839,8 @@
         .main-content {
           margin-left: 0;
           padding: 20px;
-          padding-top: 80px;
+          /* FIX: Keep this padding to push content below the 60px fixed header */
+          padding-top: 80px; 
         }
         
         .hero-buttons {
@@ -1494,7 +1498,12 @@
                 menuIcon.classList.remove('fa-xmark');
                 menuIcon.classList.add('fa-bars');
               }
-              document.querySelector('.main-content').scrollIntoView({ behavior: 'smooth' });
+              /* FIX: Change scroll target to the window and use a programmatic scroll 
+                 to ensure the top of the content aligns just below the fixed header. 
+                 The scroll-margin-top CSS property should now handle this for anchor links.
+                 For initial load, scrolling window to 0,0 is sufficient with correct padding/margin.
+              */
+              window.scrollTo({ top: 0, behavior: 'smooth' }); 
             } else {
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }
