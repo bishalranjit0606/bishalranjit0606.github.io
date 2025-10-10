@@ -260,22 +260,44 @@
         gap: 20px;
       }
 
+      /* The styles for .skill-card and .skill-modal .modal-content have been updated for a glowing border effect. */
       .skill-card {
         background-color: var(--secondary-bg);
         padding: 20px;
         border-radius: 12px;
-        border: 1px solid var(--border-color);
+        border: 2px solid transparent; 
         text-align: center;
-        transition: all 0.3s ease;
         cursor: pointer;
         position: relative;
+        transition: all 0.3s ease;
+        z-index: 0;
         overflow: hidden;
+      }
+      
+      .skill-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 12px;
+        padding: 2px;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        -webkit-mask: 
+          linear-gradient(#fff 0 0) content-box, 
+          linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+      }
+      
+      .skill-card:hover::before {
+        opacity: 1;
       }
 
       .skill-card:hover {
         transform: translateY(-5px);
-        border-color: var(--highlight-color);
-        box-shadow: 0 10px 30px rgba(102, 126, 234, 0.1);
+        box-shadow: 0 0 25px rgba(118, 75, 162, 0.5);
       }
 
       .skill-card .icon {
@@ -306,18 +328,39 @@
         display: flex;
         animation: fadeIn 0.3s ease;
       }
+      /* Modal content updated for glowing border effect */
       .modal-content {
         background-color: var(--secondary-bg);
-        border: 1px solid var(--border-color);
         border-radius: 16px;
         padding: 30px;
         max-width: 500px;
         width: 100%;
         text-align: center;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
         position: relative;
+        border: none;
+        overflow: hidden;
+        z-index: 0;
+        box-shadow: 0 0 25px rgba(118, 75, 162, 0.4);
         animation: slideUp 0.3s ease;
       }
+      
+      /* New modal glow effect (using user's specific selector from the provided code) */
+      .skill-modal .modal-content::before { 
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 16px;
+        padding: 2px;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        -webkit-mask: 
+          linear-gradient(#fff 0 0) content-box, 
+          linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        z-index: -1;
+        opacity: 0.9;
+      }
+      
       .modal-content h3 {
         font-size: 1.5rem;
         margin-bottom: 10px;
@@ -1433,7 +1476,7 @@
                 <span class="certificate-skill-tag">Cybersecurity</span>
                 <span class="certificate-skill-tag">Security Analysis</span>
                 <span class="certificate-skill-tag">Networking</span>
-                <span class="certificate-skill-tag">Threat Detection</span>
+                <span class="tech-tag">Threat Detection</span>
               </div>
             </a>
           </div>
