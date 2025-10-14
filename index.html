@@ -813,6 +813,16 @@ body {
   background-clip: text;
 }
 
+/* --- FIX START: Override gradient and force white color for contact icons --- */
+.contact-card .icon i {
+  color: var(--text-color);
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: var(--text-color);
+  background-clip: unset;
+}
+/* --- FIX END --- */
+
 .contact-card h4 {
   font-size: 1.125rem;
   margin-bottom: 10px;
@@ -1178,10 +1188,8 @@ body {
 
           <div class="projects-grid" id="projects-container">
 
-             <!-- NEW PROJECT: Highly Available Three-Tier Web Deployment -->
-    <a href="https://tinyurl.com/5dwmf6cj" class="project-card">
+             <a href="https://tinyurl.com/5dwmf6cj" class="project-card">
       <div class="project-image">
-        <!-- Placeholder for an image representing a three-tier architecture diagram -->
         <img src="images/3TierArch.png" alt="Diagram of an AWS three-tier architecture"/>
       </div>
       <div class="project-content">
@@ -1198,9 +1206,7 @@ body {
         </div>
       </div>
     </a>
-    <!-- END NEW PROJECT -->
-
-            <a href="https://github.com/bishalranjit0606/terraform-aws-project" class="project-card">
+    <a href="https://github.com/bishalranjit0606/terraform-aws-project" class="project-card">
               <div class="project-image">
                 <img src="images/Terraform aws project.png" alt="Terraform aws project"/>
               </div>
@@ -1636,9 +1642,8 @@ body {
               target="_blank"
             >
               <span class="icon"
-                ><i class="fa-brands fa-github-alt"></i
-              ></span>
-              <h4>GitHub</h4>
+                ><i class="fa-brands fa-github"></i
+              ></span> <h4>GitHub</h4>
               <p>Check out my code and open source contributions</p>
             </a>
 
