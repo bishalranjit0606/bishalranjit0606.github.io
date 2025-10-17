@@ -421,7 +421,6 @@ body {
   position: relative;
 }
 
-/* IMPORTANT: Updated .project-card to be a div, so cursor is now handled by the links inside */
 .project-card {
   cursor: default; 
 }
@@ -451,7 +450,6 @@ body {
   transition: transform 0.4s ease;
 }
 
-/* Ensure the image/title link takes up the full card width/height before content */
 .project-card > a {
     display: block;
     text-decoration: none;
@@ -479,7 +477,7 @@ body {
   color: var(--secondary-text);
   line-height: 1.6;
   margin-bottom: 15px;
-  flex-grow: 1; /* Pushes the tech tags/buttons to the bottom */
+  flex-grow: 1; 
 }
 
 .project-tech {
@@ -497,22 +495,20 @@ body {
   white-space: nowrap;
 }
 
-/* --- NEW BUTTON STYLES --- */
 .project-buttons {
     display: flex;
     gap: 10px;
-    margin-top: 15px; /* Space from tech tags */
-    padding-top: 15px; /* Separator line space */
+    margin-top: 15px; 
+    padding-top: 15px; 
     border-top: 1px solid var(--border-color); 
 }
 
 .btn-small {
     padding: 8px 16px;
     font-size: 0.85rem;
-    flex-grow: 1; /* Make buttons expand evenly */
-    justify-content: center; /* Center content in buttons */
+    flex-grow: 1; 
+    justify-content: center; 
 }
-/* --- END NEW BUTTON STYLES --- */
 
 .blog-grid {
   display: grid;
@@ -1754,7 +1750,6 @@ body {
       }
 
       function setActiveSection(targetSectionId, pushState = true) {
-        // Deactivate all nav items and sections
         navItems.forEach(nav => {
             nav.classList.remove('active');
             if (window.innerWidth > 1024) {
@@ -1763,7 +1758,6 @@ body {
         });
         sections.forEach(section => section.classList.remove('active'));
 
-        // Activate the new section and nav item
         const targetNavItem = document.querySelector(`.nav-item[data-section="${targetSectionId}"]`);
         const targetSection = document.getElementById(targetSectionId);
 
@@ -1775,15 +1769,12 @@ body {
                 targetNavItem.style.borderLeft = '3px solid var(--highlight-color)';
             }
             
-            // Push state to browser history only if pushState is true (i.e., from a click)
             if (pushState) {
                 history.pushState({ section: targetSectionId }, targetSectionId, `#${targetSectionId}`);
             }
 
-            // Smooth transition/scroll logic
             smoothTransition();
             if (window.innerWidth <= 1024) {
-              // Close mobile menu if open
               if (sidebar.classList.contains('open')) {
                 sidebar.classList.remove('open');
                 menuIcon.classList.remove('fa-xmark');
@@ -1797,16 +1788,13 @@ body {
       }
 
       function handleInitialLoadAndPopState() {
-        // Determine the section to load from the URL hash, default to 'about'
         let initialSection = window.location.hash.substring(1) || 'about';
-        // Use replaceState on load to ensure the 'back' button from the first load is correct
         history.replaceState({ section: initialSection }, initialSection, `#${initialSection}`);
-        setActiveSection(initialSection, false); // Don't push state again on initial load
+        setActiveSection(initialSection, false); 
 
-        // Handle browser's back/forward buttons (popstate event)
         window.addEventListener('popstate', (event) => {
             let sectionFromHistory = event.state ? event.state.section : 'about';
-            setActiveSection(sectionFromHistory, false); // Don't push state on popstate
+            setActiveSection(sectionFromHistory, false); 
         });
       }
 
@@ -1832,14 +1820,11 @@ body {
       navItems.forEach(item => {
         item.addEventListener('click', function () {
           const targetSectionId = this.getAttribute('data-section');
-          // Call the central function to change section and update history
           setActiveSection(targetSectionId, true);
         });
       });
 
-      // Updated event listeners to target the div/links instead of the entire card's transform
       document.querySelectorAll('.project-card, .certificate-card').forEach(card => {
-        // General card hover effect on the div
         card.addEventListener('mouseenter', function () {
           this.style.transform = 'translateY(-8px)'; 
         });
@@ -1864,7 +1849,6 @@ body {
           const readMoreLink = this.querySelector('.read-more');
           if (readMoreLink && readMoreLink.getAttribute('href') !== '#') {
               if (e.target.tagName.toLowerCase() !== 'a') {
-                // Open link in a new tab
                 window.open(readMoreLink.getAttribute('href'), '_blank');
               }
           } else if (readMoreLink && readMoreLink.getAttribute('href') === '#') {
@@ -1976,7 +1960,6 @@ body {
         `;
       document.head.appendChild(style);
       
-      // ✨ Skill Modal Functionality
       const skillData = {
         aws: { title: "AWS", desc: "Used AWS EC2 and S3 for cloud deployment automation and scalable infrastructure setup." },
         jenkins: { title: "Jenkins", desc: "Implemented CI/CD pipelines automating testing, building, and deployment processes." },
