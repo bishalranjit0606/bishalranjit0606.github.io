@@ -421,6 +421,11 @@ body {
   position: relative;
 }
 
+/* IMPORTANT: Updated .project-card to be a div, so cursor is now handled by the links inside */
+.project-card {
+  cursor: default; 
+}
+
 .project-card:hover,
 .certificate-card:hover,
 .blog-card:hover {
@@ -446,7 +451,13 @@ body {
   transition: transform 0.4s ease;
 }
 
-.project-card:hover .project-image img {
+/* Ensure the image/title link takes up the full card width/height before content */
+.project-card > a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+.project-card > a:hover .project-image img {
     transform: scale(1.05);
 }
 
@@ -468,7 +479,7 @@ body {
   color: var(--secondary-text);
   line-height: 1.6;
   margin-bottom: 15px;
-  flex-grow: 1;
+  flex-grow: 1; /* Pushes the tech tags/buttons to the bottom */
 }
 
 .project-tech {
@@ -485,6 +496,23 @@ body {
   font-size: 0.75rem;
   white-space: nowrap;
 }
+
+/* --- NEW BUTTON STYLES --- */
+.project-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px; /* Space from tech tags */
+    padding-top: 15px; /* Separator line space */
+    border-top: 1px solid var(--border-color); 
+}
+
+.btn-small {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    flex-grow: 1; /* Make buttons expand evenly */
+    justify-content: center; /* Center content in buttons */
+}
+/* --- END NEW BUTTON STYLES --- */
 
 .blog-grid {
   display: grid;
@@ -1181,28 +1209,41 @@ body {
 
           <div class="projects-grid" id="projects-container">
 
-             <a href="https://tinyurl.com/5dwmf6cj" class="project-card" target="_blank" rel="noopener noreferrer">
-      <div class="project-image">
-        <img src="images/3TierArch.png" alt="Diagram of an AWS three-tier architecture"/>
-      </div>
-      <div class="project-content">
-        <h3 class="project-title">Highly Available 3 Tier Web Deployment</h3>
-        <p class="project-description">
-          End-to-end deployment of a resilient, scalable, and multi-AZ three-tier application on AWS.
-        </p>
-        <div class="project-tech">
-          <span class="tech-tag">AWS</span>
-          <span class="tech-tag">VPC</span>
-          <span class="tech-tag">Load Balancing</span>
-          <span class="tech-tag">Auto Scaling</span>
-          <span class="tech-tag">RDS</span>
-        </div>
-      </div>
-    </a>
-    <a href="https://www.linkedin.com/posts/bishalranjit0606_terraform-aws-project-scalable-web-infrastructure-activity-7373954959689576448-TEbD?utm_source=share&utm_medium=member_desktop&rcm=ACoAADt5JzsBTeytu69SlI0w8sL_O_lqqClQDpM" class="project-card" target="_blank" rel="noopener noreferrer">
-              <div class="project-image">
-                <img src="images/Terraform aws project.png" alt="Terraform aws project"/>
+            <div class="project-card">
+              <a href="https://tinyurl.com/5dwmf6cj" target="_blank" rel="noopener noreferrer">
+                <div class="project-image">
+                  <img src="images/3TierArch.png" alt="Diagram of an AWS three-tier architecture"/>
+                </div>
+              </a>
+              <div class="project-content">
+                <h3 class="project-title">Highly Available 3 Tier Web Deployment</h3>
+                <p class="project-description">
+                  End-to-end deployment of a resilient, scalable, and multi-AZ three-tier application on AWS.
+                </p>
+                <div class="project-tech">
+                  <span class="tech-tag">AWS</span>
+                  <span class="tech-tag">VPC</span>
+                  <span class="tech-tag">Load Balancing</span>
+                  <span class="tech-tag">Auto Scaling</span>
+                  <span class="tech-tag">RDS</span>
+                </div>
+                <div class="project-buttons">
+                     <a href="https://github.com/bishalranjit0606/aws-three-tier-web-architecture-workshop" class="btn btn-primary btn-small" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-brands fa-github"></i> Code
+                    </a>
+                    <a href="https://tinyurl.com/5dwmf6cj" class="btn btn-primary btn-small" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-solid fa-file-alt"></i> View Details
+                    </a>
+                </div>
               </div>
+            </div>
+
+            <div class="project-card">
+              <a href="https://www.linkedin.com/posts/bishalranjit0606_terraform-aws-project-scalable-web-infrastructure-activity-7373954959689576448-TEbD?utm_source=share&utm_medium=member_desktop&rcm=ACoAADt5JzsBTeytu69SlI0w8sL_O_lqqClQDpM" target="_blank" rel="noopener noreferrer">
+                <div class="project-image">
+                  <img src="images/Terraform aws project.png" alt="Terraform aws project"/>
+                </div>
+              </a>
               <div class="project-content">
                 <h3 class="project-title">Terraform AWS Project</h3>
                 <p class="project-description">
@@ -1214,13 +1255,23 @@ body {
                   <span class="tech-tag">AWS</span>
                   <span class="tech-tag">Networking</span>
                 </div>
+                <div class="project-buttons">
+                     <a href="https://github.com/bishalranjit0606/terraform-aws-project" class="btn btn-primary btn-small" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-brands fa-github"></i> Code
+                    </a>
+                    <a href="https://www.linkedin.com/posts/bishalranjit0606_terraform-aws-project-scalable-web-infrastructure-activity-7373954959689576448-TEbD?utm_source=share&utm_medium=member_desktop&rcm=ACoAADt5JzsBTeytu69SlI0w8sL_O_lqqClQDpM" class="btn btn-primary btn-small" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-solid fa-file-alt"></i> View Details
+                    </a>
+                </div>
               </div>
-            </a>
+            </div>
 
-            <a href="https://www.linkedin.com/posts/bishalranjit0606_django-app-deployment-with-shell-script-activity-7376084565133541377-VM61?utm_source=share&utm_medium=member_desktop&rcm=ACoAADt5JzsBTeytu69SlI0w8sL_O_lqqClQDpM" class="project-card" target="_blank" rel="noopener noreferrer">
-              <div class="project-image">
-                <img src="images/bash project.png" alt="Weather Dashboard Cover"/>
-              </div>
+            <div class="project-card">
+              <a href="https://www.linkedin.com/posts/bishalranjit0606_django-app-deployment-with-shell-script-activity-7376084565133541377-VM61?utm_source=share&utm_medium=member_desktop&rcm=ACoAADt5JzsBTeytu69SlI0w8sL_O_lqqClQDpM" target="_blank" rel="noopener noreferrer">
+                <div class="project-image">
+                  <img src="images/bash project.png" alt="Weather Dashboard Cover"/>
+                </div>
+              </a>
               <div class="project-content">
                 <h3 class="project-title">Django App Deployment with Shell Scripting</h3>
                 <p class="project-description">
@@ -1232,31 +1283,47 @@ body {
                   <span class="tech-tag">Bash script</span>
                   <span class="tech-tag">AWS</span>
                 </div>
+                <div class="project-buttons">
+                     <a href="https://github.com/bishalranjit0606/shell-scripted-django" class="btn btn-primary btn-small" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-brands fa-github"></i> Code
+                    </a>
+                    <a href="https://www.linkedin.com/posts/bishalranjit0606_django-app-deployment-with-shell-script-activity-7376084565133541377-VM61?utm_source=share&utm_medium=member_desktop&rcm=ACoAADt5JzsBTeytu69SlI0w8sL_O_lqqClQDpM" class="btn btn-primary btn-small" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-solid fa-file-alt"></i> View Details
+                    </a>
+                </div>
               </div>
-            </a>
+            </div>
 
-            <a href="https://www.linkedin.com/posts/bishalranjit0606_iot-project-activity-7377657531134885888-pRNq?utm_source=share&utm_medium=member_desktop&rcm=ACoAADt5JzsBTeytu69SlI0w8sL_O_lqqClQDpM" class="project-card" target="_blank" rel="noopener noreferrer">
-              <div class="project-image">
-                <img src="images/Smart Thermostat with AWS IoT Core.png" alt="Blog CMS Cover"/>
-              </div>
+            <div class="project-card">
+              <a href="https://www.linkedin.com/posts/bishalranjit0606_iot-project-activity-7377657531134885888-pRNq?utm_source=share&utm_medium=member_desktop&rcm=ACoAADt5JzsBTeytu69SlI0w8sL_O_lqqClQDpM" target="_blank" rel="noopener noreferrer">
+                <div class="project-image">
+                  <img src="images/Smart Thermostat with AWS IoT Core.png" alt="Smart Thermostat with AWS IoT Core"/>
+                </div>
+              </a>
               <div class="project-content">
                 <h3 class="project-title">Smart Thermostat with AWS IoT Core</h3>
                 <p class="project-description">
                   The whole goal was to make a thermostat simulator that sends temperature readings, triggers a notification when the temperature is in a certain range, and turns on the air conditioning when needed.
-
                 </p>
                 <div class="project-tech">
                   <span class="tech-tag">IOT Core</span>
                   <span class="tech-tag">AWS</span>
                   <span class="tech-tag">SNS</span>
                 </div>
+                <div class="project-buttons">
+                    <a href="https://www.linkedin.com/posts/bishalranjit0606_iot-project-activity-7377657531134885888-pRNq?utm_source=share&utm_medium=member_desktop&rcm=ACoAADt5JzsBTeytu69SlI0w8sL_O_lqqClQDpM" class="btn btn-primary btn-small" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-solid fa-file-alt"></i> View Details
+                    </a>
+                </div>
               </div>
-            </a>
+            </div>
 
-            <a href="https://www.linkedin.com/posts/bishalranjit0606_nodejs-static-site-with-docker-jenkins-activity-7334108481165180928-1cDF?utm_source=share&utm_medium=member_desktop&rcm=ACoAADt5JzsBTeytu69SlI0w8sL_O_lqqClQDpM" class="project-card" target="_blank" rel="noopener noreferrer">
-              <div class="project-image">
-                <img src="images/CI:CD.png" alt="Real-time Chat Cover"/>
-              </div>
+            <div class="project-card">
+              <a href="https://www.linkedin.com/posts/bishalranjit0606_nodejs-static-site-with-docker-jenkins-activity-7334108481165180928-1cDF?utm_source=share&utm_medium=member_desktop&rcm=ACoAADt5JzsBTeytu69SlIw8sL_O_lqqClQDpM" target="_blank" rel="noopener noreferrer">
+                <div class="project-image">
+                  <img src="images/CI:CD.png" alt="CI/CD pipeline project using Jenkins"/>
+                </div>
+              </a>
               <div class="project-content">
                 <h3 class="project-title">CI/CD pipeline project using Jenkins</h3>
                 <p class="project-description">
@@ -1268,13 +1335,23 @@ body {
                   <span class="tech-tag">Docker</span>
                   <span class="tech-tag">CI/CD</span>
                 </div>
+                <div class="project-buttons">
+                     <a href="https://github.com/bishalranjit0606/jenkins-project" class="btn btn-primary btn-small" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-brands fa-github"></i> Code
+                    </a>
+                    <a href="https://www.linkedin.com/posts/bishalranjit0606_nodejs-static-site-with-docker-jenkins-activity-7334108481165180928-1cDF?utm_source=share&utm_medium=member_desktop&rcm=ACoAADt5JzsBTeytu69SlI0w8sL_O_lqqClQDpM" class="btn btn-primary btn-small" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-solid fa-file-alt"></i> View Details
+                    </a>
+                </div>
               </div>
-            </a>
+            </div>
 
-            <a href="https://github.com/bishalranjit0606/Deployment-of-Node.js-Application-Using-Docker-on-AWS-EC2" class="project-card" target="_blank" rel="noopener noreferrer">
-              <div class="project-image">
-                <img src="images/Deployment of nodejs app using docker.png" alt="Deployment of Node.js Application Using Docker on AWS EC2"/>
-              </div>
+            <div class="project-card">
+              <a href="https://github.com/bishalranjit0606/Deployment-of-Node.js-Application-Using-Docker-on-AWS-EC2" target="_blank" rel="noopener noreferrer">
+                <div class="project-image">
+                  <img src="images/Deployment of nodejs app using docker.png" alt="Deployment of Node.js Application Using Docker on AWS EC2"/>
+                </div>
+              </a>
               <div class="project-content">
                 <h3 class="project-title">Node.js + Docker + AWS EC2</h3>
                 <p class="project-description">
@@ -1287,13 +1364,24 @@ body {
                   <span class="tech-tag">AWS</span>
                   <span class="tech-tag">EC2</span>
                 </div>
+                <div class="project-buttons">
+                    <a href="https://github.com/bishalranjit0606/Deployment-of-Node.js-Application-Using-Docker-on-AWS-EC2" class="btn btn-primary btn-small" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-brands fa-github"></i> Code
+                    </a>
+                    <a href="https://www.linkedin.com/posts/bishalranjit0606_deployment-of-nodejs-application-using-docker-activity-7300411374654906369-a5ve?utm_source=share&utm_medium=member_desktop&rcm=ACoAADt5JzsBTeytu69SlI0w8sL_O_lqqClQDpM" class="btn btn-primary btn-small" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-solid fa-file-alt"></i> View Details
+                    </a>
+                    
+                </div>
               </div>
-            </a>
+            </div>
 
-            <a href="https://www.linkedin.com/posts/bishalranjit0606_deploy-two-tier-application-with-aws-activity-7295494032263200768-RDbH?utm_source=share&utm_medium=member_desktop&rcm=ACoAADt5JzsBTeytu69SlI0w8sL_O_lqqClQDpM" class="project-card" target="_blank" rel="noopener noreferrer">
-              <div class="project-image">
-                <img src="images/Two-Tier Web App on AWS.png" alt="Portfolio Website Cover"/>
-              </div>
+            <div class="project-card">
+              <a href="https://www.linkedin.com/posts/bishalranjit0606_deploy-two-tier-application-with-aws-activity-7295494032263200768-RDbH?utm_source=share&utm_medium=member_desktop&rcm=ACoAADt5JzsBTeytu69SlI0w8sL_O_lqqClQDpM" target="_blank" rel="noopener noreferrer">
+                <div class="project-image">
+                  <img src="images/Two-Tier Web App on AWS.png" alt="Portfolio Website Cover"/>
+                </div>
+              </a>
               <div class="project-content">
                 <h3 class="project-title">Two-Tier Web App on AWS</h3>
                 <p class="project-description">
@@ -1304,8 +1392,13 @@ body {
                   <span class="tech-tag">Database</span>
                   <span class="tech-tag">Wordpress</span>
                 </div>
+                <div class="project-buttons">
+                    <a href="https://www.linkedin.com/posts/bishalranjit0606_deploy-two-tier-application-with-aws-activity-7295494032263200768-RDbH?utm_source=share&utm_medium=member_desktop&rcm=ACoAADt5JzsBTeytu69SlI0w8sL_O_lqqClQDpM" class="btn btn-primary btn-small" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-solid fa-file-alt"></i> View Details
+                    </a>
+                </div>
               </div>
-            </a>
+            </div>
 
 
             
@@ -1744,8 +1837,9 @@ body {
         });
       });
 
-      const cards = document.querySelectorAll('.project-card, .certificate-card');
-      cards.forEach(card => {
+      // Updated event listeners to target the div/links instead of the entire card's transform
+      document.querySelectorAll('.project-card, .certificate-card').forEach(card => {
+        // General card hover effect on the div
         card.addEventListener('mouseenter', function () {
           this.style.transform = 'translateY(-8px)'; 
         });
