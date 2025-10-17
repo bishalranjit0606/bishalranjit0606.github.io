@@ -136,7 +136,6 @@ body {
 .section {
   display: none;
   animation: fadeIn 0.8s ease-in-out;
-  /* Add scroll-margin-top to ensure content is below the fixed mobile header */
   scroll-margin-top: 80px; 
 }
 
@@ -261,7 +260,6 @@ body {
   gap: 20px;
 }
 
-/* The styles for .skill-card and .skill-modal .modal-content have been updated for a glowing border effect. */
 .skill-card {
   background-color: var(--secondary-bg);
   padding: 20px;
@@ -307,20 +305,15 @@ body {
   transition: transform 0.3s ease;
 }
 
-/* 🌟 New rule to force white color on all icons in the skill grid */
 .skill-card .icon i,
 .skill-card .icon img {
-  /* This filter inverts and brightens the image/svg to appear white on dark backgrounds */
   filter: brightness(0) invert(1);
 }
-/* ------------------------------------------------------------------- */
-
 
 .skill-card:hover .icon {
   transform: scale(1.1);
 }
 
-/* ✨ New Modal Styles */
 .skill-modal {
   display: none;
   position: fixed;
@@ -338,7 +331,6 @@ body {
   display: flex;
   animation: fadeIn 0.3s ease;
 }
-/* Modal content updated for glowing border effect */
 .modal-content {
   background-color: var(--secondary-bg);
   border-radius: 16px;
@@ -354,7 +346,6 @@ body {
   animation: slideUp 0.3s ease;
 }
 
-/* New modal glow effect (using user's specific selector from the provided code) */
 .skill-modal .modal-content::before { 
   content: "";
   position: absolute;
@@ -397,7 +388,6 @@ body {
   from { transform: translateY(20px); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
 }
-/* End New Modal Styles */
 
 .projects-grid,
 .certificates-grid,
@@ -813,7 +803,6 @@ body {
   background-clip: text;
 }
 
-/* --- FIX START: Override gradient and force white color for contact icons --- */
 .contact-card .icon i {
   color: var(--text-color);
   background: none;
@@ -821,7 +810,6 @@ body {
   -webkit-text-fill-color: var(--text-color);
   background-clip: unset;
 }
-/* --- FIX END --- */
 
 .contact-card h4 {
   font-size: 1.125rem;
@@ -876,6 +864,13 @@ body {
 .mobile-menu-toggle {
   display: none;
 }
+.certificate-image-container img {
+  display: block;
+  width: 100%;
+  height: auto; 
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
 
 @media (max-width: 1024px) {
   .container {
@@ -909,7 +904,6 @@ body {
     height: auto;
     min-height: 100vh;
     position: fixed;
-    /* FIX: Set top to 60px, the height of the fixed mobile-menu-toggle */
     top: 60px; 
     left: 0;
     padding: 0;
@@ -960,7 +954,6 @@ body {
   .main-content {
     margin-left: 0;
     padding: 20px;
-    /* FIX: Keep this padding to push content below the 60px fixed header */
     padding-top: 80px; 
   }
   
@@ -1315,8 +1308,6 @@ body {
             </a>
 
 
-
-
             
           </div>
           <div class="load-more-btn" id="load-more-projects">
@@ -1426,43 +1417,38 @@ body {
               <div class="certificate-header">
                 <div class="certificate-info">
                   <h3>AWS Solutions Architect Associate <span class="certified-tag">Certified</span></h3>
-                  <div class="certificate-issuer">Amazon Web Services</div>
-                </div>
-              </div>
-              <div class="certificate-date">
-                Issued: September 2025 • Valid until: September 2028
-              </div>
-              <p class="certificate-description">
-                Demonstrates expertise in designing distributed systems on AWS, including compute, networking, storage, and database AWS services for cloud-based applications.
-              </p>
-              <div class="certificate-skills">
-                <span class="certificate-skill-tag">AWS EC2</span>
-                <span class="certificate-skill-tag">S3</span>
-                <span class="certificate-skill-tag">RDS</span>
-                <span class="certificate-skill-tag">Lambda</span>
-                <span class="certificate-skill-tag">CloudFormation</span>
-              </div>
-            </a>
-            <a href="https://github.com/bishalranjit0606/certified-aws-testing/blob/main/Advanced%20Testing%20Practices%20Using%20AWS%20DevOps%20Tools_page-0001.jpg" class="certificate-card" target="_blank" rel="noopener noreferrer">
-              <div class="certificate-header">
-                <div class="certificate-info">
-                  <h3>Advanced Testing Practices Using AWS DevOps Tools</h3>
                   <div class="certificate-issuer">Amazon Web Services (AWS)</div>
                 </div>
               </div>
               <div class="certificate-date">
-                Issued: September 2025 • No Expiration
+                Issued: Sep 2025 • Expires: Sep 2028
               </div>
-              <p class="certificate-description">
-                Covers advanced testing methodologies and their implementation using AWS DevOps tools to ensure application quality and reliability.
-              </p>
-              <div class="certificate-skills">
-                <span class="certificate-skill-tag">AWS</span>
-                <span class="certificate-skill-tag">DevOps</span>
-                <span class="certificate-skill-tag">CI/CD</span>
-                <span class="certificate-skill-tag">Testing</span>
-              </div>
+              <div class="certificate-image-container" style="text-align: center; margin-top: 15px;">
+    <img 
+      src="certificate-image/aws.png" 
+      alt="Aws solution architect Associate Certificate" 
+      style="width: 100%; max-height: 250px; object-fit: contain; border-radius: 8px;"
+    />
+  </div>
             </a>
+            <a href="https://github.com/bishalranjit0606/certified-aws-testing/blob/main/Advanced%20Testing%20Practices%20Using%20AWS%20DevOps%20Tools_page-0001.jpg" class="certificate-card" target="_blank" rel="noopener noreferrer">
+  <div class="certificate-header">
+    <div class="certificate-info">
+      <h3>Advanced Testing Using AWS DevOps Tools</h3>
+      <div class="certificate-issuer">Amazon Web Services (AWS)</div>
+    </div>
+  </div>
+  <div class="certificate-date">
+    Issued: September 2025 • No Expiration
+  </div>
+  <div class="certificate-image-container" style="text-align: center; margin-top: 15px;">
+    <img 
+      src="certificate-image/Advanced Testing Practices Using AWS DevOps Tools_page-0001.jpg" 
+      alt="Advanced Testing Practices Using AWS DevOps Tools Certificate" 
+      style="width: 100%; max-height: 250px; object-fit: contain; border-radius: 8px;"
+    />
+  </div>
+  </a>
             <a href="https://github.com/bishalranjit0606/Certificate-Deploy-an-End-to-End-IoT-Application/blob/main/3b201b5d-2be4-4cc1-a556-917160a11c67_page-0001.jpg" class="certificate-card" target="_blank" rel="noopener noreferrer">
               <div class="certificate-header">
                 <div class="certificate-info">
@@ -1473,15 +1459,13 @@ body {
               <div class="certificate-date">
                 Issued: September 2025 • No Expiration
               </div>
-              <p class="certificate-description">
-                Demonstrates the ability to design, deploy, and manage a complete Internet of Things (IoT) solution using various AWS services.
-              </p>
-              <div class="certificate-skills">
-                <span class="certificate-skill-tag">AWS IoT</span>
-                <span class="certificate-skill-tag">Cloud</span>
-                <span class="certificate-skill-tag">IoT Core</span>
-                <span class="certificate-skill-tag">Data Management</span>
-              </div>
+              <div class="certificate-image-container" style="text-align: center; margin-top: 15px;">
+    <img 
+      src="certificate-image/deploy-iot-app.jpg" 
+      alt="Deploy an End-to-End IoT Application from AWS Certificate" 
+      style="width: 100%; max-height: 250px; object-fit: contain; border-radius: 8px;"
+    />
+  </div>
             </a>
             <a href="https://www.coursera.org/account/accomplishments/certificate/RTS6DS58N42W" class="certificate-card" target="_blank" rel="noopener noreferrer">
               <div class="certificate-header">
@@ -1493,35 +1477,31 @@ body {
               <div class="certificate-date">
                 Issued: March 2025 • No Expiration
               </div>
-              <p class="certificate-description">
-                Validates foundational knowledge of core AWS services, including compute, storage, databases, networking, and security.
-              </p>
-              <div class="certificate-skills">
-                <span class="certificate-skill-tag">AWS</span>
-                <span class="certificate-skill-tag">Cloud Computing</span>
-                <span class="certificate-skill-tag">EC2</span>
-                <span class="certificate-skill-tag">S3</span>
-              </div>
+              <div class="certificate-image-container" style="text-align: center; margin-top: 15px;">
+    <img 
+      src="certificate-image/cloud-technical.jpg" 
+      alt="AWS Cloud Technical Essentials Certificate" 
+      style="width: 100%; max-height: 250px; object-fit: contain; border-radius: 8px;"
+    />
+  </div>
             </a>
             <a href="https://www.coursera.org/account/accomplishments/specialization/SGQUR3LL8S4U" class="certificate-card" target="_blank" rel="noopener noreferrer">
               <div class="certificate-header">
                 <div class="certificate-info">
-                  <h3>Google Cloud Cybersecurity Specialization</h3>
+                  <h3>Google Cloud Cybersecurity</h3>
                   <div class="certificate-issuer">Google Cloud</div>
                 </div>
               </div>
               <div class="certificate-date">
                 Issued: November 2024 • No Expiration
               </div>
-              <p class="certificate-description">
-                Demonstrates expertise in securing Google Cloud environments, covering topics like identity and access management, network security, and data protection.
-              </p>
-              <div class="certificate-skills">
-                <span class="certificate-skill-tag">GCP</span>
-                <span class="certificate-skill-tag">Cybersecurity</span>
-                <span class="certificate-skill-tag">IAM</span>
-                <span class="certificate-skill-tag">Cloud Security</span>
-              </div>
+          <div class="certificate-image-container" style="text-align: center; margin-top: 15px;">
+    <img 
+      src="certificate-image/cloud-security.jpg" 
+      alt="Google Cloud Cybersecurity Specialization Certificate" 
+      style="width: 100%; max-height: 250px; object-fit: contain; border-radius: 8px;"
+    />
+  </div>
             </a>
 
             <a href="https://www.coursera.org/account/accomplishments/specialization/DE8XO7ZN6C84" class="certificate-card" target="_blank" rel="noopener noreferrer">
@@ -1534,89 +1514,43 @@ body {
               <div class="certificate-date">
                 Issued: October 2024 • No Expiration
               </div>
-              <p class="certificate-description">
-                Validates foundational knowledge of cybersecurity principles and practices, including threat detection, risk management, and security analysis.
-              </p>
-              <div class="certificate-skills">
-                <span class="certificate-skill-tag">Cybersecurity</span>
-                <span class="certificate-skill-tag">Security Analysis</span>
-                <span class="certificate-skill-tag">Networking</span>
-                <span class="tech-tag">Threat Detection</span>
-              </div>
+          <div class="certificate-image-container" style="text-align: center; margin-top: 15px;">
+    <img 
+      src="certificate-image/cybersecurity.jpg" 
+      alt="Google Cloud Cybersecurity Specialization Certificate" 
+      style="width: 100%; max-height: 250px; object-fit: contain; border-radius: 8px;"
+    />
+  </div>
             </a>
 
-            <a href="https://github.com/bishalranjit0606/GitHub-for-DevOps-Certificate/blob/main/1759307971999-certificate.png" class="certificate-card" target="_blank" rel="noopener noreferrer">
-  <div class="certificate-header">
-    <div class="certificate-info">
-      <h3>GitHub For DevOps</h3>
-      <div class="certificate-issuer">GitHub</div>
-    </div>
-  </div>
-  <div class="certificate-date">
-    Issued: Octoper 2025 • No Expiration
-  </div>
-  <p class="certificate-description">
-    Demonstrates proficiency in modern DevOps practices using GitHub tools and workflows, including continuous integration, automation, and collaborative software delivery.
-  </p>
-  <div class="certificate-skills">
-    <span class="certificate-skill-tag">DevOps</span>
-    <span class="certificate-skill-tag">CI/CD</span>
-    <span class="certificate-skill-tag">Automation</span>
-    <span class="tech-tag">GitHub Actions</span>
-    <span class="tech-tag">Cloud Deployment</span>
-  </div>
-</a>
+            </a>
 
-<a href="https://www.cloudskillsboost.google/public_profiles/f3f7a038-ddfe-4084-952c-75e10118effa/badges/18201160?utm_medium=social&utm_source=linkedin&utm_campaign=ql-social-share" class="certificate-card" target="_blank" rel="noopener noreferrer">
-  <div class="certificate-header">
-    <div class="certificate-info">
-      <h3>Gemini for DevOps</h3>
-      <div class="certificate-issuer">Google Cloud</div>
-    </div>
+            <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/pmnMSL4QiQ9JCgE3W/kkE9HyeNcw6rwCRGw_pmnMSL4QiQ9JCgE3W_P6goJBTMstKSHt3nv_1748792896154_completion_certificate.pdf" class="certificate-card" target="_blank" rel="noopener noreferrer">
+              <div class="certificate-header">
+                <div class="certificate-info">
+                  <h3>Solutions Architecture Job Simulation</h3>
+                  <div class="certificate-issuer">Forage</div>
+                </div>
+              </div>
+              <div class="certificate-date">
+                Issued: June 2025 • No Expiration
+              </div>
+          <div class="certificate-image-container" style="text-align: center; margin-top: 15px;">
+    <img 
+      src="certificate-image/forage.jpg" 
+      alt="Solutions Architecture Job Simulation Certificate" 
+      style="width: 100%; max-height: 250px; object-fit: contain; border-radius: 8px;"
+    />
   </div>
-  <div class="certificate-date">
-    Issued: September 2025 • No Expiration
-  </div>
-  <p class="certificate-description">
-    Demonstrates applied expertise in using Google Cloud’s Gemini AI to enhance DevOps workflows  and more reliable software delivery.
-  </p>
-  <div class="certificate-skills">
-    <span class="certificate-skill-tag">DevOps</span>
-    <span class="certificate-skill-tag">AI Automation</span>
-    <span class="certificate-skill-tag">Google Cloud</span>
-    <span class="tech-tag">Gemini AI</span>
-    <span class="tech-tag">CI/CD</span>
-    <span class="tech-tag">Cloud Infrastructure</span>
-  </div>
-</a>
+            </a>
 
-<a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/pmnMSL4QiQ9JCgE3W/kkE9HyeNcw6rwCRGw_pmnMSL4QiQ9JCgE3W_P6goJBTMstKSHt3nv_1748792896154_completion_certificate.pdf" class="certificate-card" target="_blank" rel="noopener noreferrer">
-  <div class="certificate-header">
-    <div class="certificate-info">
-      <h3>Solutions Architecture Job Simulation</h3>
-      <div class="certificate-issuer">Forage</div>
-    </div>
-  </div>
-  <div class="certificate-date">
-    Issued: June 2025 • No Expiration
-  </div>
-  <p class="certificate-description">
-    Completed a virtual job simulation focused on designing scalable cloud solutions and applying problem-solving strategies used by real-world solutions architects.
-  </p>
-  <div class="certificate-skills">
-    <span class="certificate-skill-tag">Solutions Architecture</span>
-    <span class="certificate-skill-tag">Cloud Computing</span>
-    <span class="certificate-skill-tag">System Design</span>
-    <span class="tech-tag">Scalability</span>
-    <span class="tech-tag">Architecture Planning</span>
-  </div>
-</a>
+
+</div>
 
 
 
 
 
-          </div>
 
 
           <div class="load-more-btn" id="load-more-certificates">
@@ -1749,11 +1683,6 @@ body {
                 menuIcon.classList.remove('fa-xmark');
                 menuIcon.classList.add('fa-bars');
               }
-              /* FIX: Change scroll target to the window and use a programmatic scroll 
-                 to ensure the top of the content aligns just below the fixed header. 
-                 The scroll-margin-top CSS property should now handle this for anchor links.
-                 For initial load, scrolling window to 0,0 is sufficient with correct padding/margin.
-              */
               window.scrollTo({ top: 0, behavior: 'smooth' }); 
             } else {
               window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1823,7 +1752,6 @@ body {
         });
       });
 
-      // MODIFIED: Use window.open with '_blank' to force a new tab/window for blog card clicks.
       document.querySelectorAll('.blog-card').forEach(card => {
         card.addEventListener('click', function (e) {
           const readMoreLink = this.querySelector('.read-more');
@@ -1864,13 +1792,6 @@ body {
           }, 100);
         }
       }
-
-      // Smooth transition logic is now called inside setActiveSection
-      /* navItems.forEach(item => {
-        item.addEventListener('click', function () {
-          smoothTransition();
-        });
-      }); */
 
       document.addEventListener('DOMContentLoaded', function () {
         document.body.style.opacity = '0';
