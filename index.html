@@ -1015,6 +1015,26 @@ body {
   .certificates-grid {
     grid-template-columns: 1fr;
   }
+    
+  /* --- BEGIN MODIFICATION FOR HORIZONTAL BUTTONS --- */
+  .hero-buttons {
+    gap: 10px; /* Slight reduction in gap */
+  }
+  
+  .hero-buttons a.btn {
+    /* Force them to be side-by-side, sharing space */
+    flex: 1 1 calc(50% - 10px); 
+    max-width: calc(50% - 10px);
+    font-size: 0.9rem; /* Smaller text */
+    padding: 10px 10px; /* Reduced padding */
+    min-width: 140px; /* Minimum width to prevent them from becoming too small */
+    justify-content: center; /* Center the content inside the button */
+  }
+  
+  .hero-buttons a.btn i {
+      margin-right: 5px; /* Reduced space before icon */
+  }
+  /* --- END MODIFICATION FOR HORIZONTAL BUTTONS --- */
 }
 
 @media (max-width: 500px) {
@@ -1040,6 +1060,15 @@ body {
       font-size: 2rem;
       margin-bottom: 5px;
   }
+}
+
+/* Added a more aggressive breakpoint for very small phones to ensure fit */
+@media (max-width: 480px) {
+    .hero-buttons a.btn {
+        font-size: 0.8rem; /* Even smaller text for tiny screens */
+        padding: 8px 8px; /* Further reduced padding */
+        min-width: 120px;
+    }
 }
     </style>
   </head>
