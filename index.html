@@ -243,6 +243,20 @@
       }
     }
 
+    @keyframes float {
+      0% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(20px);
+      }
+
+      100% {
+        transform: translateY(0);
+      }
+    }
+
     .hero {
       display: flex;
       align-items: center;
@@ -332,6 +346,7 @@
       object-fit: cover;
       border: 4px solid var(--secondary-bg);
       box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+      animation: float 4s ease-in-out infinite;
     }
 
     .skills-section {
@@ -2120,9 +2135,9 @@
         const text = document.getElementById("theme-text");
         const icon = document.querySelector("#theme-toggle i");
 
-        // 1. Force default to dark if nothing is in localStorage
-        const saved = localStorage.getItem("theme");
-        let theme = saved || "dark";
+        // 1. Force default to dark
+        // const saved = localStorage.getItem("theme");
+        let theme = "dark";
         this.apply(theme);
 
         toggleBtn.onclick = () => {
