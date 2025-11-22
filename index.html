@@ -65,7 +65,7 @@
       .sidebar {
         width: 280px;
         background-color: var(--secondary-bg);
-        padding: 20px;
+        padding: 20px 0;
         border-right: 1px solid var(--border-color);
         position: fixed;
         height: 100vh;
@@ -75,6 +75,10 @@
         align-items: center;
         transition: transform 0.3s ease-in-out, background-color 0.3s ease, border-color 0.3s ease;
       }
+      
+      .profile, .nav-item:not(#theme-toggle) {
+          width: 90%;
+      }
 
       .profile {
         display: flex;
@@ -82,7 +86,6 @@
         margin-bottom: 40px;
         padding-bottom: 20px;
         border-bottom: 1px solid var(--border-color);
-        width: 100%;
       }
 
       .profile-info {
@@ -111,7 +114,7 @@
         transition: all 0.3s ease;
         font-size: 1rem;
         font-weight: 500;
-        width: 100%;
+        width: 90%;
         color: var(--secondary-text);
       }
 
@@ -142,10 +145,58 @@
         text-align: center;
       }
 
-      /* Theme Toggle Specific Styles */
+      /* --- THEME TOGGLE BUTTON STYLES --- */
       #theme-toggle {
-        margin-bottom: 20px;
+        margin-top: auto;       /* Push to bottom */
+        margin-bottom: 20px;    /* Space from bottom edge */
+        width: 85%;             /* Slightly narrower than full width for button look */
+        background: var(--accent-gradient); /* Gradient background */
+        color: #fff !important; /* Force white text */
+        border: none;     
+        border-radius: 8px;     /* Rounded corners */
+        justify-content: center; /* Center text */
+        padding: 12px 20px; 
+        align-self: center;     /* Center in sidebar */
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        font-weight: 600;
+      }
+
+      #theme-toggle:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        background: var(--accent-gradient);
+        color: #fff;
+      }
+      
+      #theme-toggle .icon {
+          color: #fff !important; 
+          margin-right: 8px;
+      }
+
+      [data-theme="light"] #theme-toggle:hover {
+        background: var(--accent-gradient);
+        color: #fff;
+      }
+
+      /* --- SIDEBAR FOOTER (CTRL + K Hint) --- */
+      .sidebar-footer {
+        padding-bottom: 15px;
+        width: 100%;
+        text-align: center;
+        font-size: 0.8rem;
+        color: var(--secondary-text);
+      }
+
+      .sidebar-footer kbd {
+        background-color: var(--bg-color);
         border: 1px solid var(--border-color);
+        border-radius: 4px;
+        padding: 2px 6px;
+        font-family: "Consolas", monospace;
+        font-size: 0.75rem;
+        box-shadow: 0 2px 0 var(--border-color);
+        margin: 0 2px;
+        color: var(--text-color);
       }
 
       .main-content {
@@ -373,21 +424,6 @@
         box-shadow: 0 0 25px var(--card-hover-shadow);
         animation: slideUp 0.3s ease;
         color: var(--text-color);
-      }
-
-      .skill-modal .modal-content::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        border-radius: 16px;
-        padding: 2px;
-        background: linear-gradient(135deg, #667eea, #764ba2);
-        -webkit-mask: linear-gradient(#fff 0 0) content-box,
-          linear-gradient(#fff 0 0);
-        -webkit-mask-composite: xor;
-        mask-composite: exclude;
-        z-index: -1;
-        opacity: 0.9;
       }
 
       .modal-content h3 {
@@ -933,6 +969,76 @@
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
       }
 
+      /* --- COMMAND PALETTE STYLES (Updated for High Z-Index) --- */
+      .cmd-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.6);
+        backdrop-filter: blur(3px);
+        justify-content: center;
+        align-items: flex-start;
+        padding-top: 10vh;
+        z-index: 9999; /* Ensure top visibility */
+        animation: fadeIn 0.2s ease;
+      }
+      .cmd-overlay.open {
+        display: flex !important;
+      }
+      .cmd-palette {
+        width: 500px;
+        max-width: 90%;
+        background: var(--secondary-bg);
+        border: 1px solid var(--border-color);
+        padding: 15px;
+        border-radius: 12px;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        display: flex;
+        flex-direction: column;
+      }
+      #cmdInput {
+        width: 100%;
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid var(--border-color);
+        color: var(--text-color);
+        font-size: 1rem;
+        padding: 10px 5px;
+        margin-bottom: 10px;
+        font-family: inherit;
+      }
+      #cmdInput:focus {
+        outline: none;
+        border-bottom-color: var(--highlight-color);
+      }
+      #cmdList {
+        max-height: 300px;
+        overflow-y: auto;
+      }
+      .cmd-item {
+        padding: 12px 15px;
+        cursor: pointer;
+        color: var(--secondary-text);
+        border-radius: 8px;
+        transition: all 0.2s ease;
+        font-size: 0.95rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .cmd-item:hover {
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        padding-left: 20px;
+      }
+      .cmd-shortcut {
+        font-size: 0.7rem;
+        opacity: 0.5;
+        border: 1px solid var(--border-color);
+        padding: 2px 6px;
+        border-radius: 4px;
+      }
+
       @media (max-width: 1024px) {
         .container {
           flex-direction: column;
@@ -963,13 +1069,16 @@
         .sidebar {
           /* Sidebar settings: 60% width, right side */
           width: 60%; 
-          height: auto;
-          min-height: 100vh;
+          /* FIXED: Calculated height to fit exactly in viewport below the header */
+          height: calc(100vh - 60px); 
+          min-height: 0; /* Reset min-height so it doesn't force overflow */
           position: fixed;
           top: 60px;
           left: auto; 
           right: 0;   
           padding: 0;
+          /* Add padding at bottom to ensure button is safe */
+          padding-bottom: 20px; 
           z-index: 1000;
           background-color: var(--secondary-bg);
           border-right: none;
@@ -990,6 +1099,11 @@
           pointer-events: auto;
           overflow-y: auto;
         }
+        
+        /* Ensure profile and other nav items are centered in mobile view */
+        .profile, .nav-item:not(#theme-toggle) {
+            width: 100%;
+        }
 
         .nav-item {
           width: 100%;
@@ -999,6 +1113,16 @@
           justify-content: flex-start; 
           border-radius: 0;
         }
+        
+        /* --- MOBILE THEME TOGGLE UPDATE (Tightened bottom margin) --- */
+        #theme-toggle {
+            margin-top: auto; /* Anchors to bottom */
+            margin-bottom: 10px; /* Reduced Spacing from bottom edge */
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
 
         .nav-item .icon {
           display: inline-block;
@@ -1016,6 +1140,11 @@
 
         .profile {
           display: none;
+        }
+        
+        /* Hide footer (Ctrl + K text) on mobile */
+        .sidebar-footer {
+             display: none;
         }
 
         .main-content {
@@ -1130,11 +1259,6 @@
           </div>
         </div>
         
-        <div class="nav-item" id="theme-toggle">
-            <i class="fa-solid fa-sun icon"></i>
-            <span id="theme-text">Light Mode</span>
-        </div>
-
         <div class="nav-item active" data-section="about" aria-label="About">
           <i class="fa-solid fa-user icon"></i>About
         </div>
@@ -1157,6 +1281,15 @@
         </div>
         <div class="nav-item" data-section="contact" aria-label="Contact">
           <i class="fa-solid fa-envelope icon"></i>Contact
+        </div>
+
+        <div class="nav-item" id="theme-toggle">
+            <i class="fa-solid fa-sun icon"></i>
+            <span id="theme-text">Light Mode</span>
+        </div>
+
+        <div class="sidebar-footer">
+          <p>Press <kbd>Ctrl</kbd> + <kbd>K</kbd> to browse</p>
         </div>
 
       </nav>
@@ -2200,6 +2333,13 @@
       </div>
     </div>
 
+    <div class="cmd-overlay" id="cmdOverlay">
+      <div class="cmd-palette">
+        <input type="text" id="cmdInput" placeholder="Search or run a command... (e.g., 'Projects', 'Toggle Theme')" />
+        <div id="cmdList"></div>
+      </div>
+    </div>
+    
     <script>
       /* --- THEME MANAGER SYSTEM --- */
       const ThemeManager = {
@@ -2208,8 +2348,9 @@
           const text = document.getElementById("theme-text");
           const icon = document.querySelector("#theme-toggle i");
 
+          // 1. Force default to dark if nothing is in localStorage
           const saved = localStorage.getItem("theme");
-          let theme = saved || "dark"; // Defaults to dark if no storage
+          let theme = saved || "dark"; 
           this.apply(theme);
 
           toggleBtn.onclick = () => {
@@ -2225,20 +2366,108 @@
           const icon = document.querySelector("#theme-toggle i");
           const text = document.getElementById("theme-text");
 
-          // Important: Keep the 'icon' class to preserve spacing
+          // 2. Update Text/Icon based on current theme
           if (theme === "dark") {
             icon.className = "fa-solid fa-sun icon"; 
-            text.textContent = "Light Mode";
+            text.textContent = "Light Mode"; // Action: Switch to Light
           } else {
             icon.className = "fa-solid fa-moon icon";
-            text.textContent = "Dark Mode";
+            text.textContent = "Dark Mode"; // Action: Switch to Dark
           }
+        },
+      };
+
+      /* --- COMMAND PALETTE SYSTEM --- */
+      const CommandPalette = {
+        init() {
+          const overlay = document.getElementById("cmdOverlay");
+          const input = document.getElementById("cmdInput");
+          const list = document.getElementById("cmdList");
+
+          const commands = [
+            { name: "Go to About", shortcut: "A", action: () => CommandPalette.selectSection("about") },
+            { name: "Go to Projects", shortcut: "P", action: () => CommandPalette.selectSection("projects") },
+            { name: "Go to Certificates", shortcut: "C", action: () => CommandPalette.selectSection("certificates") },
+            { name: "Go to Experience", shortcut: "E", action: () => CommandPalette.selectSection("experience") },
+            { name: "Go to Blog", shortcut: "B", action: () => CommandPalette.selectSection("blog") },
+            { name: "Go to Contact", shortcut: "@", action: () => CommandPalette.selectSection("contact") },
+            { name: "Toggle Theme", shortcut: "T", action: () => document.getElementById("theme-toggle").click() },
+            { name: "Download Resume", shortcut: "DL", action: () => window.open("docs/Bishal Ranjitkar resume.pdf", "_blank") }
+          ];
+
+          this.selectSection = (sectionId) => {
+              setActiveSection(sectionId, true);
+          };
+
+
+          function openPalette() {
+            overlay.classList.add("open");
+            input.value = "";
+            input.focus();
+            renderList("");
+            document.body.style.overflow = "hidden"; // Prevent background scrolling
+          }
+
+          function closePalette() {
+            overlay.classList.remove("open");
+            document.body.style.overflow = "auto";
+          }
+
+          function renderList(filter) {
+            list.innerHTML = "";
+            const filtered = commands.filter((c) =>
+              c.name.toLowerCase().includes(filter.toLowerCase())
+            );
+            
+            if(filtered.length === 0) {
+                const noResult = document.createElement("div");
+                noResult.className = "cmd-item";
+                noResult.style.cursor = "default";
+                noResult.style.justifyContent = "center";
+                noResult.style.opacity = "0.5";
+                noResult.textContent = "No commands found";
+                list.appendChild(noResult);
+                return;
+            }
+
+            filtered.forEach((c) => {
+              const item = document.createElement("div");
+              item.className = "cmd-item";
+              item.innerHTML = `<span>${c.name}</span> <span class="cmd-shortcut">${c.shortcut || '↵'}</span>`;
+              item.onclick = () => {
+                closePalette();
+                c.action();
+              };
+              list.appendChild(item);
+            });
+          }
+
+          input.oninput = (e) => renderList(e.target.value);
+
+          document.addEventListener("keydown", (e) => {
+            // Check for CTRL+K or META+K (Mac)
+            if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") {
+              e.preventDefault();
+              if (overlay.classList.contains("open")) {
+                closePalette();
+              } else {
+                openPalette();
+              }
+            }
+            if (e.key === "Escape" && overlay.classList.contains("open")) {
+              closePalette();
+            }
+          });
+
+          overlay.addEventListener("click", (e) => {
+            if (e.target === overlay) closePalette();
+          });
         },
       };
 
       /* --- EXISTING PORTFOLIO LOGIC --- */
 
-      const navItems = document.querySelectorAll(".nav-item:not(#theme-toggle)"); // Exclude theme button from nav logic
+      const navItems = document.querySelectorAll(".nav-item:not(#theme-toggle)"); // Exclude theme button from main nav items
       const sections = document.querySelectorAll(".section");
 
       const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
@@ -2271,7 +2500,8 @@
       }
 
       function setActiveSection(targetSectionId, pushState = true) {
-        navItems.forEach((nav) => {
+        // Only target the primary navigation links, not the theme toggle
+        document.querySelectorAll(".sidebar > .nav-item:not(#theme-toggle)").forEach((nav) => {
           nav.classList.remove("active");
           if (window.innerWidth > 1024) {
             nav.style.borderLeft = "";
@@ -2333,10 +2563,15 @@
         setupLoadMore("projects-container", "load-more-projects", 6);
         setupLoadMore("blog-container", "load-more-blog", 6);
         setupLoadMore("certificates-container", "load-more-certificates", 6);
+        
+        // Initialize Theme Manager (must happen before setting initial section)
+        ThemeManager.init();
+        
+        // Handle URL Hash and initial section display
         handleInitialLoadAndPopState();
         
-        // Initialize Theme Manager
-        ThemeManager.init();
+        // Initialize Command Palette
+        CommandPalette.init();
       });
 
       mobileMenuToggle.addEventListener("click", function () {
@@ -2351,7 +2586,8 @@
         }
       });
 
-      navItems.forEach((item) => {
+      // Target only the main navigation links for click handling
+      document.querySelectorAll(".sidebar > .nav-item:not(#theme-toggle)").forEach((item) => {
         item.addEventListener("click", function () {
           const targetSectionId = this.getAttribute("data-section");
           setActiveSection(targetSectionId, true);
@@ -2445,19 +2681,27 @@
       });
 
       document.addEventListener("keydown", function (e) {
-        const activeNavIndex = Array.from(navItems).findIndex((item) =>
+        // Filter out the theme toggle which is now also a nav-item
+        const mainNavItems = Array.from(document.querySelectorAll(".sidebar > .nav-item:not(#theme-toggle)"));
+        const activeNavIndex = mainNavItems.findIndex((item) =>
           item.classList.contains("active")
         );
 
         if (e.key === "ArrowDown" || e.key === "ArrowRight") {
+          // Avoid conflict if command palette is open
+          if(document.getElementById('cmdOverlay').classList.contains('open')) return;
+          
           e.preventDefault();
-          const nextIndex = (activeNavIndex + 1) % navItems.length;
-          navItems[nextIndex].click();
+          const nextIndex = (activeNavIndex + 1) % mainNavItems.length;
+          mainNavItems[nextIndex].click();
         } else if (e.key === "ArrowUp" || e.key === "ArrowLeft") {
+           // Avoid conflict if command palette is open
+           if(document.getElementById('cmdOverlay').classList.contains('open')) return;
+
           e.preventDefault();
           const prevIndex =
-            activeNavIndex === 0 ? navItems.length - 1 : activeNavIndex - 1;
-          navItems[prevIndex].click();
+            activeNavIndex === 0 ? mainNavItems.length - 1 : activeNavIndex - 1;
+          mainNavItems[prevIndex].click();
         }
       });
 
