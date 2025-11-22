@@ -31,7 +31,13 @@
         --text-color: #fff;
         --secondary-text: #aaa;
         --highlight-color: #667eea;
+        
+        /* Button Gradient (Standard) */
         --accent-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        
+        /* Text Gradient (Brighter for Dark Mode visibility) */
+        --text-gradient: linear-gradient(135deg, #84a9ff 0%, #9c82e6 100%);
+
         --card-hover-shadow: rgba(118, 75, 162, 0.5);
         --button-text: #fff;
       }
@@ -44,7 +50,11 @@
         --text-color: #2d3748;
         --secondary-text: #4a5568;
         --highlight-color: #4f46e5;
+        
+        /* In Light Mode, Text matches Button exactly */
         --accent-gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+        --text-gradient: var(--accent-gradient);
+
         --card-hover-shadow: rgba(79, 70, 229, 0.2);
         --button-text: #fff;
       }
@@ -248,8 +258,9 @@
         margin-bottom: 1rem;
       }
 
+      /* UPDATED: Uses --text-gradient for brightness control */
       .hero .highlight {
-        background: var(--accent-gradient);
+        background: var(--text-gradient);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -1301,19 +1312,7 @@
               <h1>
                 Hy! I'm Bishal Ranjitkar,<br />
                 A DevOps
-                <span
-                  style="
-                    background: linear-gradient(
-                      135deg,
-                      #84a9ff 0%,
-                      #9c82e6 100%
-                    );
-                    -webkit-background-clip: text;
-                    -webkit-text-fill-color: transparent;
-                    background-clip: text;
-                  "
-                  >Engineer</span
-                >
+                <span class="highlight">Engineer</span>
               </h1>
               <p>
                 AWS Solutions Architect Associate certificated. DevOps & Cloud
