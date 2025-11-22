@@ -11,6 +11,7 @@
     rel="stylesheet" />
   <link rel="icon" type="image/png" href="images/devops.png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
   <style>
     * {
       margin: 0;
@@ -69,7 +70,7 @@
     }
 
     .sidebar {
-      width: 280px;
+      width: 270px;
       background-color: var(--secondary-bg);
       padding: 20px 0;
       border-right: 1px solid var(--border-color);
@@ -90,7 +91,7 @@
     .profile {
       display: flex;
       align-items: center;
-      margin-bottom: 40px;
+      margin-bottom: 10px;
       padding-bottom: 20px;
       border-bottom: 1px solid var(--border-color);
     }
@@ -109,6 +110,12 @@
     .profile-info p {
       font-size: 0.85rem;
       color: var(--secondary-text);
+    }
+
+    .profile-info .certified-tag {
+      margin-left: 4px;
+      padding: 1px 6px;
+      font-size: 0.6rem;
     }
 
     .nav-item {
@@ -158,7 +165,7 @@
       /* Push to bottom */
       margin-bottom: 20px;
       /* Space from bottom edge */
-      width: 85%;
+      width: 80%;
       /* Slightly narrower than full width for button look */
       background: var(--accent-gradient);
       /* Gradient background */
@@ -169,7 +176,7 @@
       /* Rounded corners */
       justify-content: center;
       /* Center text */
-      padding: 12px 20px;
+      padding: 8px 16px;
       align-self: center;
       /* Center in sidebar */
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -186,6 +193,7 @@
     #theme-toggle .icon {
       color: #fff !important;
       margin-right: 8px;
+      font-size: 0.9rem;
     }
 
     [data-theme="light"] #theme-toggle:hover {
@@ -1317,7 +1325,7 @@
       <div class="profile">
         <div class="profile-info">
           <h2>Bishal Ranjitkar</h2>
-          <p>AWS Solutions Architect Associate Certified</p>
+          <p>AWS Solutions Architect Associate <span class="certified-tag">Certified</span></p>
         </div>
       </div>
 
@@ -1342,7 +1350,7 @@
       </div>
 
       <div class="nav-item" id="theme-toggle">
-        <i class="fa-solid fa-sun icon"></i>
+        <i class="bi bi-brightness-high-fill icon"></i>
         <span id="theme-text">Light Mode</span>
       </div>
 
