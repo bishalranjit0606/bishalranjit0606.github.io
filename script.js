@@ -6,6 +6,7 @@ const skillsData = [
     id: "aws",
     title: "AWS",
     desc: "Cloud Platform",
+    modalDesc: "Leading cloud platform for scalable apps.",
     iconType: "class",
     icon: ["fa-brands", "fa-aws"]
   },
@@ -13,6 +14,7 @@ const skillsData = [
     id: "jenkins",
     title: "Jenkins",
     desc: "CI/CD",
+    modalDesc: "Automates building, testing, and deployment.",
     iconType: "class",
     icon: ["fa-brands", "fa-jenkins"]
   },
@@ -20,6 +22,7 @@ const skillsData = [
     id: "docker",
     title: "Docker",
     desc: "Containerization",
+    modalDesc: "Build once, run anywhere containerization.",
     iconType: "class",
     icon: ["fa-brands", "fa-docker"]
   },
@@ -27,6 +30,7 @@ const skillsData = [
     id: "terraform",
     title: "Terraform",
     desc: "Infrastructure as Code",
+    modalDesc: "Infrastructure as Code provisioning tool.",
     iconType: "image",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-plain.svg"
   },
@@ -34,6 +38,7 @@ const skillsData = [
     id: "git",
     title: "Git",
     desc: "Version Control",
+    modalDesc: "Distributed version control system.",
     iconType: "class",
     icon: ["fa-brands", "fa-git-alt"]
   },
@@ -41,6 +46,7 @@ const skillsData = [
     id: "github",
     title: "GitHub",
     desc: "Code Management",
+    modalDesc: "Code hosting and collaboration platform.",
     iconType: "class",
     icon: ["fa-brands", "fa-github"]
   },
@@ -48,6 +54,7 @@ const skillsData = [
     id: "bash",
     title: "Bash",
     desc: "Scripting",
+    modalDesc: "Command-line scripting and automation.",
     iconType: "image",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-plain.svg"
   },
@@ -55,6 +62,7 @@ const skillsData = [
     id: "python",
     title: "Python",
     desc: "Programming Language",
+    modalDesc: "High-level language for versatile coding.",
     iconType: "class",
     icon: ["fa-brands", "fa-python"]
   },
@@ -62,6 +70,7 @@ const skillsData = [
     id: "linux",
     title: "Linux",
     desc: "Operating System",
+    modalDesc: "Open-source OS for servers and cloud.",
     iconType: "class",
     icon: ["fa-brands", "fa-linux"]
   },
@@ -69,6 +78,7 @@ const skillsData = [
     id: "kubernetes",
     title: "Kubernetes",
     desc: "Container Orchestration",
+    modalDesc: "Container orchestration and management.",
     iconType: "class",
     icon: ["fa-solid", "fa-dharmachakra"]
   }
@@ -473,7 +483,7 @@ function renderSkills() {
       // For this refactor, I'll use the 'desc' field.
 
       modalTitle.textContent = skill.title;
-      modalDescription.textContent = skill.desc; // Or a longer description if available
+      modalDescription.textContent = skill.modalDesc || skill.desc;
       modal.classList.add("active");
       document.body.style.overflow = "hidden";
     });
