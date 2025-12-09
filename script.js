@@ -11,20 +11,20 @@ const skillsData = [
     icon: ["fa-brands", "fa-aws"]
   },
   {
-    id: "jenkins",
-    title: "Jenkins",
-    desc: "CI/CD",
-    modalDesc: "Automates building, testing, and deployment.",
-    iconType: "class",
-    icon: ["fa-brands", "fa-jenkins"]
-  },
-  {
     id: "docker",
     title: "Docker",
     desc: "Containerization",
     modalDesc: "Build once, run anywhere containerization.",
     iconType: "class",
     icon: ["fa-brands", "fa-docker"]
+  },
+  {
+    id: "kubernetes",
+    title: "Kubernetes",
+    desc: "Container Orchestration",
+    modalDesc: "Container orchestration and management.",
+    iconType: "class",
+    icon: ["fa-solid", "fa-dharmachakra"]
   },
   {
     id: "terraform",
@@ -35,20 +35,36 @@ const skillsData = [
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-plain.svg"
   },
   {
-    id: "git",
-    title: "Git",
-    desc: "Version Control",
-    modalDesc: "Distributed version control system.",
+    id: "jenkins",
+    title: "Jenkins",
+    desc: "CI/CD",
+    modalDesc: "Automates building, testing, and deployment.",
     iconType: "class",
-    icon: ["fa-brands", "fa-git-alt"]
+    icon: ["fa-brands", "fa-jenkins"]
   },
   {
-    id: "github",
-    title: "GitHub",
-    desc: "Code Management",
-    modalDesc: "Code hosting and collaboration platform.",
+    id: "prometheus",
+    title: "Prometheus",
+    desc: "Monitoring",
+    modalDesc: "Powerful monitoring and alerting toolkit.",
+    iconType: "image",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prometheus/prometheus-original.svg"
+  },
+  {
+    id: "grafana",
+    title: "Grafana",
+    desc: "Visualization",
+    modalDesc: "Analytics and interactive visualization web app.",
+    iconType: "image",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/grafana/grafana-original.svg"
+  },
+  {
+    id: "linux",
+    title: "Linux",
+    desc: "Operating System",
+    modalDesc: "Open-source OS for servers and cloud.",
     iconType: "class",
-    icon: ["fa-brands", "fa-github"]
+    icon: ["fa-brands", "fa-linux"]
   },
   {
     id: "bash",
@@ -67,20 +83,20 @@ const skillsData = [
     icon: ["fa-brands", "fa-python"]
   },
   {
-    id: "linux",
-    title: "Linux",
-    desc: "Operating System",
-    modalDesc: "Open-source OS for servers and cloud.",
+    id: "git",
+    title: "Git",
+    desc: "Version Control",
+    modalDesc: "Distributed version control system.",
     iconType: "class",
-    icon: ["fa-brands", "fa-linux"]
+    icon: ["fa-brands", "fa-git-alt"]
   },
   {
-    id: "kubernetes",
-    title: "Kubernetes",
-    desc: "Container Orchestration",
-    modalDesc: "Container orchestration and management.",
+    id: "github",
+    title: "GitHub",
+    desc: "Code Management",
+    modalDesc: "Code hosting and collaboration platform.",
     iconType: "class",
-    icon: ["fa-solid", "fa-dharmachakra"]
+    icon: ["fa-brands", "fa-github"]
   }
 ];
 
