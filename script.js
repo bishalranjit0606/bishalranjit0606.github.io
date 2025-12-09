@@ -461,14 +461,6 @@ function renderSkills() {
       <p>${skill.desc}</p>
     `;
 
-    // Add hover effect
-    card.addEventListener("mouseenter", function () {
-      this.style.background = "linear-gradient(135deg, rgba(102, 126, 234, 0.15), rgba(118, 75, 162, 0.15))";
-    });
-    card.addEventListener("mouseleave", function () {
-      this.style.background = "var(--secondary-bg)";
-    });
-
     // Add click event for modal
     card.addEventListener("click", () => {
       const modal = document.getElementById("skillModal");
