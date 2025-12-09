@@ -83,14 +83,6 @@ const skillsData = [
     icon: ["fa-brands", "fa-python"]
   },
   {
-    id: "git",
-    title: "Git",
-    desc: "Version Control",
-    modalDesc: "Distributed version control system.",
-    iconType: "class",
-    icon: ["fa-brands", "fa-git-alt"]
-  },
-  {
     id: "github",
     title: "GitHub",
     desc: "Code Management",
