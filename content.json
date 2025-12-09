@@ -1,0 +1,466 @@
+{
+  "skills": [
+    {
+      "id": "aws",
+      "title": "AWS",
+      "desc": "Cloud Platform",
+      "iconType": "class",
+      "icon": [
+        "fa-brands",
+        "fa-aws"
+      ]
+    },
+    {
+      "id": "jenkins",
+      "title": "Jenkins",
+      "desc": "CI/CD",
+      "iconType": "class",
+      "icon": [
+        "fa-brands",
+        "fa-jenkins"
+      ]
+    },
+    {
+      "id": "docker",
+      "title": "Docker",
+      "desc": "Containerization",
+      "iconType": "class",
+      "icon": [
+        "fa-brands",
+        "fa-docker"
+      ]
+    },
+    {
+      "id": "terraform",
+      "title": "Terraform",
+      "desc": "Infrastructure as Code",
+      "iconType": "image",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-plain.svg"
+    },
+    {
+      "id": "git",
+      "title": "Git",
+      "desc": "Version Control",
+      "iconType": "class",
+      "icon": [
+        "fa-brands",
+        "fa-git-alt"
+      ]
+    },
+    {
+      "id": "github",
+      "title": "GitHub",
+      "desc": "Code Management",
+      "iconType": "class",
+      "icon": [
+        "fa-brands",
+        "fa-github"
+      ]
+    },
+    {
+      "id": "bash",
+      "title": "Bash",
+      "desc": "Scripting",
+      "iconType": "image",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-plain.svg"
+    },
+    {
+      "id": "python",
+      "title": "Python",
+      "desc": "Programming Language",
+      "iconType": "class",
+      "icon": [
+        "fa-brands",
+        "fa-python"
+      ]
+    },
+    {
+      "id": "linux",
+      "title": "Linux",
+      "desc": "Operating System",
+      "iconType": "class",
+      "icon": [
+        "fa-brands",
+        "fa-linux"
+      ]
+    },
+    {
+      "id": "kubernetes",
+      "title": "Kubernetes",
+      "desc": "Container Orchestration",
+      "iconType": "class",
+      "icon": [
+        "fa-solid",
+        "fa-dharmachakra"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "link": "https://shorturl.at/Q0Fwb",
+      "image": "images/ECS-PROJECT.png",
+      "title": "Building and Deploying Containers Using AWS ECS",
+      "description": "This project demonstrates the use of AWS ECS to host a simple\n                web application composed of a website with two supporting API\n                services.",
+      "tech": [
+        "ECS",
+        "Docker",
+        "AWS"
+      ],
+      "buttons": [
+        {
+          "text": "Code",
+          "link": "https://github.com/bishalranjit0606/Building-and-Deploying-Containers-Using-Amazon-Elastic-Container-Service",
+          "icon": [
+            "fa-brands",
+            "fa-github"
+          ]
+        },
+        {
+          "text": "View Details",
+          "link": "https://www.linkedin.com/posts/bishalranjit0606_building-and-deploying-containers-using-ecs-activity-7388895436796891136-zUO-?utm_source=share&utm_medium=member_desktop&rcm=ACoAADt5JzsBTeytu69SlI0w8sL_O_lqqClQDpM",
+          "icon": [
+            "fa-solid",
+            "fa-file-alt"
+          ]
+        }
+      ]
+    },
+    {
+      "link": "https://tinyurl.com/5dwmf6cj",
+      "image": "images/3TierArch.png",
+      "title": "Highly Available 3 Tier Web Deployment",
+      "description": "End-to-end deployment of a resilient, scalable, and multi-AZ\n                three-tier application on AWS.",
+      "tech": [
+        "Load Balancing",
+        "ASG",
+        "RDS"
+      ],
+      "buttons": [
+        {
+          "text": "Code",
+          "link": "https://github.com/bishalranjit0606/aws-three-tier-web-architecture-workshop",
+          "icon": [
+            "fa-brands",
+            "fa-github"
+          ]
+        },
+        {
+          "text": "View Details",
+          "link": "https://tinyurl.com/5dwmf6cj",
+          "icon": [
+            "fa-solid",
+            "fa-file-alt"
+          ]
+        }
+      ]
+    },
+    {
+      "link": "https://www.linkedin.com/posts/bishalranjit0606_terraform-aws-project-scalable-web-infrastructure-activity-7373954959689576448-TEbD?utm_source=share&utm_medium=member_desktop&rcm=ACoAADt5JzsBTeytu69SlI0w8sL_O_lqqClQDpM",
+      "image": "images/Terraform aws project.png",
+      "title": "AWS Infrastructure as Code with Terraform",
+      "description": "Terraform project to deploy a scalable AWS environment with\n                VPC, EC2 Auto Scaling and ALB. Demonstrates IaC and cloud\n                automation.",
+      "tech": [
+        "Terraform",
+        "AWS",
+        "Networking"
+      ],
+      "buttons": [
+        {
+          "text": "Code",
+          "link": "https://github.com/bishalranjit0606/terraform-aws-project",
+          "icon": [
+            "fa-brands",
+            "fa-github"
+          ]
+        },
+        {
+          "text": "View Details",
+          "link": "https://www.linkedin.com/posts/bishalranjit0606_terraform-aws-project-scalable-web-infrastructure-activity-7373954959689576448-TEbD?utm_source=share&utm_medium=member_desktop&rcm=ACoAADt5JzsBTeytu69SlI0w8sL_O_lqqClQDpM",
+          "icon": [
+            "fa-solid",
+            "fa-file-alt"
+          ]
+        }
+      ]
+    },
+    {
+      "link": "https://www.linkedin.com/posts/bishalranjit0606_nodejs-static-site-with-docker-jenkins-activity-7334108481165180928-1cDF?utm_source=share&utm_medium=member_desktop&rcm=ACoAADt5JzsBTeytu69SlIw8sL_O_lqqClQDpM",
+      "image": "images/CI:CD.png",
+      "title": "CI/CD pipeline project using Jenkins",
+      "description": "Created a CI/CD pipeline using Jenkins to automate the build,\n                test, and deployment of a Node.js static website within Docker\n                containers.",
+      "tech": [
+        "Jenkins",
+        "Docker",
+        "CI/CD"
+      ],
+      "buttons": [
+        {
+          "text": "Code",
+          "link": "https://github.com/bishalranjit0606/jenkins-project",
+          "icon": [
+            "fa-brands",
+            "fa-github"
+          ]
+        },
+        {
+          "text": "View Details",
+          "link": "https://www.linkedin.com/posts/bishalranjit0606_nodejs-static-site-with-docker-jenkins-activity-7334108481165180928-1cDF?utm_source=share&utm_medium=member_desktop&rcm=ACoAADt5JzsBTeytu69SlI0w8sL_O_lqqClQDpM",
+          "icon": [
+            "fa-solid",
+            "fa-file-alt"
+          ]
+        }
+      ]
+    },
+    {
+      "link": "https://github.com/bishalranjit0606/Deployment-of-Node.js-Application-Using-Docker-on-AWS-EC2",
+      "image": "images/Deployment of nodejs app using docker.png",
+      "title": "Node.js + Docker + AWS EC2",
+      "description": "This project demonstrates how to deploy a Node.js application\n                inside a Docker container on an AWS EC2 instance.",
+      "tech": [
+        "Docker",
+        "Node.js",
+        "AWS",
+        "EC2"
+      ],
+      "buttons": [
+        {
+          "text": "Code",
+          "link": "https://github.com/bishalranjit0606/Deployment-of-Node.js-Application-Using-Docker-on-AWS-EC2",
+          "icon": [
+            "fa-brands",
+            "fa-github"
+          ]
+        },
+        {
+          "text": "View Details",
+          "link": "https://www.linkedin.com/posts/bishalranjit0606_deployment-of-nodejs-application-using-docker-activity-7300411374654906369-a5ve?utm_source=share&utm_medium=member_desktop&rcm=ACoAADt5JzsBTeytu69SlI0w8sL_O_lqqClQDpM",
+          "icon": [
+            "fa-solid",
+            "fa-file-alt"
+          ]
+        }
+      ]
+    },
+    {
+      "link": "https://www.linkedin.com/posts/bishalranjit0606_iot-project-activity-7377657531134885888-pRNq?utm_source=share&utm_medium=member_desktop&rcm=ACoAADt5JzsBTeytu69SlI0w8sL_O_lqqClQDpM",
+      "image": "images/Smart Thermostat with AWS IoT Core.png",
+      "title": "Smart Thermostat with AWS IoT Core",
+      "description": "The goal was to build a thermostat simulator that sends\n                temperature readings and controls the AC based on set\n                thresholds.",
+      "tech": [
+        "IOT Core",
+        "AWS",
+        "SNS"
+      ],
+      "buttons": [
+        {
+          "text": "View Details",
+          "link": "https://www.linkedin.com/posts/bishalranjit0606_iot-project-activity-7377657531134885888-pRNq?utm_source=share&utm_medium=member_desktop&rcm=ACoAADt5JzsBTeytu69SlI0w8sL_O_lqqClQDpM",
+          "icon": [
+            "fa-solid",
+            "fa-file-alt"
+          ]
+        }
+      ]
+    },
+    {
+      "link": "https://www.linkedin.com/posts/bishalranjit0606_django-app-deployment-with-shell-script-activity-7376084565133541377-VM61?utm_source=share&utm_medium=member_desktop&rcm=ACoAADt5JzsBTeytu69SlI0w8sL_O_lqqClQDpM",
+      "image": "images/bash project.png",
+      "title": "Django App Deployment with Shell Scripting",
+      "description": "This project automates the deployment of a Django application\n                on an AWS EC2 Ubuntu instance using Bash scripting, Docker,\n                and Docker Compose.",
+      "tech": [
+        "Django",
+        "Bash script",
+        "AWS"
+      ],
+      "buttons": [
+        {
+          "text": "Code",
+          "link": "https://github.com/bishalranjit0606/shell-scripted-django",
+          "icon": [
+            "fa-brands",
+            "fa-github"
+          ]
+        },
+        {
+          "text": "View Details",
+          "link": "https://www.linkedin.com/posts/bishalranjit0606_django-app-deployment-with-shell-script-activity-7376084565133541377-VM61?utm_source=share&utm_medium=member_desktop&rcm=ACoAADt5JzsBTeytu69SlI0w8sL_O_lqqClQDpM",
+          "icon": [
+            "fa-solid",
+            "fa-file-alt"
+          ]
+        }
+      ]
+    },
+    {
+      "link": "https://www.linkedin.com/posts/bishalranjit0606_deploy-two-tier-application-with-aws-activity-7295494032263200768-RDbH?utm_source=share&utm_medium=member_desktop&rcm=ACoAADt5JzsBTeytu69SlI0w8sL_O_lqqClQDpM",
+      "image": "images/Two-Tier Web App on AWS.png",
+      "title": "Two-Tier Web App on AWS",
+      "description": "Deployed a Two-Tier Web Application on AWS! From setting up a\n                secure VPC to configuring EC2, RDS (MariaDB), and WordPress,\n                this project helped me strengthen my cloud and DevOps skills.",
+      "tech": [
+        "AWS",
+        "Database",
+        "Wordpress"
+      ],
+      "buttons": [
+        {
+          "text": "View Details",
+          "link": "https://www.linkedin.com/posts/bishalranjit0606_deploy-two-tier-application-with-aws-activity-7295494032263200768-RDbH?utm_source=share&utm_medium=member_desktop&rcm=ACoAADt5JzsBTeytu69SlI0w8sL_O_lqqClQDpM",
+          "icon": [
+            "fa-solid",
+            "fa-file-alt"
+          ]
+        }
+      ]
+    }
+  ],
+  "blogs": [
+    {
+      "date": "October 18, 2025",
+      "title": "Docker for DevOps: A Beginner\u2019s Guide to Containerization",
+      "excerpt": "This blog provides an introduction to Docker and covering key\n              concepts, benefits, and a simple tutorial to get started.",
+      "link": "https://medium.com/@bishalranjit2002/docker-for-devops-a-beginners-guide-to-containerization-84daa5cd2de9"
+    },
+    {
+      "date": "October 13, 2025",
+      "title": "How I Passed the AWS Solutions Architect Associate Exam\n              (SAA-C03)",
+      "excerpt": "This blog shares easy steps and tips to pass the AWS Solutions\n              Architect Associate exam with the right study plan and practice.",
+      "link": "https://medium.com/@bishalranjit2002/how-i-passed-the-aws-solutions-architect-associate-exam-saa-c03-9e1ef7421548"
+    },
+    {
+      "date": "October 12, 2025",
+      "title": "AWS Solutions Architect Associate Study Guide (The Architect\u2019s\n              Cheat Sheet)",
+      "excerpt": "A comprehensive study guide for the AWS Solutions Architect\n              Associate exam, covering key concepts, best practices, and exam\n              strategies.",
+      "link": "https://medium.com/@bishalranjit2002/aws-solutions-architect-associate-study-guide-the-architects-cheat-sheet-4f20fdbf37b7"
+    },
+    {
+      "date": "September 24, 2025",
+      "title": "Bash Basics for DevOps with AWS: Automate, Script, Repeat!",
+      "excerpt": "A beginner's guide to using Bash for automation in AWS\n              environments, covering essential commands, scripting techniques,\n              and best practices.",
+      "link": "https://medium.com/@bishalranjit2002/bash-basics-for-devops-with-aws-automate-script-repeat-2abc23835fae"
+    },
+    {
+      "date": "September 21, 2025",
+      "title": "Why Testing Matters in AWS DevOps",
+      "excerpt": "A comprehensive guide to testing strategies in AWS DevOps,\n              including unit testing, integration testing, and end-to-end\n              testing for cloud applications.",
+      "link": "https://medium.com/@bishalranjit2002/why-testing-matters-in-aws-devops-8941902eddbd"
+    },
+    {
+      "date": "July 18, 2025",
+      "title": "Mastering Amazon S3 Encryption & Security: A Simple Guide",
+      "excerpt": "A deep dive into Amazon S3 encryption options, security best\n              practices, and how to implement them effectively in your\n              applications.",
+      "link": "https://medium.com/@bishalranjit2002/mastering-amazon-s3-encryption-security-a-simple-guide-0dd3d30970b4"
+    }
+  ],
+  "experience": [
+    {
+      "title": "Cloud Apprentice",
+      "company": "Adex International",
+      "duration": "Jul 2025 - Aug 2025",
+      "description": "\u27a4 Gained valuable, hands-on experience with AWS services through\n              an 8-week Cloud Apprenticeship.<br/>\n              \u27a4 Mastered the essentials of cloud computing and effectively\n              utilized AWS services.<br/>\n              \u27a4 Prepared for the AWS Solution Architect Associate exam through\n              hands-on training and labs.<br/>\n              \u27a4 Received mentorship from industry experts and engaged in\n              practical, industry-based learning."
+    }
+  ],
+  "certificates": [
+    {
+      "link": "https://cp.certmetrics.com/amazon/en/public/verify/credential/9d548433416649208f29cbe572265c54",
+      "title": "AWS Solutions Architect Associate",
+      "certifiedTag": true,
+      "issuer": "Amazon Web Services (AWS)",
+      "date": "Issued: Sep 2025 \u2022 Expires: Sep 2028",
+      "image": "certificate-image/aws.png"
+    },
+    {
+      "link": "https://github.com/bishalranjit0606/Building-and-Deploying-Containers-Using-Amazon-Elastic-Container-Service/blob/main/Building%20and%20Deploying%20Containers%20Using%20ECS.jpg",
+      "title": "Building and Deploying Containers Using ECS",
+      "certifiedTag": false,
+      "issuer": "Amazon Web Services (AWS)",
+      "date": "Issued: October 2025 \u2022 No Expiration",
+      "image": "certificate-image/Building and Deploying Containers Using ECS.jpg"
+    },
+    {
+      "link": "https://github.com/bishalranjit0606/certified-aws-testing/blob/main/Advanced%20Testing%20Practices%20Using%20AWS%20DevOps%20Tools_page-0001.jpg",
+      "title": "Advanced Testing Using AWS DevOps Tools",
+      "certifiedTag": false,
+      "issuer": "Amazon Web Services (AWS)",
+      "date": "Issued: September 2025 \u2022 No Expiration",
+      "image": "certificate-image/Advanced Testing Practices Using AWS DevOps Tools_page-0001.jpg"
+    },
+    {
+      "link": "https://github.com/bishalranjit0606/Certificate-Deploy-an-End-to-End-IoT-Application/blob/main/3b201b5d-2be4-4cc1-a556-917160a11c67_page-0001.jpg",
+      "title": "Deploy an End-to-End IoT Application from AWS",
+      "certifiedTag": false,
+      "issuer": "Amazon Web Services (AWS)",
+      "date": "Issued: September 2025 \u2022 No Expiration",
+      "image": "certificate-image/deploy-iot-app.jpg"
+    },
+    {
+      "link": "https://www.coursera.org/account/accomplishments/certificate/RTS6DS58N42W",
+      "title": "AWS Cloud Technical Essentials",
+      "certifiedTag": false,
+      "issuer": "Amazon Web Services (AWS)",
+      "date": "Issued: March 2025 \u2022 No Expiration",
+      "image": "certificate-image/cloud-technical.jpg"
+    },
+    {
+      "link": "https://www.coursera.org/account/accomplishments/specialization/SGQUR3LL8S4U",
+      "title": "Google Cloud Security Specialization",
+      "certifiedTag": false,
+      "issuer": "Google Cloud",
+      "date": "Issued: November 2024 \u2022 No Expiration",
+      "image": "certificate-image/cloud-security.jpg"
+    },
+    {
+      "link": "https://www.coursera.org/account/accomplishments/specialization/DE8XO7ZN6C84",
+      "title": "Google Cybersecurity Certificate",
+      "certifiedTag": false,
+      "issuer": "Google",
+      "date": "Issued: October 2024 \u2022 No Expiration",
+      "image": "certificate-image/cybersecurity.jpg"
+    },
+    {
+      "link": "https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/pmnMSL4QiQ9JCgE3W/kkE9HyeNcw6rwCRGw_pmnMSL4QiQ9JCgE3W_P6goJBTMstKSHt3nv_1748792896154_completion_certificate.pdf",
+      "title": "Solutions Architecture Job Simulation",
+      "certifiedTag": false,
+      "issuer": "Forage",
+      "date": "Issued: June 2025 \u2022 No Expiration",
+      "image": "certificate-image/forage.jpg"
+    },
+    {
+      "link": "https://cdn.pwskills.com/learn/certificates/0acafd53-dbd6-44ee-b183-389aeb70a01b.pdf",
+      "title": "Cloud Technology For Websites",
+      "certifiedTag": false,
+      "issuer": "PW Skills",
+      "date": "Issued: January 2025 \u2022 No Expiration",
+      "image": "certificate-image/pwskills.jpg"
+    }
+  ],
+  "contacts": [
+    {
+      "link": "https://github.com/bishalranjit0606",
+      "icon": [
+        "fa-brands",
+        "fa-github"
+      ],
+      "title": "GitHub",
+      "desc": "Check out my code and open source contributions"
+    },
+    {
+      "link": "https://www.linkedin.com/in/bishalranjit0606/",
+      "icon": [
+        "fa-brands",
+        "fa-linkedin-in"
+      ],
+      "title": "LinkedIn",
+      "desc": "Connect with me professionally"
+    },
+    {
+      "link": "mailto:bishalranjitofficial@gmail.com",
+      "icon": [
+        "fa-solid",
+        "fa-envelope"
+      ],
+      "title": "Email",
+      "desc": "Send me a message directly"
+    }
+  ]
+}
