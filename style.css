@@ -405,8 +405,8 @@ body {
 
 [data-theme="light"] .skill-card .icon i,
 [data-theme="light"] .skill-card .icon img {
-  filter: none;
-  color: #333;
+  filter: brightness(0);
+  color: #000;
 }
 
 .skill-card:hover .icon {
