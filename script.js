@@ -202,6 +202,12 @@ const projectsData = [
 
 const blogsData = [
   {
+    date: "December 16, 2025",
+    title: "Mastering the Fundamentals of n8n: A Beginner’s Guide to Automation",
+    excerpt: "I recently completed the n8n Course Level 1, diving deep into the foundations of this powerful workflow automation platform.",
+    link: "https://medium.com/@bishalranjit2002/mastering-the-fundamentals-of-n8n-a-beginners-guide-to-automation-a07980de5f92"
+  },
+  {
     date: "October 18, 2025",
     title: "Docker for DevOps: A Beginner’s Guide to Containerization",
     excerpt: "This blog provides an introduction to Docker and covering key concepts, benefits, and a simple tutorial to get started.",
