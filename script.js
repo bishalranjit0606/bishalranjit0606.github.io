@@ -327,6 +327,15 @@ const certificatesData = [
     date: "Issued: January 2025 • No Expiration",
     image: "certificate-image/pwskills.jpg"
   }
+  ,
+  {
+    link: "https://community.n8n.io/badges/104/completed-n8n-course-level-1?username=bishal_ranjit",
+    title: "n8n Course Level 1",
+    certifiedTag: false,
+    issuer: "n8n",
+    date: "Issued: December 2025 • No Expiration",
+    image: "certificate-image/n8n Course Level 1.png"
+  }
 ];
 
 const contactsData = [
