@@ -94,6 +94,17 @@ const skillsData = [
 
 const projectsData = [
   {
+    link: "https://www.linkedin.com/posts/bishalranjit0606_weekly-erp-reporting-workflow-in-n8n-activity-7406724257918988288-tuh5?utm_source=share&utm_medium=member_desktop&rcm=ACoAADt5JzsBTeytu69SlI0w8sL_O_lqqClQDpM",
+    image: "images/ERP-n8n.png",
+    title: "Weekly ERP Reporting Workflow in n8n",
+    description: " multi-path n8n workflow that handles weekly ERP data extraction, applies conditional logic, and automatically routes the results to two different destinations.",
+    tech: ["n8n", "automation", "ERP"],
+    buttons: [
+      { text: "Code", link: "https://github.com/bishalranjit0606/Weekly-ERP-Reporting-Workflow-in-n8n", icon: ["fa-brands", "fa-github"] },
+      { text: "View Details", link: "https://www.linkedin.com/posts/bishalranjit0606_weekly-erp-reporting-workflow-in-n8n-activity-7406724257918988288-tuh5?utm_source=share&utm_medium=member_desktop&rcm=ACoAADt5JzsBTeytu69SlI0w8sL_O_lqqClQDpM", icon: ["fa-solid", "fa-file-alt"] }
+    ]
+  },
+  {
     link: "https://shorturl.at/Q0Fwb",
     image: "images/ECS-PROJECT.png",
     title: "Building and Deploying Containers Using AWS ECS",
