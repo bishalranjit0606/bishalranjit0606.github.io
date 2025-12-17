@@ -89,6 +89,14 @@ const skillsData = [
     modalDesc: "Code hosting and collaboration platform.",
     iconType: "class",
     icon: ["fa-brands", "fa-github"]
+  },
+  {
+    id: "n8n",
+    title: "n8n",
+    desc: "Workflow Automation",
+    modalDesc: "Fair-code licensed workflow automation tool.",
+    iconType: "image",
+    icon: "https://cdn.simpleicons.org/n8n"
   }
 ];
 
