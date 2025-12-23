@@ -213,6 +213,12 @@ const projectsData = [
 
 const blogsData = [
   {
+    date: "December 23, 2025",
+    title: "Making Data Work for You: How I Built an Automated Reporting System",
+    excerpt: "Data is everywhere, but the real magic happens when you make that data move and talk to other systems without lifting a finger.",
+    link: "https://medium.com/@bishalranjit2002/making-data-work-for-you-how-i-built-an-automated-reporting-system-b71e18ad8305?postPublishedType=initial"
+  },
+  {
     date: "December 16, 2025",
     title: "Mastering the Fundamentals of n8n: A Beginner’s Guide to Automation",
     excerpt: "I recently completed the n8n Course Level 1, diving deep into the foundations of this powerful workflow automation platform.",
