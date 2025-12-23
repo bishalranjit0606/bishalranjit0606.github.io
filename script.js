@@ -102,14 +102,14 @@ const skillsData = [
 
 const projectsData = [
   {
-    link: "https://www.linkedin.com/posts/bishalranjit0606_weekly-erp-reporting-workflow-in-n8n-activity-7406724257918988288-tuh5?utm_source=share&utm_medium=member_desktop&rcm=ACoAADt5JzsBTeytu69SlI0w8sL_O_lqqClQDpM",
-    image: "images/ERP-n8n.png",
-    title: "Weekly ERP Reporting Workflow in n8n",
-    description: " multi-path n8n workflow that handles weekly ERP data extraction, applies conditional logic, and automatically routes the results to two different destinations.",
+    link: "https://www.linkedin.com/posts/bishalranjit0606_automated-data-enrichment-reporting-workflow-activity-7409174963527806976-FQIZ?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAADt5JzsBTeytu69SlI0w8sL_O_lqqClQDpM",
+    image: "images/n8n Course Level 2.png",
+    title: "Data Enrichment & Reporting Automation",
+    description: "This n8n workflow automates the synchronization of customer data between an external ERP system and Airtable.",
     tech: ["n8n", "automation", "ERP"],
     buttons: [
-      { text: "Code", link: "https://github.com/bishalranjit0606/Weekly-ERP-Reporting-Workflow-in-n8n", icon: ["fa-brands", "fa-github"] },
-      { text: "View Details", link: "https://www.linkedin.com/posts/bishalranjit0606_weekly-erp-reporting-workflow-in-n8n-activity-7406724257918988288-tuh5?utm_source=share&utm_medium=member_desktop&rcm=ACoAADt5JzsBTeytu69SlI0w8sL_O_lqqClQDpM", icon: ["fa-solid", "fa-file-alt"] }
+      { text: "Code", link: "https://lnkd.in/gphcF8tk", icon: ["fa-brands", "fa-github"] },
+      { text: "View Details", link: "https://www.linkedin.com/posts/bishalranjit0606_automated-data-enrichment-reporting-workflow-activity-7409174963527806976-FQIZ?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAADt5JzsBTeytu69SlI0w8sL_O_lqqClQDpM", icon: ["fa-solid", "fa-file-alt"] }
     ]
   },
   {
@@ -165,6 +165,17 @@ const projectsData = [
     buttons: [
       { text: "Code", link: "https://github.com/bishalranjit0606/Deployment-of-Node.js-Application-Using-Docker-on-AWS-EC2", icon: ["fa-brands", "fa-github"] },
       { text: "View Details", link: "https://www.linkedin.com/posts/bishalranjit0606_deployment-of-nodejs-application-using-docker-activity-7300411374654906369-a5ve?utm_source=share&utm_medium=member_desktop&rcm=ACoAADt5JzsBTeytu69SlI0w8sL_O_lqqClQDpM", icon: ["fa-solid", "fa-file-alt"] }
+    ]
+  },
+  {
+    link: "https://www.linkedin.com/posts/bishalranjit0606_weekly-erp-reporting-workflow-in-n8n-activity-7406724257918988288-tuh5?utm_source=share&utm_medium=member_desktop&rcm=ACoAADt5JzsBTeytu69SlI0w8sL_O_lqqClQDpM",
+    image: "images/ERP-n8n.png",
+    title: "Weekly ERP Reporting Workflow in n8n",
+    description: " multi-path n8n workflow that handles weekly ERP data extraction, applies conditional logic, and automatically routes the results to two different destinations.",
+    tech: ["n8n", "automation", "ERP"],
+    buttons: [
+      { text: "Code", link: "https://github.com/bishalranjit0606/Weekly-ERP-Reporting-Workflow-in-n8n", icon: ["fa-brands", "fa-github"] },
+      { text: "View Details", link: "https://www.linkedin.com/posts/bishalranjit0606_weekly-erp-reporting-workflow-in-n8n-activity-7406724257918988288-tuh5?utm_source=share&utm_medium=member_desktop&rcm=ACoAADt5JzsBTeytu69SlI0w8sL_O_lqqClQDpM", icon: ["fa-solid", "fa-file-alt"] }
     ]
   },
   {
