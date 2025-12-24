@@ -1227,6 +1227,10 @@ body {
     margin-right: 0;
   }
 
+  .hero p {
+    text-align: center;
+  }
+
   .hero h1 {
     font-size: 2.25rem;
   }
