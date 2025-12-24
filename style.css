@@ -266,6 +266,17 @@ body {
   margin-bottom: 1rem;
 }
 
+.hero h1 .intro-line {
+  font-size: 3rem;
+}
+
+.hero h1 .title-line {
+  font-size: 2.2rem;
+  display: inline-block;
+  margin-top: 0.3rem;
+
+}
+
 /* UPDATED: Uses --text-gradient for brightness control */
 .hero .highlight {
   background: var(--text-gradient);
@@ -277,9 +288,10 @@ body {
 .hero p {
   font-size: 1rem;
   color: var(--secondary-text);
-  line-height: 1.6;
+  line-height: 1.8;
   max-width: 600px;
   margin-bottom: 2rem;
+  text-align: left;
 }
 
 .hero-buttons {
@@ -1217,6 +1229,14 @@ body {
 
   .hero h1 {
     font-size: 2.25rem;
+  }
+
+  .hero h1 .intro-line {
+    font-size: 2.25rem;
+  }
+
+  .hero h1 .title-line {
+    font-size: 1.6rem;
   }
 
   .hero-image {
