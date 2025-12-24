@@ -1144,7 +1144,7 @@ body {
     border-right: none;
     border-left: 1px solid var(--border-color);
     box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
-    transform: translateY(-100%);
+    transform: translateX(100%);
     opacity: 0;
     pointer-events: none;
     transition: transform 0.3s ease-out, opacity 0.3s ease-out;
@@ -1152,7 +1152,7 @@ body {
   }
 
   .sidebar.open {
-    transform: translateY(0);
+    transform: translateX(0);
     opacity: 1;
     pointer-events: auto;
     overflow-y: auto;
