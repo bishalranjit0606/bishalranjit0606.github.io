@@ -264,10 +264,28 @@ const blogsData = [
 
 const experienceData = [
   {
+    title: "Automation Intern",
+    company: "Recruit Nepal",
+    type: "Internship",
+    duration: "Jan 2026 – Present",
+    description: [
+      "Automated social media workflows, reducing manual post creation effort by 50%",
+      "Built and optimized automation scripts to streamline internal recruitment processes",
+      "Improved operational efficiency by minimizing repetitive tasks across platforms",
+      "Collaborated with the team to identify automation opportunities and implement scalable solutions"
+    ]
+  },
+  {
     title: "Cloud Apprentice",
     company: "Adex International",
+    type: "Apprenticeship",
     duration: "Jul 2025 - Aug 2025",
-    description: "➤ Gained valuable, hands-on experience with AWS services through an 8-week Cloud Apprenticeship.<br />➤ Mastered the essentials of cloud computing and effectively utilized AWS services.<br />➤ Prepared for the AWS Solution Architect Associate exam through hands-on training and labs.<br />➤ Received mentorship from industry experts and engaged in practical, industry-based learning."
+    description: [
+      "Gained valuable, hands-on experience with AWS services through an 8-week Cloud Apprenticeship",
+      "Mastered the essentials of cloud computing and effectively utilized AWS services",
+      "Prepared for the AWS Solution Architect Associate exam through hands-on training and labs",
+      "Received mentorship from industry experts and engaged in practical, industry-based learning"
+    ]
   }
 ];
 
@@ -635,33 +653,76 @@ function renderBlogs() {
 }
 
 function renderExperience() {
-  // Experience is a bit different, it's inside #experience section but doesn't have a specific container ID in the original HTML other than the section itself.
-  // But looking at the HTML, there is a .timeline-item div. I should probably target the section or a container within it.
-  // In the original HTML, .timeline-item is a direct child of #experience section (after header).
-  // I'll assume I should append to a container. I'll need to add a container in index.html or append to the section.
-  // Best to add a container in index.html: <div id="experience-container"></div>
-
   const container = document.getElementById('experience-container');
   if (!container) return;
+
+  container.className = 'experience-timeline';
   container.innerHTML = '';
 
-  experienceData.forEach(exp => {
+  experienceData.forEach((exp, index) => {
     const item = document.createElement('div');
     item.className = 'timeline-item';
+    item.setAttribute('data-index', index);
+
+    // Handle both string and array descriptions
+    let descriptionHtml = '';
+    if (Array.isArray(exp.description)) {
+      descriptionHtml = '<ul class="job-description-list">';
+      exp.description.forEach((bullet, i) => {
+        descriptionHtml += `<li class="job-bullet" style="animation-delay: ${0.3 + (i * 0.1)}s">${bullet}</li>`;
+      });
+      descriptionHtml += '</ul>';
+    } else {
+      descriptionHtml = `<p class="job-description">${exp.description}</p>`;
+    }
+
+    const typeTag = exp.type ? `<span class="job-type-tag">${exp.type}</span>` : '';
 
     item.innerHTML = `
       <div class="timeline-dot"></div>
       <div class="timeline-content">
-        <h3 class="job-title">${exp.title}</h3>
+        <h3 class="job-title">${exp.title} ${typeTag}</h3>
         <div class="company">${exp.company}</div>
         <div class="job-duration">${exp.duration}</div>
-        <p class="job-description">${exp.description}</p>
+        ${descriptionHtml}
       </div>
     `;
 
     container.appendChild(item);
   });
+
+  // Initialize scroll animations
+  initExperienceAnimations();
 }
+
+function initExperienceAnimations() {
+  const timelineItems = document.querySelectorAll('.timeline-item');
+
+  if (!timelineItems.length) return;
+
+  // Create Intersection Observer for scroll animations
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.2
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-in');
+        // Optionally unobserve after animation
+        // observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // Observe all timeline items
+  timelineItems.forEach(item => {
+    observer.observe(item);
+  });
+}
+
 
 function renderCertificates() {
   const container = document.getElementById('certificates-container');
