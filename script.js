@@ -1,76 +1,30 @@
 
+
 /* --- DATA CONFIGURATION --- */
 
 const skillsData = [
+  // AUTOMATION TOOLS (Priority 1)
   {
-    id: "aws",
-    title: "AWS",
-    desc: "Cloud Platform",
-    modalDesc: "Leading cloud platform for scalable apps.",
-    iconType: "class",
-    icon: ["fa-brands", "fa-aws"]
-  },
-  {
-    id: "docker",
-    title: "Docker",
-    desc: "Containerization",
-    modalDesc: "Build once, run anywhere containerization.",
-    iconType: "class",
-    icon: ["fa-brands", "fa-docker"]
-  },
-  {
-    id: "kubernetes",
-    title: "Kubernetes",
-    desc: "Container Orchestration",
-    modalDesc: "Container orchestration and management.",
-    iconType: "class",
-    icon: ["fa-solid", "fa-dharmachakra"]
-  },
-  {
-    id: "terraform",
-    title: "Terraform",
-    desc: "Infrastructure as Code",
-    modalDesc: "Infrastructure as Code provisioning tool.",
+    id: "n8n",
+    title: "n8n",
+    desc: "Workflow Automation",
+    modalDesc: "Fair-code licensed workflow automation tool for building complex integrations and automations.",
     iconType: "image",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-plain.svg"
+    icon: "https://cdn.simpleicons.org/n8n"
   },
   {
     id: "jenkins",
     title: "Jenkins",
     desc: "CI/CD",
-    modalDesc: "Automates building, testing, and deployment.",
+    modalDesc: "Automates building, testing, and deployment pipelines.",
     iconType: "class",
     icon: ["fa-brands", "fa-jenkins"]
-  },
-  {
-    id: "prometheus",
-    title: "Prometheus",
-    desc: "Monitoring",
-    modalDesc: "Powerful monitoring and alerting toolkit.",
-    iconType: "image",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prometheus/prometheus-original.svg"
-  },
-  {
-    id: "grafana",
-    title: "Grafana",
-    desc: "Visualization",
-    modalDesc: "Analytics and interactive visualization web app.",
-    iconType: "image",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/grafana/grafana-original.svg"
-  },
-  {
-    id: "linux",
-    title: "Linux",
-    desc: "Operating System",
-    modalDesc: "Open-source OS for servers and cloud.",
-    iconType: "class",
-    icon: ["fa-brands", "fa-linux"]
   },
   {
     id: "bash",
     title: "Bash",
     desc: "Scripting",
-    modalDesc: "Command-line scripting and automation.",
+    modalDesc: "Command-line scripting and automation for system tasks.",
     iconType: "image",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-plain.svg"
   },
@@ -78,25 +32,82 @@ const skillsData = [
     id: "python",
     title: "Python",
     desc: "Programming Language",
-    modalDesc: "High-level language for versatile coding.",
+    modalDesc: "High-level language for automation, scripting, and versatile coding.",
     iconType: "class",
     icon: ["fa-brands", "fa-python"]
+  },
+  {
+    id: "postman",
+    title: "Postman",
+    desc: "API Testing",
+    modalDesc: "API development and testing platform for building and testing APIs.",
+    iconType: "image",
+    icon: "https://cdn.simpleicons.org/postman/FF6C37"
+  },
+  // CLOUD ENGINEERING TOOLS (Priority 2)
+  {
+    id: "aws",
+    title: "AWS",
+    desc: "Cloud Platform",
+    modalDesc: "Leading cloud platform for scalable applications and infrastructure.",
+    iconType: "class",
+    icon: ["fa-brands", "fa-aws"]
+  },
+  {
+    id: "docker",
+    title: "Docker",
+    desc: "Containerization",
+    modalDesc: "Build once, run anywhere containerization platform.",
+    iconType: "class",
+    icon: ["fa-brands", "fa-docker"]
+  },
+  {
+    id: "kubernetes",
+    title: "Kubernetes",
+    desc: "Container Orchestration",
+    modalDesc: "Container orchestration and management at scale.",
+    iconType: "class",
+    icon: ["fa-solid", "fa-dharmachakra"]
+  },
+  {
+    id: "terraform",
+    title: "Terraform",
+    desc: "Infrastructure as Code",
+    modalDesc: "Infrastructure as Code provisioning and management tool.",
+    iconType: "image",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-plain.svg"
+  },
+  {
+    id: "prometheus",
+    title: "Prometheus",
+    desc: "Monitoring",
+    modalDesc: "Powerful monitoring and alerting toolkit for cloud infrastructure.",
+    iconType: "image",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prometheus/prometheus-original.svg"
+  },
+  {
+    id: "grafana",
+    title: "Grafana",
+    desc: "Visualization",
+    modalDesc: "Analytics and interactive visualization web application.",
+    iconType: "image",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/grafana/grafana-original.svg"
+  },
+  {
+    id: "linux",
+    title: "Linux",
+    desc: "Operating System",
+    modalDesc: "Open-source OS for servers and cloud infrastructure.",
+    iconType: "class",
+    icon: ["fa-brands", "fa-linux"]
   },
   {
     id: "github",
     title: "GitHub",
     desc: "Code Management",
-    modalDesc: "Code hosting and collaboration platform.",
+    modalDesc: "Code hosting and collaboration platform for version control.",
     iconType: "class",
     icon: ["fa-brands", "fa-github"]
-  },
-  {
-    id: "n8n",
-    title: "n8n",
-    desc: "Workflow Automation",
-    modalDesc: "Fair-code licensed workflow automation tool.",
-    iconType: "image",
-    icon: "https://cdn.simpleicons.org/n8n"
   }
 ];
 
