@@ -686,7 +686,44 @@ function renderExperience() {
         <div class="job-duration">${exp.duration}</div>
         ${descriptionHtml}
       </div>
+      <div class="expand-indicator">▼</div>
     `;
+
+    // Add accessibility attributes
+    item.setAttribute('role', 'button');
+    item.setAttribute('aria-expanded', 'false');
+    item.setAttribute('tabindex', '0');
+    item.style.cursor = 'pointer';
+
+    // Click handler for accordion functionality
+    const toggleExpand = () => {
+      const isExpanded = item.classList.contains('expanded');
+
+      // Toggle expanded state
+      item.classList.toggle('expanded');
+      item.setAttribute('aria-expanded', !isExpanded);
+
+      // Re-trigger bullet animations when expanding
+      if (!isExpanded) {
+        const bullets = item.querySelectorAll('.job-bullet');
+        bullets.forEach((bullet) => {
+          bullet.style.animation = 'none';
+          bullet.offsetHeight; // Trigger reflow
+          bullet.style.animation = '';
+        });
+      }
+    };
+
+    // Click event
+    item.addEventListener('click', toggleExpand);
+
+    // Keyboard support
+    item.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleExpand();
+      }
+    });
 
     container.appendChild(item);
   });
