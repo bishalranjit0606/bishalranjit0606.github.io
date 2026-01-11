@@ -278,7 +278,7 @@ const experienceData = [
     title: "Automation Intern",
     company: "Recruit Nepal",
     type: "Internship",
-    duration: "Jan 2026 – Present",
+    duration: "Jan 2024 – Present",
     description: [
       "Automated social media workflows, reducing manual post creation effort by 50%",
       "Built and optimized automation scripts to streamline internal recruitment processes",
@@ -290,7 +290,7 @@ const experienceData = [
     title: "Leo Club Member",
     company: "Leo District Council 325D",
     type: "Part-time",
-    duration: "Jan 2026 – Present",
+    duration: "Jan 2024 – Present",
     description: [
       "Developed leadership skills by leading community service projects and coordinating club initiatives.",
       "Collaborated with team members to organize and execute high-impact volunteering acti vities.",
