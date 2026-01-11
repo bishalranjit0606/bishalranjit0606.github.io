@@ -287,6 +287,17 @@ const experienceData = [
     ]
   },
   {
+    title: "Leo Club Member",
+    company: "Leo District Council 325D",
+    type: "Part-time",
+    duration: "Jan 2026 – Present",
+    description: [
+      "Developed leadership skills by leading community service projects and coordinating club initiatives.",
+      "Collaborated with team members to organize and execute high-impact volunteering acti vities.",
+      "Contributed to diverse social projects aimed at creating a positive impact in the local community."
+    ]
+  },
+  {
     title: "Cloud Apprentice",
     company: "Adex International",
     type: "Apprenticeship",
@@ -296,6 +307,18 @@ const experienceData = [
       "Mastered the essentials of cloud computing and effectively utilized AWS services",
       "Prepared for the AWS Solution Architect Associate exam through hands-on training and labs",
       "Received mentorship from industry experts and engaged in practical, industry-based learning"
+    ]
+  },
+  {
+    title: "IT Club Member",
+    company: "KBC IT Club",
+    type: "Part-time",
+    duration: "Jan 2022 - Jan 2023",
+    description: [
+      "Developed a strong foundation in cloud architecture by mastering core AWS services and cloud computing essentials.",
+      "Completed an intensive 8-week Cloud Apprenticeship featuring hands-on labs and practical, industry-based training.",
+      "Prepared for the AWS Solutions Architect Associate certification through expert-led mentorship and technical workshops.",
+      "Applied theoretical knowledge to real-world scenarios by utilizing AWS tools to solve industry-specific problems."
     ]
   }
 ];
