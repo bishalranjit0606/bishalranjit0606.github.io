@@ -1413,6 +1413,12 @@ body {
   }
 
   /* --- BEGIN MODIFICATION FOR HORIZONTAL BUTTONS --- */
+  .job-title {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
   .hero-buttons {
     gap: 10px;
     /* Slight reduction in gap */
