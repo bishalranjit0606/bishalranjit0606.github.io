@@ -275,15 +275,15 @@ const blogsData = [
 
 const experienceData = [
   {
-    title: "Automation Intern",
-    company: "Recruit Nepal",
+    title: "Automation & DevOps Intern",
+    company: "Intern/Recruit Nepal",
     type: "Internship",
     duration: "Jan 2026 – Present",
     description: [
-      "Automated social media workflows, reducing manual post creation effort by 50%",
-      "Built and optimized automation scripts to streamline internal recruitment processes",
-      "Improved operational efficiency by minimizing repetitive tasks across platforms",
-      "Collaborated with the team to identify automation opportunities and implement scalable solutions"
+      "Automated workflows using n8n, reducing manual work by 20%",
+      "Built automation flows that improved task completion speed by 25%",
+      "Assisted with GitHub Actions and Docker to automate basic deployment steps",
+      "Improved system efficiency by automating repeated processes across tools"
     ]
   },
   {
@@ -315,10 +315,7 @@ const experienceData = [
     type: "Part-time",
     duration: "Jan 2022 - Jan 2023",
     description: [
-      "Developed a strong foundation in cloud architecture by mastering core AWS services and cloud computing essentials.",
-      "Completed an intensive 8-week Cloud Apprenticeship featuring hands-on labs and practical, industry-based training.",
-      "Prepared for the AWS Solutions Architect Associate certification through expert-led mentorship and technical workshops.",
-      "Applied theoretical knowledge to real-world scenarios by utilizing AWS tools to solve industry-specific problems."
+      "Actively participated in IT club initiatives, contributing to technology-based projects and collaborative team activities. Assisted in organizing workshops, events, and sessions to promote learning and skill development in areas like programming, networking, and IT tools."
     ]
   }
 ];
