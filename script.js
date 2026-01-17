@@ -400,7 +400,15 @@ const certificatesData = [
     issuer: "PW Skills",
     date: "Issued: January 2025 • No Expiration",
     image: "certificate-image/pwskills.jpg"
-  }
+  },
+  {
+    link: "https://www.datacamp.com/statement-of-accomplishment/course/592236acc54c3d46be46d30dfd9b96f892c6a0d3?raw=1",
+    title: "Introduction to Workflow Automation with n8n",
+    certifiedTag: false,
+    issuer: "DataCamp",
+    date: "Issued: January 2026 • No Expiration",
+    image: "certificate-image/n8n-datacamp.jpg"
+  },
   ,
   {
     link: "https://community.n8n.io/badges/104/completed-n8n-course-level-1?username=bishal_ranjit",
