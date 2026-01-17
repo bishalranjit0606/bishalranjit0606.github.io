@@ -224,6 +224,12 @@ const projectsData = [
 
 const blogsData = [
   {
+    date: "January 17, 2026",
+    title: "How to Use Automation to Save Time and Money",
+    excerpt: "Automation isn’t just about making things faster, it’s about making businesses run smarter. If you’re learning n8n or any other automation tool.",
+    link: "https://lnkd.in/gUCeNDmz"
+  },
+  {
     date: "December 23, 2025",
     title: "Making Data Work for You: How I Built an Automated Reporting System",
     excerpt: "Data is everywhere, but the real magic happens when you make that data move and talk to other systems without lifting a finger.",
