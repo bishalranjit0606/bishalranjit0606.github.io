@@ -113,6 +113,17 @@ const skillsData = [
 
 const projectsData = [
   {
+    link: "https://medium.com/@bishalranjit2002/building-a-100-free-ai-job-hunter-with-n8n-groq-and-jina-ai-69a762089349",
+    image: "images/free-job-hunting.png",
+    title: "100% Free AI Job Hunter with n8n, Groq, and Jina AI",
+    description: "An automated workflow that hunts, reads, and summarizes job postings using n8n, Groq, and Jina AI.",
+    tech: ["n8n", "AI", "Automation"],
+    buttons: [
+      { text: "Code", link: "https://github.com/bishalranjit0606/Free-AI-Job-Hunter-with-n8n-Groq-and-Jina-AI/blob/main/sourceCode.json?source=post_page-----69a762089349---------------------------------------", icon: ["fa-brands", "fa-github"] },
+      { text: "View Details", link: "https://medium.com/@bishalranjit2002/building-a-100-free-ai-job-hunter-with-n8n-groq-and-jina-ai-69a762089349", icon: ["fa-solid", "fa-file-alt"] }
+    ]
+  },
+  {
     link: "https://www.linkedin.com/posts/bishalranjit0606_automated-data-enrichment-reporting-workflow-activity-7409174963527806976-FQIZ?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAADt5JzsBTeytu69SlI0w8sL_O_lqqClQDpM",
     image: "images/n8n Course Level 2.png",
     title: "Data Enrichment & Reporting Automation",
@@ -223,6 +234,12 @@ const projectsData = [
 ];
 
 const blogsData = [
+  {
+    date: "February 21, 2026",
+    title: "Building a 100% Free AI Job Hunter with n8n, Groq, and Jina AI",
+    excerpt: "Searching for jobs is a full-time job in itself. But what if you could build a “robot assistant” to do the hunting, reading, and summarizing for you — for zero dollars?",
+    link: "https://medium.com/@bishalranjit2002/building-a-100-free-ai-job-hunter-with-n8n-groq-and-jina-ai-69a762089349"
+  },
   {
     date: "January 17, 2026",
     title: "How to Use Automation to Save Time and Money",
