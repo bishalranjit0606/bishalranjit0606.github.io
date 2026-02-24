@@ -613,13 +613,10 @@ function renderSkills() {
       const modal = document.getElementById("skillModal");
       const modalTitle = document.getElementById("modalTitle");
       const modalDescription = document.getElementById("modalDescription");
+      const modalIcon = document.getElementById("modalIcon");
 
-      // Note: In a real app, you might want to store descriptions in the data object
-      // For now, we'll use the description from the card or a lookup if needed.
-      // The original code used a separate skillData object for descriptions.
-      // We can use the 'desc' from our data, or if more detail is needed, add it to data.
-      // Let's assume 'desc' is enough or we can add a 'longDesc' field later.
-      // For this refactor, I'll use the 'desc' field.
+      // Inject the exact icon HTML string we built for the card into the modal
+      modalIcon.innerHTML = iconHtml;
 
       modalTitle.textContent = skill.title;
       modalDescription.textContent = skill.modalDesc || skill.desc;
