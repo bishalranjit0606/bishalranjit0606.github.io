@@ -71,9 +71,25 @@ body {
 .profile {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 25px;
+  /* Added more space below profile */
   padding-bottom: 20px;
   border-bottom: 1px solid var(--border-color);
+}
+
+.profile-logo {
+  width: 45px;
+  height: 65px;
+  /* Fixed height to match text roughly */
+  object-fit: contain;
+  margin-right: -8px;
+  /* Pull text slightly closer if needed, or adjust */
+  filter: drop-shadow(0 0 8px rgba(79, 70, 229, 0.8));
+}
+
+[data-theme="light"] .profile-logo {
+  /* Use invert to make white text black, then apply a strong color filter to get the purple/blue brand color */
+  filter: invert(30%) sepia(90%) saturate(3000%) hue-rotate(240deg) brightness(90%) contrast(110%);
 }
 
 .profile-info {
