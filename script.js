@@ -298,8 +298,9 @@ const blogsData = [
 
 const experienceData = [
   {
-    title: "Automation & DevOps Intern",
+    title: "Ai Automation Intern",
     company: "Intern/Recruit Nepal",
+    link: "https://recruitnepal.com/",
     type: "Internship",
     duration: "Jan 2026 – Present",
     description: [
@@ -312,6 +313,7 @@ const experienceData = [
   {
     title: "Leo Club Member",
     company: "Leo District Council 325D",
+    link: "https://www.ldc325d.com/",
     type: "Part-time",
     duration: "Jan 2024 – Present",
     description: [
@@ -323,6 +325,7 @@ const experienceData = [
   {
     title: "Cloud Apprentice",
     company: "Adex International",
+    link: "https://adex.ltd/",
     type: "Apprenticeship",
     duration: "Jul 2025 - Aug 2025",
     description: [
@@ -335,6 +338,7 @@ const experienceData = [
   {
     title: "IT Club Member",
     company: "KBC IT Club",
+    link: "https://kbc.edu.np/clubs/it-club",
     type: "Part-time",
     duration: "Jan 2022 - Jan 2023",
     description: [
@@ -741,7 +745,7 @@ function renderExperience() {
       <div class="timeline-dot"></div>
       <div class="timeline-content">
         <h3 class="job-title">${exp.title} ${typeTag}</h3>
-        <div class="company">${exp.company}</div>
+        <div class="company">${exp.link ? `<a href="${exp.link}" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline; text-decoration-color: var(--highlight-color); text-underline-offset: 4px;" class="company-link" onclick="event.stopPropagation()">${exp.company} <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.7em; margin-left: 4px; opacity: 0.7;"></i></a>` : exp.company}</div>
         <div class="job-duration">${exp.duration}</div>
         ${descriptionHtml}
       </div>
