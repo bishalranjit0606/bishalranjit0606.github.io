@@ -3,7 +3,6 @@
 /* --- DATA CONFIGURATION --- */
 
 const skillsData = [
-  // AUTOMATION TOOLS (Priority 1)
   {
     id: "n8n",
     title: "n8n",
@@ -11,22 +10,6 @@ const skillsData = [
     modalDesc: "Fair-code licensed workflow automation tool for building complex integrations and automations.",
     iconType: "image",
     icon: "https://cdn.simpleicons.org/n8n"
-  },
-  {
-    id: "jenkins",
-    title: "Jenkins",
-    desc: "CI/CD",
-    modalDesc: "Automates building, testing, and deployment pipelines.",
-    iconType: "class",
-    icon: ["fa-brands", "fa-jenkins"]
-  },
-  {
-    id: "bash",
-    title: "Bash",
-    desc: "Scripting",
-    modalDesc: "Command-line scripting and automation for system tasks.",
-    iconType: "image",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-plain.svg"
   },
   {
     id: "python",
@@ -37,14 +20,13 @@ const skillsData = [
     icon: ["fa-brands", "fa-python"]
   },
   {
-    id: "postman",
-    title: "Postman",
-    desc: "API Testing",
-    modalDesc: "API development and testing platform for building and testing APIs.",
-    iconType: "image",
-    icon: "https://cdn.simpleicons.org/postman/FF6C37"
+    id: "javascript",
+    title: "JavaScript",
+    desc: "Web Programming",
+    modalDesc: "Essential for web development, scripting, and building interactive user experiences.",
+    iconType: "class",
+    icon: ["fa-brands", "fa-js"]
   },
-  // CLOUD ENGINEERING TOOLS (Priority 2)
   {
     id: "aws",
     title: "AWS",
@@ -78,22 +60,6 @@ const skillsData = [
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-plain.svg"
   },
   {
-    id: "prometheus",
-    title: "Prometheus",
-    desc: "Monitoring",
-    modalDesc: "Powerful monitoring and alerting toolkit for cloud infrastructure.",
-    iconType: "image",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prometheus/prometheus-original.svg"
-  },
-  {
-    id: "grafana",
-    title: "Grafana",
-    desc: "Visualization",
-    modalDesc: "Analytics and interactive visualization web application.",
-    iconType: "image",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/grafana/grafana-original.svg"
-  },
-  {
     id: "linux",
     title: "Linux",
     desc: "Operating System",
@@ -108,10 +74,61 @@ const skillsData = [
     modalDesc: "Code hosting and collaboration platform for version control.",
     iconType: "class",
     icon: ["fa-brands", "fa-github"]
+  },
+  {
+    id: "jenkins",
+    title: "Jenkins",
+    desc: "CI/CD",
+    modalDesc: "Automates building, testing, and deployment pipelines.",
+    iconType: "class",
+    icon: ["fa-brands", "fa-jenkins"]
+  },
+  {
+    id: "bash",
+    title: "Bash",
+    desc: "Scripting",
+    modalDesc: "Command-line scripting and automation for system tasks.",
+    iconType: "image",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-plain.svg"
+  },
+  {
+    id: "postman",
+    title: "Postman",
+    desc: "API Testing",
+    modalDesc: "API development and testing platform for building and testing APIs.",
+    iconType: "image",
+    icon: "https://cdn.simpleicons.org/postman/FF6C37"
+  },
+  {
+    id: "prometheus",
+    title: "Prometheus",
+    desc: "Monitoring",
+    modalDesc: "Powerful monitoring and alerting toolkit for cloud infrastructure.",
+    iconType: "image",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prometheus/prometheus-original.svg"
+  },
+  {
+    id: "grafana",
+    title: "Grafana",
+    desc: "Visualization",
+    modalDesc: "Analytics and interactive visualization web application.",
+    iconType: "image",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/grafana/grafana-original.svg"
   }
 ];
 
 const projectsData = [
+  {
+    link: "https://medium.com/p/21f5a3763fb1?postPublishedType=initial",
+    image: "images/autojobpost.png",
+    title: "Auto Job Posting Using n8n and a Multimodal AI Agent",
+    description: "Built a zero-touch system that automates LinkedIn job postings using n8n and a multimodal AI agent for intelligent content generation.",
+    tech: ["n8n", "AI Agent", "Automation"],
+    buttons: [
+      { text: "Code", link: "https://github.com/bishalranjit0606/n8n-linkedin-job-post-automation", icon: ["fa-brands", "fa-github"] },
+      { text: "View Details", link: "https://medium.com/p/21f5a3763fb1?postPublishedType=initial", icon: ["fa-solid", "fa-file-alt"] }
+    ]
+  },
   {
     link: "https://medium.com/@bishalranjit2002/building-a-100-free-ai-job-hunter-with-n8n-groq-and-jina-ai-69a762089349",
     image: "images/free-job-hunting.png",
@@ -234,6 +251,12 @@ const projectsData = [
 ];
 
 const blogsData = [
+  {
+    date: "March 05, 2026",
+    title: "How I Built a Zero-Touch LinkedIn Job Posting System Using n8n and a Multimodal AI Agent",
+    excerpt: "Discover how I automated the entire LinkedIn job posting process using n8n and a multimodal AI agent, achieving a seamless zero-touch workflow.",
+    link: "https://medium.com/p/21f5a3763fb1?postPublishedType=initial"
+  },
   {
     date: "February 21, 2026",
     title: "Building a 100% Free AI Job Hunter with n8n, Groq, and Jina AI",
@@ -365,12 +388,12 @@ const certificatesData = [
     image: "certificate-image/n8n Course Level 2.png"
   },
   {
-    link: "https://github.com/bishalranjit0606/Building-and-Deploying-Containers-Using-Amazon-Elastic-Container-Service/blob/main/Building%20and%20Deploying%20Containers%20Using%20ECS.jpg",
-    title: "Building and Deploying Containers Using ECS",
+    link: "https://pwskills.com/learn/certificate/e42e71b5-7f83-49c8-8c37-77c4873d674d/",
+    title: "Backend Development Course",
     certifiedTag: false,
-    issuer: "Amazon Web Services (AWS)",
-    date: "Issued: October 2025 • No Expiration",
-    image: "certificate-image/Building and Deploying Containers Using ECS.jpg"
+    issuer: "PW Skills",
+    date: "Issued: February 2025 • No Expiration",
+    image: "certificate-image/backend-development.png"
   },
   {
     link: "https://github.com/bishalranjit0606/certified-aws-testing/blob/main/Advanced%20Testing%20Practices%20Using%20AWS%20DevOps%20Tools_page-0001.jpg",
@@ -397,6 +420,14 @@ const certificatesData = [
     image: "certificate-image/cybersecurity.jpg"
   },
   {
+    link: "https://github.com/bishalranjit0606/Building-and-Deploying-Containers-Using-Amazon-Elastic-Container-Service/blob/main/Building%20and%20Deploying%20Containers%20Using%20ECS.jpg",
+    title: "Building and Deploying Containers Using ECS",
+    certifiedTag: false,
+    issuer: "Amazon Web Services (AWS)",
+    date: "Issued: October 2025 • No Expiration",
+    image: "certificate-image/Building and Deploying Containers Using ECS.jpg"
+  },
+  {
     link: "https://github.com/bishalranjit0606/Certificate-Deploy-an-End-to-End-IoT-Application/blob/main/3b201b5d-2be4-4cc1-a556-917160a11c67_page-0001.jpg",
     title: "Deploy an End-to-End IoT Application from AWS",
     certifiedTag: false,
@@ -405,12 +436,20 @@ const certificatesData = [
     image: "certificate-image/deploy-iot-app.jpg"
   },
   {
-    link: "https://www.coursera.org/account/accomplishments/certificate/RTS6DS58N42W",
-    title: "AWS Cloud Technical Essentials",
+    link: "https://community.n8n.io/badges/104/completed-n8n-course-level-1?username=bishal_ranjit",
+    title: "n8n Course Level 1",
     certifiedTag: false,
-    issuer: "Amazon Web Services (AWS)",
-    date: "Issued: March 2025 • No Expiration",
-    image: "certificate-image/cloud-technical.jpg"
+    issuer: "n8n",
+    date: "Issued: December 2025 • No Expiration",
+    image: "certificate-image/n8n Course Level 1.png"
+  },
+  {
+    link: "https://www.datacamp.com/statement-of-accomplishment/course/592236acc54c3d46be46d30dfd9b96f892c6a0d3?raw=1",
+    title: "Introduction to Workflow Automation with n8n",
+    certifiedTag: false,
+    issuer: "DataCamp",
+    date: "Issued: January 2026 • No Expiration",
+    image: "certificate-image/n8n-datacamp.jpg"
   },
   {
     link: "https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/pmnMSL4QiQ9JCgE3W/kkE9HyeNcw6rwCRGw_pmnMSL4QiQ9JCgE3W_P6goJBTMstKSHt3nv_1748792896154_completion_certificate.pdf",
@@ -421,29 +460,20 @@ const certificatesData = [
     image: "certificate-image/forage.jpg"
   },
   {
+    link: "https://www.coursera.org/account/accomplishments/certificate/RTS6DS58N42W",
+    title: "AWS Cloud Technical Essentials",
+    certifiedTag: false,
+    issuer: "Amazon Web Services (AWS)",
+    date: "Issued: March 2025 • No Expiration",
+    image: "certificate-image/cloud-technical.jpg"
+  },
+  {
     link: "https://cdn.pwskills.com/learn/certificates/0acafd53-dbd6-44ee-b183-389aeb70a01b.pdf",
     title: "Cloud Technology For Websites",
     certifiedTag: false,
     issuer: "PW Skills",
     date: "Issued: January 2025 • No Expiration",
     image: "certificate-image/pwskills.jpg"
-  },
-  {
-    link: "https://www.datacamp.com/statement-of-accomplishment/course/592236acc54c3d46be46d30dfd9b96f892c6a0d3?raw=1",
-    title: "Introduction to Workflow Automation with n8n",
-    certifiedTag: false,
-    issuer: "DataCamp",
-    date: "Issued: January 2026 • No Expiration",
-    image: "certificate-image/n8n-datacamp.jpg"
-  },
-  ,
-  {
-    link: "https://community.n8n.io/badges/104/completed-n8n-course-level-1?username=bishal_ranjit",
-    title: "n8n Course Level 1",
-    certifiedTag: false,
-    issuer: "n8n",
-    date: "Issued: December 2025 • No Expiration",
-    image: "certificate-image/n8n Course Level 1.png"
   }
 ];
 
@@ -1140,19 +1170,4 @@ style.textContent = `
     `;
 document.head.appendChild(style);
 
-/* --- CODE PROTECTION --- */
-document.addEventListener('contextmenu', function (e) {
-  e.preventDefault();
-});
 
-document.addEventListener('keydown', function (e) {
-  // Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
-  if (
-    e.key === 'F12' ||
-    (e.ctrlKey && e.shiftKey && e.key === 'I') ||
-    (e.ctrlKey && e.shiftKey && e.key === 'J') ||
-    (e.ctrlKey && e.key === 'U')
-  ) {
-    e.preventDefault();
-  }
-});
