@@ -319,6 +319,17 @@ const blogsData = [
   }
 ];
 
+const videosData = [
+  {
+    title: "Building a 100% Free AI Job Hunter with n8n, Groq, and Jina AI",
+    type: "Tutorial",
+    platform: "Google Drive",
+    link: "https://drive.google.com/drive/folders/10EbzW99xvmDmuEoGHXmb-x3vCDeCueg9",
+    image: "images/free-job-hunting.png",
+    description: "Step-by-step tutorial on building an AI-powered job search automation using free tools."
+  }
+];
+
 const experienceData = [
   {
     title: "Ai Automation Intern",
@@ -543,6 +554,7 @@ const CommandPalette = {
       { name: "Go to Projects", shortcut: "P", action: () => CommandPalette.selectSection("projects") },
       { name: "Go to Certificates", shortcut: "C", action: () => CommandPalette.selectSection("certificates") },
       { name: "Go to Experience", shortcut: "E", action: () => CommandPalette.selectSection("experience") },
+      { name: "Go to Videos", shortcut: "V", action: () => CommandPalette.selectSection("videos") },
       { name: "Go to Blog", shortcut: "B", action: () => CommandPalette.selectSection("blog") },
       { name: "Go to Contact", shortcut: "@", action: () => CommandPalette.selectSection("contact") },
       { name: "Toggle Theme", shortcut: "T", action: () => document.getElementById("theme-toggle").click() },
@@ -925,6 +937,42 @@ function renderContacts() {
   });
 }
 
+function renderVideos() {
+  const container = document.getElementById('videos-container');
+  if (!container) return;
+  container.innerHTML = '';
+
+  videosData.forEach(video => {
+    const card = document.createElement('div');
+    card.className = 'video-card';
+
+    let platformIcon = '';
+    if (video.platform === 'YouTube') platformIcon = '<i class="fa-brands fa-youtube"></i>';
+    else if (video.platform === 'TikTok') platformIcon = '<i class="fa-brands fa-tiktok"></i>';
+    else if (video.platform === 'Google Drive') platformIcon = '<i class="fa-brands fa-google-drive"></i>';
+    else platformIcon = '<i class="fa-solid fa-video"></i>';
+
+    card.innerHTML = `
+      <a href="${video.link}" target="_blank" rel="noopener noreferrer">
+        <div class="video-image">
+          <img src="${video.image}" alt="${video.title}" />
+          <div class="video-overlay">
+            <i class="fa-solid fa-play"></i>
+          </div>
+          <span class="video-platform-tag">${platformIcon} ${video.platform}</span>
+        </div>
+      </a>
+      <div class="video-content">
+        <span class="video-type-tag">${video.type}</span>
+        <h3 class="video-title">${video.title}</h3>
+        <p class="video-description">${video.description}</p>
+      </div>
+    `;
+
+    container.appendChild(card);
+  });
+}
+
 /* --- MAIN LOGIC --- */
 
 const navItems = document.querySelectorAll(".nav-item:not(#theme-toggle)");
@@ -1040,11 +1088,13 @@ document.addEventListener("DOMContentLoaded", () => {
   renderBlogs();
   renderExperience();
   renderCertificates();
+  renderVideos();
   renderContacts();
 
   setupLoadMore("projects-container", "load-more-projects", 6);
   setupLoadMore("blog-container", "load-more-blog", 6);
   setupLoadMore("certificates-container", "load-more-certificates", 6);
+  setupLoadMore("videos-container", "load-more-videos", 6);
 
   ThemeManager.init();
   handleInitialLoadAndPopState();

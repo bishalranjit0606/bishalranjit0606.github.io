@@ -1,0 +1,636 @@
+{
+  "name": "free 100% free auto ai job hunter",
+  "nodes": [
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1213bc30-473c-4306-b4f8-511c25b804c1",
+              "name": "Linkedin_url",
+              "value": "https://www.linkedin.com/jobs/search/?currentJobId=4380380620&geoId=100665265&keywords=backend%20developer&origin=JOB_SEARCH_PAGE_LOCATION_AUTOCOMPLETE&refresh=true",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        352,
+        656
+      ],
+      "id": "d0d35fd9-5fbc-4062-9499-902154b7e2d3",
+      "name": "Set Search Parameters"
+    },
+    {
+      "parameters": {
+        "operation": "Run actor and get dataset",
+        "actorId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "hKByXkMQaC5Qt9UMN"
+        },
+        "customBody": "={\n    \"count\": 100,\n    \"scrapeCompany\": true,\n    \"splitByLocation\": false,\n    \"urls\": [\n        \"{{ $json.Linkedin_url }}\"\n    ]\n}\n",
+        "authentication": "apifyOAuth2Api"
+      },
+      "type": "@apify/n8n-nodes-apify.apify",
+      "typeVersion": 1,
+      "position": [
+        576,
+        656
+      ],
+      "id": "37f5021e-3630-4f75-a903-53ccd68e8dbf",
+      "name": "Apify: Scrape LinkedIn Jobs",
+      "credentials": {
+        "apifyOAuth2Api": {
+          "id": "vaGd71CsbbzvFmcu",
+          "name": "Apify account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1SQP1NBtaE3LWf75TYhlvqWzSdkMMggpIq2KYSnQ-2KE",
+          "mode": "list",
+          "cachedResultName": "BIshal Ranjitkar",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1SQP1NBtaE3LWf75TYhlvqWzSdkMMggpIq2KYSnQ-2KE/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1SQP1NBtaE3LWf75TYhlvqWzSdkMMggpIq2KYSnQ-2KE/edit#gid=0"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        576,
+        848
+      ],
+      "id": "2f929a6c-c110-452c-942f-e72b81d14f2c",
+      "name": "Google Sheets: Fetch Existing Leads",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "69A1B9WzA9t5R2aS",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mergeByFields": {
+          "values": [
+            {
+              "field1": "link",
+              "field2": "link"
+            }
+          ]
+        },
+        "resolve": "preferInput1",
+        "options": {
+          "multipleMatches": "first"
+        }
+      },
+      "id": "cf2b0680-a4bb-4d1a-b595-c4ff62ca8b19",
+      "name": "Compare: Deduplicate leads",
+      "type": "n8n-nodes-base.compareDatasets",
+      "typeVersion": 2.3,
+      "position": [
+        800,
+        720
+      ]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 9
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        128,
+        752
+      ],
+      "id": "7be07399-58da-4d1b-9c2f-e651c0f49e87",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1088,
+        704
+      ],
+      "id": "273419ad-aab2-4980-92ee-302b60997f67",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "amount": 10
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1296,
+        720
+      ],
+      "id": "1a266e71-13c4-48fa-8f5e-fc61c4afdd60",
+      "name": "Wait",
+      "webhookId": "9dadd6ae-2335-4725-960e-366c92f561fd"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1SQP1NBtaE3LWf75TYhlvqWzSdkMMggpIq2KYSnQ-2KE",
+          "mode": "list",
+          "cachedResultName": "BIshal Ranjitkar",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1SQP1NBtaE3LWf75TYhlvqWzSdkMMggpIq2KYSnQ-2KE/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1SQP1NBtaE3LWf75TYhlvqWzSdkMMggpIq2KYSnQ-2KE/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        2048,
+        720
+      ],
+      "id": "e4a08c19-0119-4958-acfd-c309cb2bd889",
+      "name": "Append row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "69A1B9WzA9t5R2aS",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d24793ec-fc57-4423-87da-1ecc0ad41c7f",
+              "name": "Scraped Date",
+              "value": "={{ $now.toISODate() }}",
+              "type": "string"
+            },
+            {
+              "id": "a369318c-f115-4d37-ae9b-c8a74a0d577c",
+              "name": "title",
+              "value": "={{ $('Wait').item.json.title }}",
+              "type": "string"
+            },
+            {
+              "id": "a4daf84a-0aef-4446-b3d0-e47bf49cd7a8",
+              "name": "companyName",
+              "value": "={{ $('Wait').item.json.companyName }}",
+              "type": "string"
+            },
+            {
+              "id": "926893c0-1063-4cef-a950-252d7bf08cce",
+              "name": "companyLinkedinUrl",
+              "value": "={{ $('Wait').item.json.companyLinkedinUrl }}",
+              "type": "string"
+            },
+            {
+              "id": "74730e85-b7f1-4894-a61b-8882cd698631",
+              "name": "location",
+              "value": "={{ $('Wait').item.json.location }}",
+              "type": "string"
+            },
+            {
+              "id": "cd8c6064-ab27-4ad9-b469-06dc30909478",
+              "name": "postedAt",
+              "value": "={{ $('Wait').item.json.postedAt }}",
+              "type": "string"
+            },
+            {
+              "id": "86e2108b-bfa5-42ed-8db7-b42c7f1249b8",
+              "name": "companyWebsite",
+              "value": "={{ $('Wait').item.json.companyWebsite }}",
+              "type": "string"
+            },
+            {
+              "id": "5358c16b-0507-4e48-829d-17a525de9b30",
+              "name": "Cover letter ",
+              "value": "={{ $json.output }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1824,
+        720
+      ],
+      "id": "f1dcb438-8def-4513-bbd3-ba45e2f290ae",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "model": "openai/gpt-oss-20b",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        1504,
+        976
+      ],
+      "id": "c2697321-b270-459d-a713-699037fd17cf",
+      "name": "Groq Chat Model",
+      "credentials": {
+        "groqApi": {
+          "id": "xXOejilX2dVKfVkl",
+          "name": "Groq account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Job Title: {{ $json.title }}\nCompany Name:{{ $json.companyName }}\nEmployment Type: {{ $json.employmentType }}\n\nJob Description:\n{{ $json.descriptionText }}\n\nCompany Description:\n{{ $json.companyDescription }}\n\nPlease write a professional, tailored cover letter for this job vacancy.",
+        "options": {
+          "systemMessage": "You are a professional career coach and expert cover letter writer.\n\nWrite a tailored, compelling cover letter based on the provided job details.\n\nRequirements:\n- Include a clear subject line\n- Use a professional business letter format\n- Personalize it to the job title and company\n- Highlight relevant skills and value\n- Keep it concise (300–400 words)\n- Use a confident and professional tone"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        1504,
+        720
+      ],
+      "id": "131fd9a6-49f1-451c-9d6c-87ef1bcd4979",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "content": "## 🕘 STEP 1 — Auto Start Every Morning\n\n**What it does:**\nThis node is the \"alarm clock\" of the whole workflow.\nIt automatically starts the workflow every day at **9:00 AM**.\n\nYou don't need to click anything — it runs by itself every morning.\n\n**No changes needed here.** Just make sure n8n is running on your server.",
+        "height": 332,
+        "width": 300,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -16,
+        928
+      ],
+      "id": "99b2e440-2fc8-4c9c-a252-4bf75469dd65",
+      "name": "Note: Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "content": "## ⚠️ CRITICAL ALERT — READ BEFORE USING!\n\n**Groq Free Tier Daily Limits (llama-3.3-70b-versatile):**\n- 🔴 **~14,400 tokens per minute**\n- 🔴 **~1,000 requests per day** (approximately)\n- Each cover letter uses ~800–1,200 tokens\n\n**This means you can safely generate only about 10–20 cover letters per day on the free plan.**\n\n---\n\n### 🛑 HOW TO LIMIT YOUR LINKEDIN URL\nBefore running, go to the **\"Set Search Parameters\"** node and make your LinkedIn URL as specific as possible.\n\n**Tips to filter results:**\n- Add specific keywords: `keywords=Marketing+Manager`\n- Use `f_E=` for experience level (1=Internship, 2=Entry, 3=Associate, 4=Mid-Senior, 5=Director)\n- Use `f_JT=` for job type (F=Full-time, P=Part-time, C=Contract)\n- Use `f_TPR=r86400` (already set — shows only last 24 hours posts ✅)\n\n**Example of a well-filtered URL:**\n`...keywords=Marketing&f_E=2&f_JT=F&f_TPR=r86400`\n\nIf your search returns **more than 20 jobs**, Groq WILL hit the rate limit and the workflow will fail midway! 🚨",
+        "height": 692,
+        "width": 480,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "a3afabd3-f498-4ae0-ae0b-29ffabb6ef4e",
+      "name": "Note: ⚠️ GROQ RATE LIMIT ALERT"
+    },
+    {
+      "parameters": {
+        "content": "## 🔗 STEP 2 — Set Your LinkedIn Search Link\n\n**What it does:**\nThis is where you paste the LinkedIn Jobs search URL.\nThe URL tells the scraper *which jobs* to look for.\n\n**Current settings:**\n- 📍 Location: Kathmandu\n- 🕐 Time filter: Last 24 hours only\n\n**How to customize:**\n1. Go to LinkedIn Jobs in your browser\n2. Search with your desired filters (location, job type, keywords)\n3. Copy the URL from the browser address bar\n4. Paste it here as the value of `Linkedin_url`\n\n⚠️ **Keep the search narrow** — the more specific your URL, the fewer results, and the less likely you are to hit the Groq AI rate limit!",
+        "height": 504,
+        "width": 564,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        496,
+        128
+      ],
+      "id": "08209662-420d-492a-95b0-d41ed7023c74",
+      "name": "Note: Set Search Parameters"
+    },
+    {
+      "parameters": {
+        "content": "## 🤖 STEP 3 — Scrape LinkedIn Job Listings\n\n**What it does:**\nThis node visits your LinkedIn URL and automatically collects all the job listings it finds — like a robot reading the page for you.\n\nIt collects details like:\n- Job title\n- Company name\n- Job description\n- Company LinkedIn URL\n- Location, posted date\n\n**Tool used:** Apify (a web scraping service)\n\n**You need:** An Apify account and API key connected in the credentials.\n\n⏱️ This step may take 1–3 minutes to complete.",
+        "height": 504,
+        "width": 340,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1088,
+        128
+      ],
+      "id": "49b1bf6b-1627-43ee-8ed9-f2ac1be969ea",
+      "name": "Note: Apify Scraper"
+    },
+    {
+      "parameters": {
+        "content": "## 📋 STEP 4 — Load Already-Saved Jobs from Sheet\n\n**What it does:**\nThis node reads your Google Sheet to get the list of jobs that were **already saved before**.\n\nThis is used in the next step to avoid creating duplicate cover letters for the same job.\n\n**Make sure:**\n- Your Google Sheet is connected properly\n- The sheet has a column called `link` (job URL)\n\nThis runs at the same time as Step 3.",
+        "height": 448,
+        "width": 324,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1472,
+        176
+      ],
+      "id": "c9fd1186-f84f-4d99-89ba-0fc5f38902f5",
+      "name": "Note: Fetch Existing Leads"
+    },
+    {
+      "parameters": {
+        "content": "## 🔍 STEP 5 — Remove Duplicate Jobs\n\n**What it does:**\nCompares the newly scraped jobs (Step 3) with what's already in the sheet (Step 4).\n\nIf a job was already saved before, it is **removed from the list** so we don't write a duplicate cover letter.\n\nOnly **brand new jobs** pass through to the next step.\n\n**How it matches:** It compares the job `link` (URL). If the link already exists in the sheet, that job is skipped.",
+        "height": 400,
+        "width": 320,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1840,
+        224
+      ],
+      "id": "86dbda4e-61d9-49fc-b54f-36e75b744b3c",
+      "name": "Note: Deduplicate"
+    },
+    {
+      "parameters": {
+        "content": "## 🔄 STEP 6 — Process Jobs One by One\n\n**What it does:**\nInstead of processing all jobs at once (which would crash Groq), this node sends them **one at a time** through the rest of the workflow.\n\nAfter each job is fully processed and saved, it comes back here to pick up the next one.\n\nThink of it like a conveyor belt — one item at a time.\n\n**The loop ends** when all new jobs have been processed.",
+        "height": 396,
+        "width": 316,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2192,
+        224
+      ],
+      "id": "bcc8dd28-753c-446e-849a-d8937ca7bf25",
+      "name": "Note: Loop Over Items"
+    },
+    {
+      "parameters": {
+        "content": "## ⏳ STEP 7 — Wait 10 Seconds Between Jobs\n\n**What it does:**\nAdds a **10-second pause** between each job being processed.\n\n**Why?** To avoid sending too many requests to Groq AI too fast.\nGroq has a limit of how many requests it can handle per minute.\nThis pause keeps things slow and steady so the AI doesn't get overloaded.\n\n💡 If you're still hitting rate limit errors, increase this wait time to 30 or 60 seconds.",
+        "height": 380,
+        "width": 300,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        304,
+        1024
+      ],
+      "id": "518c6a6b-0c9f-4605-beec-9a0f8e3e2c27",
+      "name": "Note: Wait"
+    },
+    {
+      "parameters": {
+        "content": "## ✍️ STEP 8 — Write a Cover Letter Using AI\n\n**What it does:**\nThis is the main AI step. It takes the job details (title, company, description) and asks the AI to **write a professional cover letter** tailored to that specific job.\n\nThe cover letter is:\n- 300–400 words\n- Formatted as a proper business letter\n- Personalized to the job and company\n\n**AI Model used:** Groq → llama-3.3-70b-versatile (connected below)\n\n⚠️ **Reminder:** Each cover letter = ~800–1,200 tokens. Keep your daily volume to 10–20 jobs maximum on the free Groq plan.",
+        "height": 456,
+        "width": 360,
+        "color": 2
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        624,
+        1040
+      ],
+      "id": "83d439f8-ddeb-4303-b04c-72679c4133af",
+      "name": "Note: AI Agent"
+    },
+    {
+      "parameters": {
+        "content": "## 🧠 AI Brain — Groq Language Model\n\n**What it does:**\nThis is the actual AI engine that powers the cover letter writing above.\n\n**Model:** llama-3.3-70b-versatile (fast & free on Groq)\n\n**You need:** A free Groq account at groq.com and your API key added in n8n credentials.\n\n**Free Tier Limits:**\n- ~14,400 tokens/minute\n- ~1,000 requests/day\n- Roughly **10–20 cover letters per day** safely\n\nThis node is connected to the AI Agent above.",
+        "height": 448,
+        "width": 340,
+        "color": 2
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1712,
+        960
+      ],
+      "id": "097aac80-bda4-4381-a54b-0306c8cbed5f",
+      "name": "Note: Groq Model"
+    },
+    {
+      "parameters": {
+        "content": "## 🗂️ STEP 9 — Organize the Data\n\n**What it does:**\nTakes all the information collected so far (job title, company, cover letter, date, etc.) and **neatly organizes it** into labeled fields, ready to be written into the Google Sheet.\n\nThink of this as putting everything into the right columns before saving.",
+        "height": 308,
+        "width": 300,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1008,
+        960
+      ],
+      "id": "e2783624-0c92-4e1e-92d0-e22df5f79de9",
+      "name": "Note: Edit Fields"
+    },
+    {
+      "parameters": {
+        "content": "## 💾 STEP 10 — Save to Google Sheet\n\n**What it does:**\nAdds a new row to your Google Sheet with all the job info and the generated cover letter.\n\nEach row contains:\n- Date scraped\n- Job title & company name\n- Job link\n- Company LinkedIn URL\n- Location & posted date\n- ✅ The AI-generated cover letter\n\nAfter saving, the workflow loops back to process the next new job.",
+        "height": 432,
+        "width": 320,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1344,
+        960
+      ],
+      "id": "b9d4c9a6-1a5d-409c-9c7b-9c9c4ef2dafe",
+      "name": "Note: Append to Sheet"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Set Search Parameters": {
+      "main": [
+        [
+          {
+            "node": "Apify: Scrape LinkedIn Jobs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Apify: Scrape LinkedIn Jobs": {
+      "main": [
+        [
+          {
+            "node": "Compare: Deduplicate leads",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets: Fetch Existing Leads": {
+      "main": [
+        [
+          {
+            "node": "Compare: Deduplicate leads",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Compare: Deduplicate leads": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Set Search Parameters",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Google Sheets: Fetch Existing Leads",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Groq Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "1698ead0-a198-4da9-860d-15b930bd731f",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "39aac07b6128904bc82958378cdf7e55d71559fab24696b1a64ef4ac10be9dc1"
+  },
+  "id": "6vz9HOBVM0grhBAn",
+  "tags": []
+}
