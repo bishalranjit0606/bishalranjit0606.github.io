@@ -872,11 +872,9 @@ function renderCertificates() {
   container.innerHTML = '';
 
   certificatesData.forEach(cert => {
-    const card = document.createElement('a');
-    card.href = cert.link;
+    const card = document.createElement('div');
     card.className = 'certificate-card';
-    card.target = "_blank";
-    card.rel = "noopener noreferrer";
+    card.style.cursor = 'pointer';
 
     const certifiedTagHtml = cert.certifiedTag ? '<span class="certified-tag">Certified</span>' : '';
 
@@ -892,6 +890,26 @@ function renderCertificates() {
         <img src="${cert.image}" alt="${cert.title}" style="width: 100%; max-height: 250px; object-fit: contain; border-radius: 8px;" />
       </div>
     `;
+
+    // Add click event for modal
+    card.addEventListener("click", () => {
+      const modal = document.getElementById("certModal");
+      const modalTitle = document.getElementById("certModalTitle");
+      const modalIssuer = document.getElementById("certModalIssuer");
+      const modalDate = document.getElementById("certModalDate");
+      const modalImage = document.getElementById("certModalImage");
+      const verifyBtn = document.getElementById("certVerifyBtn");
+
+      modalTitle.textContent = cert.title;
+      modalIssuer.textContent = cert.issuer;
+      modalDate.textContent = cert.date;
+      modalImage.src = cert.image;
+      modalImage.alt = cert.title;
+      verifyBtn.href = cert.link;
+
+      modal.classList.add("active");
+      document.body.style.overflow = "hidden";
+    });
 
     // Add hover effect
     card.addEventListener("mouseenter", function () {
@@ -1101,24 +1119,28 @@ document.addEventListener("DOMContentLoaded", () => {
   CommandPalette.init();
 
   // Modal Close Logic
-  const modal = document.getElementById("skillModal");
-  const closeModal = document.querySelector(".close-modal");
+  const skillModal = document.getElementById("skillModal");
+  const certModal = document.getElementById("certModal");
+  const closeModals = document.querySelectorAll(".close-modal");
 
-  if (closeModal) {
-    closeModal.addEventListener("click", () => {
-      modal.classList.remove("active");
+  closeModals.forEach(closeBtn => {
+    closeBtn.addEventListener("click", () => {
+      skillModal.classList.remove("active");
+      certModal.classList.remove("active");
       document.body.style.overflow = "auto";
     });
-  }
+  });
 
-  if (modal) {
-    modal.addEventListener("click", (e) => {
-      if (e.target === modal) {
-        modal.classList.remove("active");
-        document.body.style.overflow = "auto";
-      }
-    });
-  }
+  window.addEventListener("click", (e) => {
+    if (e.target === skillModal) {
+      skillModal.classList.remove("active");
+      document.body.style.overflow = "auto";
+    }
+    if (e.target === certModal) {
+      certModal.classList.remove("active");
+      document.body.style.overflow = "auto";
+    }
+  });
 
   // Initial Animation
   document.body.style.opacity = "0";
