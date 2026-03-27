@@ -1760,3 +1760,52 @@ body {
 .chat-window-wrapper .chat-window-footer {
   display: none !important;
 }
+
+/* --- REFINED CHAT TOOLTIP --- */
+.chat-label {
+  position: fixed;
+  bottom: 28px;
+  right: 85px;
+  background: white;
+  color: #128C7E;
+  padding: 6px 14px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  z-index: 10000;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0; /* Hidden by default */
+  transform: translateX(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  border: 1.5px solid #25D366;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Tooltip arrow/tail */
+.chat-label::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -6px;
+  transform: translateY(-50%) rotate(45deg);
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-right: 1.5px solid #25D366;
+  border-top: 1.5px solid #25D366;
+}
+
+/* Show when hovering via JS */
+.chat-label.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Hide chat label on mobile to keep it clean */
+@media (max-width: 480px) {
+  .chat-label {
+    display: none;
+  }
+}

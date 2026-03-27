@@ -1302,9 +1302,31 @@ function hideN8nBranding() {
 
 // Initialize on DOMContentLoaded
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', hideN8nBranding);
+  document.addEventListener('DOMContentLoaded', () => {
+    hideN8nBranding();
+    initChatTooltip();
+  });
 } else {
   hideN8nBranding();
+  initChatTooltip();
+}
+
+function initChatTooltip() {
+  const label = document.querySelector('.chat-label');
+  if (!label) return;
+
+  // Use event delegation on body to handle dynamically injected chat icon
+  document.body.addEventListener('mouseover', (e) => {
+    if (e.target.closest('[class*="chat-window-toggle"]')) {
+      label.classList.add('visible');
+    }
+  });
+
+  document.body.addEventListener('mouseout', (e) => {
+    if (e.target.closest('[class*="chat-window-toggle"]')) {
+      label.classList.remove('visible');
+    }
+  });
 }
 
 
