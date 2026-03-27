@@ -332,11 +332,24 @@ const videosData = [
 
 const experienceData = [
   {
+    title: "Associate AI Automation Engineer",
+    company: "Recruit Nepal",
+    link: "https://recruitnepal.com/",
+    type: "Full-time",
+    duration: "Apr 2026 – Present",
+    description: [
+      "Leading the design and implementation of advanced AI-powered automation workflows using n8n and diverse LLMs.",
+      "Architected scalable integration solutions for multi-platform business operations.",
+      "Optimizing system performance and reliability through automated monitoring and alerting.",
+      "Mentoring and guiding automation initiatives to enhance organizational efficiency."
+    ]
+  },
+  {
     title: "Ai Automation Intern",
     company: "Intern/Recruit Nepal",
     link: "https://recruitnepal.com/",
     type: "Internship",
-    duration: "Jan 2026 – Present",
+    duration: "Jan 2026 – Apr 2026",
     description: [
       "Automated workflows using n8n, reducing manual work by 20%",
       "Built automation flows that improved task completion speed by 25%",
@@ -1241,5 +1254,57 @@ style.textContent = `
         }
     `;
 document.head.appendChild(style);
+
+/* --- AGGRESSIVE BRANDING REMOVAL --- */
+function hideN8nBranding() {
+  const findAndHide = () => {
+    // 1. Try direct CSS selector
+    const footers = document.querySelectorAll('[class*="chat-window-footer"]');
+    footers.forEach(f => {
+      f.style.display = 'none';
+      f.style.visibility = 'hidden';
+      f.style.height = '0';
+      f.style.padding = '0';
+    });
+
+    // 2. Try reaching into potential custom elements/shadow roots
+    const allElements = document.querySelectorAll('*');
+    allElements.forEach(el => {
+      if (el.shadowRoot) {
+        const shadowFooter = el.shadowRoot.querySelector('[class*="chat-window-footer"]');
+        if (shadowFooter) {
+          shadowFooter.style.display = 'none';
+          shadowFooter.style.visibility = 'hidden';
+          shadowFooter.style.height = '0';
+          shadowFooter.style.padding = '0';
+        }
+      }
+    });
+
+    // 3. Target links containing n8n.io specifically
+    const links = document.querySelectorAll('a[href*="n8n.io"]');
+    links.forEach(l => {
+      const container = l.closest('div');
+      if (container) {
+        container.style.display = 'none';
+        container.style.visibility = 'hidden';
+      }
+    });
+  };
+
+  // Run immediately and then start interval
+  findAndHide();
+  const brandingInterval = setInterval(findAndHide, 1000);
+  
+  // Stop after 15 seconds to save resources - by then it should be loaded
+  setTimeout(() => clearInterval(brandingInterval), 15000);
+}
+
+// Initialize on DOMContentLoaded
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', hideN8nBranding);
+} else {
+  hideN8nBranding();
+}
 
 
