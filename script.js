@@ -338,10 +338,11 @@ const experienceData = [
     type: "Full-time",
     duration: "Apr 2026 – Present",
     description: [
-      "Leading the design and implementation of advanced AI-powered automation workflows using n8n and diverse LLMs.",
-      "Architected scalable integration solutions for multi-platform business operations.",
-      "Optimizing system performance and reliability through automated monitoring and alerting.",
-      "Mentoring and guiding automation initiatives to enhance organizational efficiency."
+      "Architecting enterprise-scale multi-agent AI ecosystems, leveraging a 5-agent orchestration model to automate complex inbound inquiry classification and response.",
+      "Developed a centralized Vector Database (RAG) architecture, enabling context-aware AI interactions across multiple platforms with real-time data retrieval from active vacancies.",
+      "Engineering automated resume-parsing and data enrichment pipelines that extract and synchronize candidate information from various document formats into a unified database.",
+      "Designing high-availability automation infrastructure with real-time error-handling webhooks and automated recovery protocols to ensure 24/7 system uptime.",
+      "Leading technical design sessions for cross-platform synchronization workflows, optimizing data flow between web platforms and social media channels."
     ]
   },
   {
