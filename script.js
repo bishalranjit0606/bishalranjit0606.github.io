@@ -351,10 +351,11 @@ const experienceData = [
     type: "Internship",
     duration: "Jan 2026 – Apr 2026",
     description: [
-      "Automated workflows using n8n, reducing manual work by 20%",
-      "Built automation flows that improved task completion speed by 25%",
-      "Assisted with GitHub Actions and Docker to automate basic deployment steps",
-      "Improved system efficiency by automating repeated processes across tools"
+      "Architected a multi-channel automation ecosystem using n8n, achieving a 90% reduction in manual operations for recruitment and marketing workflows.",
+      "Engineered an AI Auto-Reply Bot using 5 specialized agents and Vector Database (RAG), delivering 99.99% accuracy in automated candidate engagement.",
+      "Developed a global lead generation pipeline that scraped and enriched contact data for 500+ international tech companies, decreasing outreach time by 85%.",
+      "Implemented production-grade reliability features, including real-time error-handling webhooks and automated Slack alerts for 24/7 system monitoring.",
+      "Integrated multimodal AI (Gemini & GPT) for automated branding and social media content creation, synchronized across LinkedIn, Facebook, and Instagram."
     ]
   },
   {
