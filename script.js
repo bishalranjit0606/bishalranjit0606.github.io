@@ -414,6 +414,14 @@ const certificatesData = [
     image: "certificate-image/n8n Course Level 2.png"
   },
   {
+    link: "https://scrimba.com/learn-rag-c033;cert2JbLs3qgBXAdeqYLhKLyHZKWeyxk2KmY77JwBA",
+    title: "Retrieval-augmented Generation (RAG)",
+    certifiedTag: false,
+    issuer: "Scrimba",
+    date: "Issued: April 2026 • No Expiration",
+    image: "certificate-image/learn rag.png"
+  },
+  {
     link: "https://pwskills.com/learn/certificate/e42e71b5-7f83-49c8-8c37-77c4873d674d/",
     title: "Backend Development Course",
     certifiedTag: false,
