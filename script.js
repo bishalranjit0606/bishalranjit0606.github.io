@@ -119,6 +119,17 @@ const skillsData = [
 
 const projectsData = [
   {
+    link: "https://medium.com/@bishalranjit2002/i-built-a-free-website-uptime-monitor-using-automation-and-open-sourced-it-4ac2d866dd5f",
+    image: "images/website uptime monitoring workflow.png",
+    title: "Website Uptime Monitor Using Automation",
+    description: "Built a fully automated website uptime monitor using n8n and open sourced it. Catches downed websites before anyone else notices.",
+    tech: ["n8n", "Automation", "Uptime Monitoring"],
+    buttons: [
+      { text: "Code", link: "https://github.com/bishalranjit0606/website-downtime-alert-workflow", icon: ["fa-brands", "fa-github"] },
+      { text: "View Details", link: "https://medium.com/@bishalranjit2002/i-built-a-free-website-uptime-monitor-using-automation-and-open-sourced-it-4ac2d866dd5f", icon: ["fa-solid", "fa-file-alt"] }
+    ]
+  },
+  {
     link: "https://medium.com/p/21f5a3763fb1?postPublishedType=initial",
     image: "images/autojobpost.png",
     title: "Auto Job Posting Using n8n and a Multimodal AI Agent",
@@ -251,6 +262,12 @@ const projectsData = [
 ];
 
 const blogsData = [
+  {
+    date: "April 07, 2026",
+    title: "I Built a Website Uptime Monitor Using Automation and Open Sourced It",
+    excerpt: "How I went from getting a surprise call about a downed website to building a system that catches it before anyone notices. This is the story of how I built a fully automated website uptime monitor using n8n and open sourced it.",
+    link: "https://medium.com/@bishalranjit2002/i-built-a-free-website-uptime-monitor-using-automation-and-open-sourced-it-4ac2d866dd5f"
+  },
   {
     date: "March 05, 2026",
     title: "How I Built a Zero-Touch LinkedIn Job Posting System Using n8n and a Multimodal AI Agent",
@@ -1305,7 +1322,7 @@ function hideN8nBranding() {
   // Run immediately and then start interval
   findAndHide();
   const brandingInterval = setInterval(findAndHide, 1000);
-  
+
   // Stop after 15 seconds to save resources - by then it should be loaded
   setTimeout(() => clearInterval(brandingInterval), 15000);
 }
