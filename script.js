@@ -447,6 +447,14 @@ const certificatesData = [
     image: "certificate-image/backend-development.png"
   },
   {
+    link: "https://scrimba.com/intro-to-model-context-protocol-mcp-c0sake4uir;cert2ffentAFNmxC8r5rGbURVDCTPuvVcmPVE9rcm7iMVLWtaV",
+    title: "Intro to Model Context Protocol (MCP)",
+    certifiedTag: false,
+    issuer: "Scrimba",
+    date: "Issued: April 12, 2026 • No Expiration",
+    image: "certificate-image/MCP.png"
+  },
+  {
     link: "https://github.com/bishalranjit0606/certified-aws-testing/blob/main/Advanced%20Testing%20Practices%20Using%20AWS%20DevOps%20Tools_page-0001.jpg",
     title: "Advanced Testing Using AWS DevOps Tools",
     certifiedTag: false,
