@@ -344,6 +344,14 @@ const videosData = [
     link: "https://drive.google.com/drive/folders/10EbzW99xvmDmuEoGHXmb-x3vCDeCueg9",
     image: "images/free-job-hunting.png",
     description: "Step-by-step tutorial on building an AI-powered job search automation using free tools."
+  },
+  {
+    title: "Reusable n8n Workflows: Job Scraping + AI Resume Generation",
+    type: "Demo",
+    platform: "LinkedIn",
+    link: "https://www.linkedin.com/posts/bishalranjit0606_n8n-automation-workflowautomation-ugcPost-7449483157604687872-4VHb?utm_source=share&utm_medium=member_desktop&rcm=ACoAADt5JzsBTeytu69SlI0w8sL_O_lqqClQDpM",
+    image: "images/autojobpost.png",
+    description: "Showcase of reusable n8n workflows for job scraping, AI resume generation, outreach, and Google Docs/Sheets integrations."
   }
 ];
 
@@ -1015,6 +1023,7 @@ function renderVideos() {
     let platformIcon = '';
     if (video.platform === 'YouTube') platformIcon = '<i class="fa-brands fa-youtube"></i>';
     else if (video.platform === 'TikTok') platformIcon = '<i class="fa-brands fa-tiktok"></i>';
+    else if (video.platform === 'LinkedIn') platformIcon = '<i class="fa-brands fa-linkedin"></i>';
     else if (video.platform === 'Google Drive') platformIcon = '<i class="fa-brands fa-google-drive"></i>';
     else platformIcon = '<i class="fa-solid fa-video"></i>';
 
