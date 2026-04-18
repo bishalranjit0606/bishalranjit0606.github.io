@@ -263,6 +263,12 @@ const projectsData = [
 
 const blogsData = [
   {
+    date: "April 18, 2026",
+    title: "Understanding Claude and LLMs: A Simple Guide",
+    excerpt: "A beginner-friendly walkthrough of large language models, how Claude fits in, tokens and context windows, generative vs agentic AI, and practical tips for prompts and token use.",
+    link: "https://medium.com/@bishalranjit2002/understanding-claude-and-llms-a-simple-guide-55b26975826d"
+  },
+  {
     date: "April 07, 2026",
     title: "I Built a Website Uptime Monitor Using Automation and Open Sourced It",
     excerpt: "How I went from getting a surprise call about a downed website to building a system that catches it before anyone notices. This is the story of how I built a fully automated website uptime monitor using n8n and open sourced it.",
