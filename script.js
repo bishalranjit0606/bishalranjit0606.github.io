@@ -263,6 +263,12 @@ const projectsData = [
 
 const blogsData = [
   {
+    date: "April 27, 2026",
+    title: "Frameworks for AI Vibe Coding: Choosing the Right One for Your Project",
+    excerpt: "A practical guide to picking the right AI “vibe coding” framework for your project: what to look for, key trade-offs, and how different options compare depending on your goals.",
+    link: "https://medium.com/@bishalranjit2002/frameworks-for-ai-vibe-coding-choosing-the-right-one-for-your-project-5896aee02eb3"
+  },
+  {
     date: "April 18, 2026",
     title: "Understanding Claude and LLMs: A Simple Guide",
     excerpt: "A beginner-friendly walkthrough of large language models, how Claude fits in, tokens and context windows, generative vs agentic AI, and practical tips for prompts and token use.",
