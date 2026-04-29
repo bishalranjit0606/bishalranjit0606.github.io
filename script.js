@@ -443,12 +443,12 @@ const certificatesData = [
     image: "certificate-image/aws.png"
   },
   {
-    link: "https://community.n8n.io/badges/105/completed-n8n-course-level-2?username=bishal_ranjit",
-    title: "Badges / Completed n8n Course Level 2",
+    link: "https://pwskills.com/learn/certificate/0ad98bda-0eb0-442c-8cf8-89a00415a39e/",
+    title: "Claude AI: From Basics to Build",
     certifiedTag: false,
-    issuer: "n8n",
-    date: "Issued: December 2025 • No Expiration",
-    image: "certificate-image/n8n Course Level 2.png"
+    issuer: "PW Skills",
+    date: "Issued: April 29, 2026 • No Expiration",
+    image: "certificate-image/claude_ai_pwskills.png"
   },
   {
     link: "https://scrimba.com/learn-rag-c033;cert2JbLs3qgBXAdeqYLhKLyHZKWeyxk2KmY77JwBA",
@@ -459,14 +459,6 @@ const certificatesData = [
     image: "certificate-image/learn rag.png"
   },
   {
-    link: "https://pwskills.com/learn/certificate/e42e71b5-7f83-49c8-8c37-77c4873d674d/",
-    title: "Backend Development Course",
-    certifiedTag: false,
-    issuer: "PW Skills",
-    date: "Issued: February 2025 • No Expiration",
-    image: "certificate-image/backend-development.png"
-  },
-  {
     link: "https://scrimba.com/intro-to-model-context-protocol-mcp-c0sake4uir;cert2ffentAFNmxC8r5rGbURVDCTPuvVcmPVE9rcm7iMVLWtaV",
     title: "Intro to Model Context Protocol (MCP)",
     certifiedTag: false,
@@ -475,28 +467,36 @@ const certificatesData = [
     image: "certificate-image/MCP.png"
   },
   {
+    link: "https://community.n8n.io/badges/105/completed-n8n-course-level-2?username=bishal_ranjit",
+    title: "Badges / Completed n8n Course Level 2",
+    certifiedTag: false,
+    issuer: "n8n",
+    date: "Issued: December 2025 • No Expiration",
+    image: "certificate-image/n8n Course Level 2.png"
+  },
+  {
+    link: "https://www.datacamp.com/statement-of-accomplishment/course/592236acc54c3d46be46d30dfd9b96f892c6a0d3?raw=1",
+    title: "Introduction to Workflow Automation with n8n",
+    certifiedTag: false,
+    issuer: "DataCamp",
+    date: "Issued: January 2026 • No Expiration",
+    image: "certificate-image/n8n-datacamp.jpg"
+  },
+  {
+    link: "https://community.n8n.io/badges/104/completed-n8n-course-level-1?username=bishal_ranjit",
+    title: "n8n Course Level 1",
+    certifiedTag: false,
+    issuer: "n8n",
+    date: "Issued: December 2025 • No Expiration",
+    image: "certificate-image/n8n Course Level 1.png"
+  },
+  {
     link: "https://github.com/bishalranjit0606/certified-aws-testing/blob/main/Advanced%20Testing%20Practices%20Using%20AWS%20DevOps%20Tools_page-0001.jpg",
     title: "Advanced Testing Using AWS DevOps Tools",
     certifiedTag: false,
     issuer: "Amazon Web Services (AWS)",
     date: "Issued: September 2025 • No Expiration",
     image: "certificate-image/Advanced Testing Practices Using AWS DevOps Tools_page-0001.jpg"
-  },
-  {
-    link: "https://www.coursera.org/account/accomplishments/specialization/SGQUR3LL8S4U",
-    title: "Google Cloud Security Specialization",
-    certifiedTag: false,
-    issuer: "Google Cloud",
-    date: "Issued: November 2024 • No Expiration",
-    image: "certificate-image/cloud-security.jpg"
-  },
-  {
-    link: "https://www.coursera.org/account/accomplishments/specialization/DE8XO7ZN6C84",
-    title: "Google Cybersecurity Certificate",
-    certifiedTag: false,
-    issuer: "Google",
-    date: "Issued: October 2024 • No Expiration",
-    image: "certificate-image/cybersecurity.jpg"
   },
   {
     link: "https://github.com/bishalranjit0606/Building-and-Deploying-Containers-Using-Amazon-Elastic-Container-Service/blob/main/Building%20and%20Deploying%20Containers%20Using%20ECS.jpg",
@@ -515,20 +515,12 @@ const certificatesData = [
     image: "certificate-image/deploy-iot-app.jpg"
   },
   {
-    link: "https://community.n8n.io/badges/104/completed-n8n-course-level-1?username=bishal_ranjit",
-    title: "n8n Course Level 1",
+    link: "https://www.coursera.org/account/accomplishments/certificate/RTS6DS58N42W",
+    title: "AWS Cloud Technical Essentials",
     certifiedTag: false,
-    issuer: "n8n",
-    date: "Issued: December 2025 • No Expiration",
-    image: "certificate-image/n8n Course Level 1.png"
-  },
-  {
-    link: "https://www.datacamp.com/statement-of-accomplishment/course/592236acc54c3d46be46d30dfd9b96f892c6a0d3?raw=1",
-    title: "Introduction to Workflow Automation with n8n",
-    certifiedTag: false,
-    issuer: "DataCamp",
-    date: "Issued: January 2026 • No Expiration",
-    image: "certificate-image/n8n-datacamp.jpg"
+    issuer: "Amazon Web Services (AWS)",
+    date: "Issued: March 2025 • No Expiration",
+    image: "certificate-image/cloud-technical.jpg"
   },
   {
     link: "https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/pmnMSL4QiQ9JCgE3W/kkE9HyeNcw6rwCRGw_pmnMSL4QiQ9JCgE3W_P6goJBTMstKSHt3nv_1748792896154_completion_certificate.pdf",
@@ -539,12 +531,12 @@ const certificatesData = [
     image: "certificate-image/forage.jpg"
   },
   {
-    link: "https://www.coursera.org/account/accomplishments/certificate/RTS6DS58N42W",
-    title: "AWS Cloud Technical Essentials",
+    link: "https://pwskills.com/learn/certificate/e42e71b5-7f83-49c8-8c37-77c4873d674d/",
+    title: "Backend Development Course",
     certifiedTag: false,
-    issuer: "Amazon Web Services (AWS)",
-    date: "Issued: March 2025 • No Expiration",
-    image: "certificate-image/cloud-technical.jpg"
+    issuer: "PW Skills",
+    date: "Issued: February 2025 • No Expiration",
+    image: "certificate-image/backend-development.png"
   },
   {
     link: "https://cdn.pwskills.com/learn/certificates/0acafd53-dbd6-44ee-b183-389aeb70a01b.pdf",
@@ -553,6 +545,22 @@ const certificatesData = [
     issuer: "PW Skills",
     date: "Issued: January 2025 • No Expiration",
     image: "certificate-image/pwskills.jpg"
+  },
+  {
+    link: "https://www.coursera.org/account/accomplishments/specialization/SGQUR3LL8S4U",
+    title: "Google Cloud Security Specialization",
+    certifiedTag: false,
+    issuer: "Google Cloud",
+    date: "Issued: November 2024 • No Expiration",
+    image: "certificate-image/cloud-security.jpg"
+  },
+  {
+    link: "https://www.coursera.org/account/accomplishments/specialization/DE8XO7ZN6C84",
+    title: "Google Cybersecurity Certificate",
+    certifiedTag: false,
+    issuer: "Google",
+    date: "Issued: October 2024 • No Expiration",
+    image: "certificate-image/cybersecurity.jpg"
   }
 ];
 
