@@ -87,6 +87,18 @@ body {
   width: 90%;
 }
 
+a.profile {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+a.profile:focus-visible {
+  outline: 2px solid var(--highlight-color);
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
 .profile {
   display: flex;
   align-items: center;
@@ -1512,13 +1524,38 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
-    cursor: pointer;
+    cursor: default;
     font-weight: 600;
+    gap: 12px;
+  }
+
+  .mobile-home-title {
+    flex: 1;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    font: inherit;
+    font-weight: 600;
+    color: var(--text-color);
+    cursor: pointer;
+    min-width: 0;
+  }
+
+  .mobile-home-title:focus-visible {
+    outline: 2px solid var(--highlight-color);
+    outline-offset: 2px;
+    border-radius: 4px;
   }
 
   .mobile-menu-toggle .menu-icon {
     font-size: 1.5rem;
     transition: transform 0.3s;
+    cursor: pointer;
+    flex-shrink: 0;
+    padding: 8px;
+    margin: -8px -8px -8px 0;
   }
 
   .sidebar {

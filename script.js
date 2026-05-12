@@ -1239,7 +1239,13 @@ document.addEventListener("DOMContentLoaded", () => {
   }, 1000);
 });
 
-mobileMenuToggle.addEventListener("click", function () {
+function closeMobileSidebar() {
+  sidebar.classList.remove("open");
+  menuIcon.classList.remove("fa-xmark");
+  menuIcon.classList.add("fa-bars");
+}
+
+function toggleMobileSidebar() {
   sidebar.classList.toggle("open");
 
   if (sidebar.classList.contains("open")) {
@@ -1249,6 +1255,38 @@ mobileMenuToggle.addEventListener("click", function () {
     menuIcon.classList.remove("fa-xmark");
     menuIcon.classList.add("fa-bars");
   }
+}
+
+mobileMenuToggle.addEventListener("click", function (e) {
+  if (e.target.closest(".mobile-home-title")) {
+    e.preventDefault();
+    setActiveSection("about", true);
+    closeMobileSidebar();
+    return;
+  }
+  if (e.target.closest(".menu-icon")) {
+    toggleMobileSidebar();
+  }
+});
+
+menuIcon.addEventListener("keydown", (e) => {
+  if (e.key === "Enter" || e.key === " ") {
+    e.preventDefault();
+    toggleMobileSidebar();
+  }
+});
+
+document.querySelector(".mobile-home-title")?.addEventListener("keydown", (e) => {
+  if (e.key === "Enter" || e.key === " ") {
+    e.preventDefault();
+    setActiveSection("about", true);
+    closeMobileSidebar();
+  }
+});
+
+document.querySelector("a.profile")?.addEventListener("click", (e) => {
+  e.preventDefault();
+  setActiveSection("about", true);
 });
 
 document.querySelectorAll(".sidebar > .nav-item:not(#theme-toggle)").forEach((item) => {
