@@ -263,6 +263,13 @@ const projectsData = [
 
 const blogsData = [
   {
+    date: "May 21, 2026",
+    title: "AI Tokens Are Expensive: How to Get Better Results with Fewer Tokens",
+    excerpt: "Practical tips on prompt engineering, JSON prompts, choosing the right model, rules and skills, and using AI only where it adds value — so you spend less on tokens.",
+    link: "blog/ai-tokens-are-expensive.html",
+    local: true
+  },
+  {
     date: "April 27, 2026",
     title: "Frameworks for AI Vibe Coding: Choosing the Right One for Your Project",
     excerpt: "A practical guide to picking the right AI “vibe coding” framework for your project: what to look for, key trade-offs, and how different options compare depending on your goals.",
@@ -592,7 +599,7 @@ const ThemeManager = {
     const text = document.getElementById("theme-text");
     const icon = document.querySelector("#theme-toggle i");
 
-    let theme = "dark";
+    let theme = localStorage.getItem("theme") || "dark";
     this.apply(theme);
 
     toggleBtn.onclick = () => {
@@ -802,11 +809,15 @@ function renderBlogs() {
     const card = document.createElement('article');
     card.className = 'blog-card';
 
+    const linkAttrs = blog.local
+      ? ""
+      : ' target="_blank" rel="noopener noreferrer"';
+
     card.innerHTML = `
       <div class="blog-date">${blog.date}</div>
       <h3 class="blog-title">${blog.title}</h3>
       <p class="blog-excerpt">${blog.excerpt}</p>
-      <a href="${blog.link}" class="read-more" target="_blank" rel="noopener noreferrer">Read More →</a>
+      <a href="${blog.link}" class="read-more"${linkAttrs}>Read More →</a>
     `;
 
     // Add hover effect

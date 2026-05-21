@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Tokens Are Expensive | Bishal Ranjitkar</title>
+  <meta name="description"
+    content="How to get better AI results with fewer tokens: prompt engineering, JSON prompts, model selection, rules, skills, and smart automation workflows." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="icon" type="image/png" href="../images/devops.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+
+<body class="blog-post-page">
+  <header class="blog-post-header">
+    <div class="blog-post-header-left">
+      <a href="../index.html#blog" class="blog-post-back">
+        <i class="fa-solid fa-arrow-left"></i> Back to Blog
+      </a>
+      <a href="../index.html" class="blog-post-brand" aria-label="Home">
+        <img src="../images/logo.png" alt="Bishal Ranjitkar" />
+        <span>Bishal Ranjitkar</span>
+      </a>
+    </div>
+    <button type="button" class="blog-post-theme-btn" id="blog-theme-toggle" aria-label="Toggle theme">
+      <i class="fa-solid fa-sun"></i>
+      <span id="blog-theme-text">Light Mode</span>
+    </button>
+  </header>
+
+  <article class="blog-post-container">
+    <p class="blog-post-meta">May 21, 2026 · AI Automation</p>
+    <h1>AI Tokens Are Expensive: How to Get Better Results with Fewer Tokens</h1>
+
+    <p class="blog-post-lead">
+      AI is powerful — but it is not free. Every prompt and every reply costs tokens. Whether you are a developer,
+      building automations, or managing AI spend for a business, the skill that matters is getting better results with
+      less waste. This guide covers practical ways to do exactly that.
+    </p>
+
+    <nav class="blog-post-toc" aria-label="Table of contents">
+      <h2>In this article</h2>
+      <ul>
+        <li><a href="#bad-prompts">Bad prompts waste tokens</a></li>
+        <li><a href="#prompt-engineering">Prompt engineering saves money</a></li>
+        <li><a href="#json-prompts">JSON prompts</a></li>
+        <li><a href="#never-assume">Never let AI assume</a></li>
+        <li><a href="#context">Give full context, not garbage</a></li>
+        <li><a href="#right-model">Use the right model</a></li>
+        <li><a href="#rules-skills">Rules and skills</a></li>
+        <li><a href="#frameworks">Frameworks for big tasks</a></li>
+        <li><a href="#simple-code">Do not ask AI for simple code</a></li>
+        <li><a href="#answer-length">Control answer length</a></li>
+        <li><a href="#repeated-prompts">Avoid repeated corrections</a></li>
+        <li><a href="#templates">Build reusable prompts</a></li>
+        <li><a href="#summary">Final summary</a></li>
+      </ul>
+    </nav>
+
+    <div class="blog-post-body">
+      <p>
+        AI is powerful. But AI is not free. Every time you send a prompt, you use tokens. Every time AI replies, it
+        uses more tokens. And more tokens means more cost.
+      </p>
+      <p>
+        So if you work with AI tools, one skill is becoming very important: <strong>how to get better results with
+          fewer tokens</strong>. This is not just a developer problem. This is an AI workflow problem. This is an
+        automation problem. This is a business cost problem.
+      </p>
+
+      <h2 id="bad-prompts">1. Bad prompts waste tokens</h2>
+      <p>Most people blame AI when the answer is bad. But sometimes, the prompt is the real problem.</p>
+
+      <div class="blog-post-example">
+        <div class="label">Bad prompt</div>
+        <p>Give me code for sorting.</p>
+      </div>
+      <p>AI now has to guess: which language? Which sorting method? Ascending or descending? Simple code or advanced
+        code?</p>
+
+      <div class="blog-post-example">
+        <div class="label">Good prompt</div>
+        <p>Write JavaScript code for bubble sort to sort an array in ascending order. Keep it simple.</p>
+      </div>
+      <p>Now AI knows what to do. Less guessing. Less correction. Less token waste.</p>
+
+      <h2 id="prompt-engineering">2. Prompt engineering is not only about better answers</h2>
+      <p>People think prompt engineering means getting accurate output. That is true — but it also means saving money.
+      </p>
+      <ul>
+        <li>A clear prompt reduces follow-up questions.</li>
+        <li>A clear prompt reduces wrong answers.</li>
+        <li>A clear prompt reduces long, useless output.</li>
+      </ul>
+      <p>That means fewer tokens.</p>
+
+      <h2 id="json-prompts">3. JSON prompts can help</h2>
+      <p>JSON prompts are useful because they give structure. For example:</p>
+      <pre><code>{
+  "task": "Write a LinkedIn post",
+  "topic": "Saving AI tokens",
+  "tone": "simple and practical",
+  "length": "short",
+  "avoid": "emoji and complex words"
+}</code></pre>
+      <p>This helps AI understand the task faster. But remember one thing: <strong>JSON does not always mean fewer
+          tokens</strong>. Sometimes JSON can be longer. The real benefit is clarity. Clarity saves retries — and
+        retries waste more tokens than structure.</p>
+
+      <h2 id="never-assume">4. Never let AI assume</h2>
+      <p>This is the golden rule. Never let AI assume. If AI assumes, you pay for the mistake. If you give half context,
+        AI gives half-correct answers.</p>
+
+      <div class="blog-post-example">
+        <div class="label">Weak prompt</div>
+        <p>Make this better.</p>
+      </div>
+
+      <div class="blog-post-example">
+        <div class="label">Better prompt</div>
+        <p>Rewrite this as a short LinkedIn post for AI automation engineers. Keep it simple, human, and under 150 words.
+        </p>
+      </div>
+      <p>The second prompt gives direction. AI does not need to guess your audience, tone, platform, or length.</p>
+
+      <h2 id="context">5. Give full context, but not full garbage</h2>
+      <p>Context is important — but too much context is also a problem.</p>
+      <ul>
+        <li>Do not paste the whole project if only one file has an error.</li>
+        <li>Do not paste 20 pages if only one paragraph matters.</li>
+        <li>Give only what AI needs.</li>
+      </ul>
+      <p>For coding, give:</p>
+      <ul>
+        <li>The error</li>
+        <li>The related code</li>
+        <li>The expected result</li>
+        <li>The current result</li>
+        <li>The framework</li>
+        <li>The exact task</li>
+      </ul>
+      <p>That is enough most of the time.</p>
+
+      <h2 id="right-model">6. Use the right model</h2>
+      <p>Do not use the most powerful model for every task. That is like using a truck to carry one notebook.</p>
+
+      <h3>Use big models for:</h3>
+      <ul>
+        <li>Deep thinking</li>
+        <li>Complex logic</li>
+        <li>Architecture</li>
+        <li>Security review</li>
+        <li>Hard debugging</li>
+      </ul>
+
+      <h3>Use smaller models for:</h3>
+      <ul>
+        <li>Summaries</li>
+        <li>Formatting</li>
+        <li>Simple rewriting</li>
+        <li>Classification</li>
+        <li>Short answers</li>
+        <li>Data cleaning</li>
+      </ul>
+      <p>Powerful models cost more. Use them only when the task really needs them.</p>
+
+      <h2 id="rules-skills">7. Use rules and skills</h2>
+      <p>If you repeat the same instruction again and again, you are wasting tokens. Tools like Claude Skills and
+        Cursor Rules help with this. You can save your project rules once, then AI follows them again and again.</p>
+      <p>Example rules:</p>
+      <ul>
+        <li>Use this coding style</li>
+        <li>Use this folder structure</li>
+        <li>Follow this brand tone</li>
+        <li>Return output in this format</li>
+        <li>Do not change existing class names</li>
+      </ul>
+      <p>This saves time and reduces repeated prompting.</p>
+
+      <h2 id="frameworks">8. Use frameworks when the task is big</h2>
+      <p>For complex work, random prompting is risky. Frameworks like Spec Kit, BMAD, or structured AI workflows help
+        break work into steps. They help AI understand what to build, why to build it, how to plan it, how to test it,
+        and how to complete it.</p>
+      <p>This reduces confusion. Confusion creates long conversations — and long conversations create high token cost.
+      </p>
+
+      <h2 id="simple-code">9. Do not ask AI to do simple code work</h2>
+      <p>Not everything needs AI. If simple code can do it, use code.</p>
+
+      <h3>Use normal code for:</h3>
+      <ul>
+        <li>Sorting</li>
+        <li>Counting</li>
+        <li>Filtering</li>
+        <li>Removing duplicates</li>
+        <li>Formatting dates</li>
+        <li>Checking empty fields</li>
+      </ul>
+
+      <h3>Use AI for:</h3>
+      <ul>
+        <li>Reasoning</li>
+        <li>Writing</li>
+        <li>Summarizing</li>
+        <li>Understanding meaning</li>
+        <li>Making decisions</li>
+        <li>Extracting messy information</li>
+      </ul>
+      <p>AI should not replace basic logic. AI should solve the parts where logic alone is weak.</p>
+
+      <h2 id="answer-length">10. Control the answer length</h2>
+      <p>Sometimes the prompt is small, but the answer is huge. That also costs tokens. So be direct:</p>
+      <ul>
+        <li>Answer in 5 points.</li>
+        <li>Keep it under 100 words.</li>
+        <li>Give only the final code.</li>
+        <li>Do not explain unless needed.</li>
+        <li>Return only JSON.</li>
+      </ul>
+      <p>This one habit can save a lot of tokens.</p>
+
+      <h2 id="repeated-prompts">11. Avoid repeated correction prompts</h2>
+      <p>Many people use AI like this:</p>
+      <ul>
+        <li>Make this better.</li>
+        <li>Now make it shorter.</li>
+        <li>Now make it professional.</li>
+        <li>Now remove emojis.</li>
+        <li>Now make it for LinkedIn.</li>
+      </ul>
+      <p>That is token waste. One strong prompt is better than five weak ones:</p>
+      <div class="blog-post-example">
+        <div class="label">Better prompt</div>
+        <p>Rewrite this for LinkedIn. Keep it short, professional, simple, and human. Do not use emojis. Keep it under
+          150 words.</p>
+      </div>
+
+      <h2 id="templates">12. Build reusable prompts</h2>
+      <p>If you do the same task often, create a template. Examples:</p>
+      <ul>
+        <li>Blog writing prompt</li>
+        <li>LinkedIn post prompt</li>
+        <li>Code review prompt</li>
+        <li>Bug fixing prompt</li>
+        <li>Data extraction prompt</li>
+        <li>Email writing prompt</li>
+        <li>JD writing prompt</li>
+      </ul>
+      <p>Do not start from zero every time. Templates save tokens, save time, and improve consistency.</p>
+
+      <section class="blog-post-summary" id="summary">
+        <h2>Final summary</h2>
+        <p>AI tokens are like fuel. If your prompt is unclear, you burn more fuel. If your context is messy, you burn
+          more fuel. If you use a big model for a small task, you burn more fuel.</p>
+        <p>So the goal is simple:</p>
+        <ul>
+          <li>Use clear prompts.</li>
+          <li>Give useful context.</li>
+          <li>Remove unnecessary text.</li>
+          <li>Use the right model.</li>
+          <li>Use rules and templates.</li>
+          <li>Control output length.</li>
+          <li>Avoid repeated corrections.</li>
+          <li>Use AI only where it adds value.</li>
+        </ul>
+        <p><strong>AI automation is not just about using AI. It is about using AI smartly.</strong> The best AI
+          engineers will not be the ones who write the longest prompts. They will be the ones who get the best result
+          with the least waste.</p>
+      </section>
+
+      <div class="blog-post-footer-nav">
+        <a href="../index.html#blog"><i class="fa-solid fa-arrow-left"></i> Back to all blog posts</a>
+      </div>
+    </div>
+  </article>
+
+  <script>
+    (function () {
+      const toggleBtn = document.getElementById("blog-theme-toggle");
+      const text = document.getElementById("blog-theme-text");
+      const icon = toggleBtn.querySelector("i");
+
+      let theme = localStorage.getItem("theme") || "dark";
+
+      function applyTheme(t) {
+        document.documentElement.setAttribute("data-theme", t);
+        localStorage.setItem("theme", t);
+        if (t === "dark") {
+          icon.className = "fa-solid fa-sun";
+          text.textContent = "Light Mode";
+        } else {
+          icon.className = "fa-solid fa-moon";
+          text.textContent = "Dark Mode";
+        }
+      }
+
+      applyTheme(theme);
+
+      toggleBtn.addEventListener("click", function () {
+        theme = theme === "dark" ? "light" : "dark";
+        applyTheme(theme);
+      });
+    })();
+  </script>
+</body>
+
+</html>
