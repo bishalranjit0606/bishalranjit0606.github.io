@@ -1939,6 +1939,20 @@ a.profile:focus-visible {
   padding: 48px 24px 80px;
 }
 
+.blog-post-cover {
+  margin: 0 0 24px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  background-color: var(--secondary-bg);
+}
+
+.blog-post-cover img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 .blog-post-meta {
   color: var(--highlight-color);
   font-size: 0.8rem;

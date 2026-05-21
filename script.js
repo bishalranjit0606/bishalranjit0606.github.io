@@ -265,7 +265,7 @@ const blogsData = [
   {
     date: "May 21, 2026",
     title: "AI Tokens Are Expensive: How to Get Better Results with Fewer Tokens",
-    excerpt: "Practical tips on prompt engineering, JSON prompts, choosing the right model, rules and skills, and using AI only where it adds value — so you spend less on tokens.",
+    excerpt: "Practical tips on prompt engineering, JSON prompts, choosing the right model, rules and skills, and using AI only where it adds value so you spend less on tokens.",
     link: "blog/ai-tokens-are-expensive.html",
     local: true
   },
@@ -835,7 +835,12 @@ function renderBlogs() {
       const readMoreLink = this.querySelector(".read-more");
       if (readMoreLink && readMoreLink.getAttribute("href") !== "#") {
         if (e.target.tagName.toLowerCase() !== "a") {
-          window.open(readMoreLink.getAttribute("href"), "_blank");
+          const href = readMoreLink.getAttribute("href");
+          if (blog.local) {
+            window.location.href = href;
+          } else {
+            window.open(href, "_blank");
+          }
         }
       }
     });
