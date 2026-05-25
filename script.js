@@ -450,6 +450,14 @@ const certificatesData = [
     image: "certificate-image/aws.png"
   },
   {
+    link: "https://verify.skilljar.com/c/z38s2z5iorey",
+    title: "Claude Code in Action",
+    certifiedTag: false,
+    issuer: "Anthropic Education",
+    date: "Issued: May 2026 • No Expiration",
+    image: "certificate-image/claude_code_in_action.jpg"
+  },
+  {
     link: "https://pwskills.com/learn/certificate/0ad98bda-0eb0-442c-8cf8-89a00415a39e/",
     title: "Claude AI: From Basics to Build",
     certifiedTag: false,
