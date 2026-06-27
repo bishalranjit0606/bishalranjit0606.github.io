@@ -1,4 +1,4 @@
-# Portfolio – [bishalranjit0606.github.io](https://bishalranjit0606.github.io)
+# Portfolio: [bishalranjit0606.github.io](https://bishalranjit0606.github.io)
 
 Welcome to my personal portfolio website!  
 This site showcases my projects, skills, and experiences as a developer.  
@@ -16,9 +16,9 @@ It serves as a central place where I present:
 
 ## Tech Stack
 The portfolio is built using:
-- **HTML5** & **CSS3** – for structure & styling  
-- **JavaScript** – for interactivity  
-- **GitHub Pages** – for deployment & hosting  
+- **HTML5** & **CSS3** for structure and styling  
+- **JavaScript** for interactivity  
+- **GitHub Pages** for deployment and hosting  
 
 
 

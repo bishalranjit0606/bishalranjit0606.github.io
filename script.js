@@ -303,7 +303,7 @@ const blogsData = [
   {
     date: "February 21, 2026",
     title: "Building a 100% Free AI Job Hunter with n8n, Groq, and Jina AI",
-    excerpt: "Searching for jobs is a full-time job in itself. But what if you could build a “robot assistant” to do the hunting, reading, and summarizing for you — for zero dollars?",
+    excerpt: "Searching for jobs is a full-time job in itself. But what if you could build a “robot assistant” to do the hunting, reading, and summarizing for you at zero cost?",
     link: "https://medium.com/@bishalranjit2002/building-a-100-free-ai-job-hunter-with-n8n-groq-and-jina-ai-69a762089349"
   },
   {
@@ -362,6 +362,21 @@ const blogsData = [
   }
 ];
 
+const teachingData = [
+  {
+    date: "March 2026",
+    title: "100 Days of Machine Learning",
+    excerpt: "Step-by-step ML life cycle course — from basics to production. Daily lessons covering supervised/unsupervised learning, batch vs online, overfitting, and real-world applications.",
+    link: "https://bishalranjitkar.tech/100-days-machine-learning/"
+  },
+  {
+    date: "January 2026",
+    title: "Learn Claude Code — Complete Guide",
+    excerpt: "Interactive guide to Claude Code: agents, skills, hooks, plugins, MCP, plan mode, and project memory (CLAUDE.md). Built for developers learning agentic AI workflows.",
+    link: "https://bishalranjitkar.tech/Learn-Claude-Code/"
+  }
+];
+
 const videosData = [
   {
     title: "Building a 100% Free AI Job Hunter with n8n, Groq, and Jina AI",
@@ -387,13 +402,13 @@ const experienceData = [
     company: "Recruit Nepal",
     link: "https://recruitnepal.com/",
     type: "Full-time",
-    duration: "Apr 2026 – Present",
+    duration: "Apr 2026 to Present",
     description: [
-      "Architecting enterprise-scale multi-agent AI ecosystems, leveraging a 5-agent orchestration model to automate complex inbound inquiry classification and response.",
-      "Developed a centralized Vector Database (RAG) architecture, enabling context-aware AI interactions across multiple platforms with real-time data retrieval from active vacancies.",
-      "Engineering automated resume-parsing and data enrichment pipelines that extract and synchronize candidate information from various document formats into a unified database.",
-      "Designing high-availability automation infrastructure with real-time error-handling webhooks and automated recovery protocols to ensure 24/7 system uptime.",
-      "Leading technical design sessions for cross-platform synchronization workflows, optimizing data flow between web platforms and social media channels."
+      "Optimizing production AI automation workflows for cost and token efficiency. This cuts API spend and latency while keeping accuracy across multi-agent recruitment systems.",
+      "Hardening workflow security with input validation, access controls, and threat-aware guardrails to protect AI pipelines from prompt injection and unauthorized data exposure.",
+      "Engineering reliability improvements for n8n workflows. This covers error recovery, monitoring, and performance tuning so systems stay fast and stable under limited compute and budget.",
+      "Applying advanced AI engineering practices including prompt engineering, loop engineering, and agent-based tooling (Cursor, Claude Code, skills & hooks) to make workflows more dependable and scalable.",
+      "Extending enterprise multi-agent and RAG architecture with new features while refactoring existing pipelines. Building workflows is the easy part. Optimizing them for cost, security, and reliability is where the real work happens."
     ]
   },
   {
@@ -401,7 +416,7 @@ const experienceData = [
     company: "Intern/Recruit Nepal",
     link: "https://recruitnepal.com/",
     type: "Internship",
-    duration: "Jan 2026 – Apr 2026",
+    duration: "Jan 2026 to Apr 2026",
     description: [
       "Architected a multi-channel automation ecosystem using n8n, achieving a 90% reduction in manual operations for recruitment and marketing workflows.",
       "Engineered an AI Auto-Reply Bot using 5 specialized agents and Vector Database (RAG), delivering 99.99% accuracy in automated candidate engagement.",
@@ -415,7 +430,7 @@ const experienceData = [
     company: "Leo District Council 325D",
     link: "https://www.ldc325d.com/",
     type: "Part-time",
-    duration: "Jan 2024 – Present",
+    duration: "Jan 2024 to Present",
     description: [
       "Developed leadership skills by leading community service projects and coordinating club initiatives.",
       "Collaborated with team members to organize and execute high-impact volunteering acti vities.",
@@ -631,10 +646,10 @@ const ThemeManager = {
     const text = document.getElementById("theme-text");
 
     if (theme === "dark") {
-      icon.className = "fa-solid fa-sun icon";
+      icon.className = "bi bi-brightness-high-fill icon";
       text.textContent = "Light Mode";
     } else {
-      icon.className = "fa-solid fa-moon icon";
+      icon.className = "bi bi-moon-stars-fill icon";
       text.textContent = "Dark Mode";
     }
   },
@@ -654,6 +669,7 @@ const CommandPalette = {
       { name: "Go to Experience", shortcut: "E", action: () => CommandPalette.selectSection("experience") },
       { name: "Go to Videos", shortcut: "V", action: () => CommandPalette.selectSection("videos") },
       { name: "Go to Blog", shortcut: "B", action: () => CommandPalette.selectSection("blog") },
+      { name: "Go to Teaching", shortcut: "G", action: () => CommandPalette.selectSection("teaching") },
       { name: "Go to Contact", shortcut: "@", action: () => CommandPalette.selectSection("contact") },
       { name: "Toggle Theme", shortcut: "T", action: () => document.getElementById("theme-toggle").click() },
       { name: "Download Resume", shortcut: "DL", action: () => window.open("docs/Bishal Ranjitkar resume.pdf", "_blank") }
@@ -856,6 +872,44 @@ function renderBlogs() {
           } else {
             window.open(href, "_blank");
           }
+        }
+      }
+    });
+
+    container.appendChild(card);
+  });
+}
+
+function renderTeaching() {
+  const container = document.getElementById('teaching-container');
+  if (!container) return;
+  container.innerHTML = '';
+
+  teachingData.forEach((item) => {
+    const card = document.createElement('article');
+    card.className = 'blog-card';
+
+    card.innerHTML = `
+      <div class="blog-date">${item.date}</div>
+      <h3 class="blog-title">${item.title}</h3>
+      <p class="blog-excerpt">${item.excerpt}</p>
+      <a href="${item.link}" class="read-more">Start Learning →</a>
+    `;
+
+    card.addEventListener("mouseenter", function () {
+      this.style.transform = "translateY(-5px)";
+      this.style.borderColor = "var(--highlight-color)";
+    });
+    card.addEventListener("mouseleave", function () {
+      this.style.transform = "translateY(0)";
+      this.style.borderColor = "var(--border-color)";
+    });
+
+    card.addEventListener("click", function (e) {
+      const ctaLink = this.querySelector(".read-more");
+      if (ctaLink && ctaLink.getAttribute("href") !== "#") {
+        if (e.target.tagName.toLowerCase() !== "a") {
+          window.location.href = ctaLink.getAttribute("href");
         }
       }
     });
@@ -1212,6 +1266,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderSkills();
   renderProjects();
   renderBlogs();
+  renderTeaching();
   renderExperience();
   renderCertificates();
   renderVideos();
@@ -1219,6 +1274,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   setupLoadMore("projects-container", "load-more-projects", 6);
   setupLoadMore("blog-container", "load-more-blog", 6);
+  setupLoadMore("teaching-container", "load-more-teaching", 6);
   setupLoadMore("certificates-container", "load-more-certificates", 6);
   setupLoadMore("videos-container", "load-more-videos", 6);
 

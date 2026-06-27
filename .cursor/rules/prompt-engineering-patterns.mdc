@@ -1,0 +1,12 @@
+---
+description: Use prompt-engineering-patterns skill for prompt design and LLM optimization
+alwaysApply: false
+---
+
+# Prompt Engineering
+
+When the user asks to optimize prompts, improve LLM performance, design templates, debug prompt issues, or use chain-of-thought or few-shot patterns, read and follow:
+
+`.agents/skills/prompt-engineering-patterns/SKILL.md`
+
+Apply structured prompting, few-shot selection, and production-ready prompt patterns from that skill.

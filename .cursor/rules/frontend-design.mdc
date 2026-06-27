@@ -1,0 +1,17 @@
+---
+description: Use frontend-design skill for UI, styling, and layout work
+globs: "**/*.{html,css,js}"
+alwaysApply: false
+---
+
+# Frontend Design
+
+For UI changes in this project, read and follow `.agents/skills/frontend-design/SKILL.md` before writing code.
+
+Use it when the user asks to build, style, redesign, or beautify pages, components, or layouts.
+
+Key points:
+- Pick a bold, intentional aesthetic direction
+- Use distinctive typography and cohesive color
+- Add motion and spatial composition with purpose
+- Avoid generic fonts (Inter, Arial) and clichéd purple-gradient layouts

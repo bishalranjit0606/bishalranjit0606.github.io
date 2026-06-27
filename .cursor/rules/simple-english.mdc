@@ -1,0 +1,22 @@
+---
+description: Write in simple English with no dashes in prose
+alwaysApply: true
+---
+
+# Simple English
+
+Follow this style in every reply and in all text for this project.
+
+Read and follow `.agents/skills/simple-english/SKILL.md` when you write anything.
+
+Key rules:
+
+- Use short sentences and easy words
+- Do not use fancy or formal words
+- Do not use dashes in prose (no em dash, no en dash, no dash pairs for extra detail)
+- Split long sentences instead of joining ideas with a dash
+- Use plain words in UI copy, docs, comments, and commit messages
+
+Bad: "We improved efficiency — reducing API calls by half."
+
+Good: "We improved speed. We cut API calls in half."

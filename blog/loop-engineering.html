@@ -35,24 +35,29 @@
     rel="stylesheet" />
   <link rel="icon" type="image/png" href="../images/devops.png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
   <link rel="stylesheet" href="../style.css" />
 </head>
 
 <body class="blog-post-page">
   <header class="blog-post-header">
-    <div class="blog-post-header-left">
+    <a href="../index.html" class="blog-post-brand" aria-label="Home">
+      <img src="../images/logo.png" alt="" class="blog-post-brand-logo" />
+      <div class="blog-post-brand-info">
+        <span class="blog-post-brand-name">Bishal Ranjitkar</span>
+        <p class="blog-post-brand-title">AWS Solutions Architect Associate <span class="certified-tag">Certified</span></p>
+      </div>
+    </a>
+    <nav class="blog-post-header-actions" aria-label="Blog navigation">
       <a href="../index.html#blog" class="blog-post-back">
-        <i class="fa-solid fa-arrow-left"></i> Back to Blog
+        <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+        <span>Back to Blog</span>
       </a>
-      <a href="../index.html" class="blog-post-brand" aria-label="Home">
-        <img src="../images/logo.png" alt="Bishal Ranjitkar" />
-        <span>Bishal Ranjitkar</span>
-      </a>
-    </div>
-    <button type="button" class="blog-post-theme-btn" id="blog-theme-toggle" aria-label="Toggle theme">
-      <i class="fa-solid fa-sun"></i>
-      <span id="blog-theme-text">Light Mode</span>
-    </button>
+      <button type="button" class="blog-post-theme-toggle" id="blog-theme-toggle" aria-label="Toggle theme">
+        <i class="bi bi-brightness-high-fill icon" aria-hidden="true"></i>
+        <span id="blog-theme-text">Light Mode</span>
+      </button>
+    </nav>
   </header>
 
   <article class="blog-post-container">
@@ -153,21 +158,21 @@
 
       <h2 id="four-pieces">4. The 4 pieces of every loop</h2>
       <ol>
-        <li><strong>Trigger</strong> - what starts it? A schedule, a new email, a GitHub event, or you typing a
+        <li><strong>Trigger:</strong> what starts it? A schedule, a new email, a GitHub event, or you typing a
           command.</li>
-        <li><strong>Execution</strong> - the agent does the work (research, write code, draft a post).</li>
-        <li><strong>Verification</strong> - did it actually finish well? This is the most important part.</li>
-        <li><strong>State</strong> - what happened in past loops? Save it so the next run is smarter.</li>
+        <li><strong>Execution:</strong> the agent does the work (research, write code, draft a post).</li>
+        <li><strong>Verification:</strong> did it actually finish well? This is the most important part.</li>
+        <li><strong>State:</strong> what happened in past loops? Save it so the next run is smarter.</li>
       </ol>
       <p>There is also a 5th piece: <strong>stop condition</strong>. Without it, the loop keeps running and burns
         tokens.</p>
 
       <h3>4 types of verification</h3>
       <ul>
-        <li><strong>Functional</strong> - machine can check. Example: tests pass, build succeeds.</li>
-        <li><strong>Visual</strong> - someone or AI must look. Example: does the UI match the design?</li>
-        <li><strong>Judgment</strong> - needs a rubric and score. Example: rate this post 1 to 10.</li>
-        <li><strong>You decide</strong> - human must approve. Example: should we send this email?</li>
+        <li><strong>Functional:</strong> machine can check. Example: tests pass, build succeeds.</li>
+        <li><strong>Visual:</strong> someone or AI must look. Example: does the UI match the design?</li>
+        <li><strong>Judgment:</strong> needs a rubric and score. Example: rate this post 1 to 10.</li>
+        <li><strong>You decide:</strong> human must approve. Example: should we send this email?</li>
       </ul>
 
       <h2 id="verification-state">5. Verification and state are the main things</h2>
@@ -280,10 +285,10 @@ Step 5: You have a loop</code></pre>
         document.documentElement.setAttribute("data-theme", t);
         localStorage.setItem("theme", t);
         if (t === "dark") {
-          icon.className = "fa-solid fa-sun";
+          icon.className = "bi bi-brightness-high-fill icon";
           text.textContent = "Light Mode";
         } else {
-          icon.className = "fa-solid fa-moon";
+          icon.className = "bi bi-moon-stars-fill icon";
           text.textContent = "Dark Mode";
         }
       }
