@@ -263,6 +263,13 @@ const projectsData = [
 
 const blogsData = [
   {
+    date: "June 27, 2026",
+    title: "Loop Engineering: Automated Prompt Engineering",
+    excerpt: "A loop is cruise control for your AI agent. Learn trigger, execute, verification, state, and stop conditions for AI automation workflows.",
+    link: "blog/loop-engineering.html",
+    local: true
+  },
+  {
     date: "May 21, 2026",
     title: "AI Tokens Are Expensive: How to Get Better Results with Fewer Tokens",
     excerpt: "Practical tips on prompt engineering, JSON prompts, choosing the right model, rules and skills, and using AI only where it adds value so you spend less on tokens.",

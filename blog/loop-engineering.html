@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loop Engineering: Automated Prompt Engineering | Bishal Ranjitkar</title>
+  <meta name="description"
+    content="Loop engineering is automated prompt engineering for AI automation. A loop is cruise control for your AI agent: trigger, execute, verify, state, and stop." />
+  <link rel="canonical" href="https://bishalranjitkar.tech/blog/loop-engineering.html" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Bishal Ranjitkar" />
+  <meta property="og:title" content="Loop Engineering: Automated Prompt Engineering" />
+  <meta property="og:description"
+    content="A loop is cruise control for your AI agent. Learn trigger, execute, verification, state, and stop conditions for AI automation workflows." />
+  <meta property="og:url" content="https://bishalranjitkar.tech/blog/loop-engineering.html" />
+  <meta property="og:image" content="https://bishalranjitkar.tech/images/loop_engineering.png" />
+  <meta property="og:image:secure_url" content="https://bishalranjitkar.tech/images/loop_engineering.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1672" />
+  <meta property="og:image:height" content="941" />
+  <meta property="og:image:alt" content="Loop Engineering diagram: Trigger, Execute, Verification, State, and Stop" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Loop Engineering: Automated Prompt Engineering" />
+  <meta name="twitter:description"
+    content="A loop is cruise control for your AI agent. Trigger, execute, verify, state, and stop for AI automation workflows." />
+  <meta name="twitter:image" content="https://bishalranjitkar.tech/images/loop_engineering.png" />
+  <meta name="twitter:image:alt" content="Loop Engineering diagram: Trigger, Execute, Verification, State, and Stop" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="icon" type="image/png" href="../images/devops.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+
+<body class="blog-post-page">
+  <header class="blog-post-header">
+    <div class="blog-post-header-left">
+      <a href="../index.html#blog" class="blog-post-back">
+        <i class="fa-solid fa-arrow-left"></i> Back to Blog
+      </a>
+      <a href="../index.html" class="blog-post-brand" aria-label="Home">
+        <img src="../images/logo.png" alt="Bishal Ranjitkar" />
+        <span>Bishal Ranjitkar</span>
+      </a>
+    </div>
+    <button type="button" class="blog-post-theme-btn" id="blog-theme-toggle" aria-label="Toggle theme">
+      <i class="fa-solid fa-sun"></i>
+      <span id="blog-theme-text">Light Mode</span>
+    </button>
+  </header>
+
+  <article class="blog-post-container">
+    <p class="blog-post-meta">June 27, 2026 · AI Automation</p>
+    <h1>Loop Engineering: Automated Prompt Engineering</h1>
+
+    <figure class="blog-post-cover">
+      <img src="../images/loop_engineering.png"
+        alt="Loop Engineering diagram showing Trigger, Execute, Verification, State, and Stop with max 3 tries"
+        width="1672" height="941" />
+    </figure>
+
+    <p class="blog-post-lead">
+      Prompt engineering is one message, one answer. Loop engineering is when the system keeps going on its own:
+      trigger, run, check, save state, repeat or stop. Think of it like cruise control for your AI agent.
+    </p>
+
+    <nav class="blog-post-toc" aria-label="Table of contents">
+      <h2>In this article</h2>
+      <ul>
+        <li><a href="#what-is-it">What is loop engineering?</a></li>
+        <li><a href="#vs-prompt">Prompt engineering vs loop engineering</a></li>
+        <li><a href="#json-diff">JSON prompt vs loop JSON</a></li>
+        <li><a href="#four-pieces">The 4 pieces of every loop</a></li>
+        <li><a href="#verification-state">Verification and state</a></li>
+        <li><a href="#metrics">Use numbers, not "make it better"</a></li>
+        <li><a href="#how-to-build">How to build a loop (5 steps)</a></li>
+        <li><a href="#should-you">Should you build one?</a></li>
+        <li><a href="#skip">What to skip for now</a></li>
+        <li><a href="#summary">Final summary</a></li>
+      </ul>
+    </nav>
+
+    <div class="blog-post-body">
+      <h2 id="what-is-it">1. What is loop engineering?</h2>
+      <p>
+        <strong>Loop engineering is just automated prompt engineering.</strong> Instead of you typing the next prompt
+        every time, you design a system that does it for you.
+      </p>
+      <p>A normal loop is simple:</p>
+      <pre><code>Trigger → Action → Stop</code></pre>
+      <p>A real AI loop has more steps:</p>
+      <pre><code>Trigger → Execute → Verification → State → Trigger (again)</code></pre>
+      <p>
+        You stop being the person who keeps prompting. You become the person who designs the loop. For a deeper visual
+        guide, see
+        <a href="https://loop-engineering-with-mayank.netlify.app/" target="_blank" rel="noopener noreferrer">Loop
+          Engineering with Mayank</a>.
+      </p>
+
+      <h2 id="vs-prompt">2. Prompt engineering vs loop engineering</h2>
+      <ul>
+        <li><strong>Prompt engineering:</strong> you write one instruction, AI replies, you check, you write again.</li>
+        <li><strong>Loop engineering:</strong> you set the goal, steps, checks, and stop rules once. The system runs
+          the loop.</li>
+      </ul>
+      <p>Prompt engineering still matters. Every loop still uses prompts inside it. Loop engineering is about the
+        system around those prompts.</p>
+
+      <h2 id="json-diff">3. JSON prompt vs loop JSON</h2>
+      <p>They look almost the same. The big difference is the <strong>goal</strong> section.</p>
+
+      <p><strong>Prompt engineering JSON</strong> (one shot):</p>
+      <pre><code>{
+  "task": "Write a LinkedIn post",
+  "topic": "Saving AI tokens",
+  "tone": "simple and practical",
+  "length": "short",
+  "avoid": "emoji and complex words"
+}</code></pre>
+
+      <p><strong>Loop engineering JSON</strong> (same idea, but goal has clear pass/fail rules):</p>
+      <pre><code>{
+  "goal": {
+    "task": "Write a LinkedIn post",
+    "topic": "Trending AI news today",
+    "done_when": {
+      "word_count": "120 to 180",
+      "readability": "grade 8 or lower",
+      "must_include": "one real tip",
+      "must_avoid": "emoji, buzzwords"
+    }
+  },
+  "trigger": "every weekday at 7am",
+  "execution": "research trends, draft post",
+  "verification": {
+    "type": "judgment",
+    "pass_score": "7 out of 10 or higher",
+    "max_attempts": 3
+  },
+  "state": "save each draft, score, and what worked before",
+  "stop": "stop after 3 tries or when score passes"
+}</code></pre>
+      <p>
+        Same JSON style. But loop JSON adds <strong>done_when</strong>, <strong>verification</strong>,
+        <strong>state</strong>, and <strong>stop</strong>. That is the whole point.
+      </p>
+
+      <h2 id="four-pieces">4. The 4 pieces of every loop</h2>
+      <ol>
+        <li><strong>Trigger</strong> - what starts it? A schedule, a new email, a GitHub event, or you typing a
+          command.</li>
+        <li><strong>Execution</strong> - the agent does the work (research, write code, draft a post).</li>
+        <li><strong>Verification</strong> - did it actually finish well? This is the most important part.</li>
+        <li><strong>State</strong> - what happened in past loops? Save it so the next run is smarter.</li>
+      </ol>
+      <p>There is also a 5th piece: <strong>stop condition</strong>. Without it, the loop keeps running and burns
+        tokens.</p>
+
+      <h3>4 types of verification</h3>
+      <ul>
+        <li><strong>Functional</strong> - machine can check. Example: tests pass, build succeeds.</li>
+        <li><strong>Visual</strong> - someone or AI must look. Example: does the UI match the design?</li>
+        <li><strong>Judgment</strong> - needs a rubric and score. Example: rate this post 1 to 10.</li>
+        <li><strong>You decide</strong> - human must approve. Example: should we send this email?</li>
+      </ul>
+
+      <h2 id="verification-state">5. Verification and state are the main things</h2>
+      <p>Humans are good at saying what they want. The loop needs that same clarity.</p>
+      <p>Do not say:</p>
+      <div class="blog-post-example">
+        <div class="label">Too vague</div>
+        <p>Make the article better.</p>
+      </div>
+      <p>Say what "better" means:</p>
+      <div class="blog-post-example">
+        <div class="label">Clear</div>
+        <p>Rewrite until readability is grade 8 or lower, word count is 120 to 180, and it includes at least one real
+          tip.</p>
+      </div>
+      <p>
+        <strong>State</strong> means the loop remembers past runs. Example: a LinkedIn loop saves old posts and which
+        ones got good engagement. Next time it writes based on that data, not from zero.
+      </p>
+
+      <h2 id="metrics">6. Use numbers, not feelings</h2>
+      <p>Good loops use metrics. Bad loops use vague words.</p>
+      <ul>
+        <li>Word count: 120 to 180 words</li>
+        <li>Test pass rate: 100% of tests green</li>
+        <li>Visual match score: 8 out of 10 or higher</li>
+        <li>Runtime improvement: at least 15% faster than last version</li>
+        <li>Max attempts: 3 tries, then stop</li>
+      </ul>
+      <p>Numbers make verification possible. "Better" and "faster" alone do not.</p>
+
+      <h2 id="how-to-build">7. How to build a loop (5 steps)</h2>
+      <p>Nobody starts with a full loop. This is the real path:</p>
+      <pre><code>Step 1: Do it manually
+   ↓
+Step 2: Turn it into a skill
+   ↓
+Step 3: Automate the trigger
+   ↓
+Step 4: Add verification + state
+   ↓
+Step 5: You have a loop</code></pre>
+      <ul>
+        <li><strong>Step 1:</strong> Do the task by hand. Confirm AI can actually do it.</li>
+        <li><strong>Step 2:</strong> Save the steps as a skill or template so you do not rewrite prompts.</li>
+        <li><strong>Step 3:</strong> Add a trigger (cron job, schedule, webhook).</li>
+        <li><strong>Step 4:</strong> Add a real check and save results from each run.</li>
+        <li><strong>Step 5:</strong> Connect it all. Now it loops on its own.</li>
+      </ul>
+
+      <h2 id="should-you">8. Should you even build one?</h2>
+      <p>Loops cost money (tokens, time, setup). Not every task needs one.</p>
+      <p><strong>Build a loop when:</strong></p>
+      <ul>
+        <li>The task repeats (daily posts, inbox triage, CI fixes).</li>
+        <li>It has many steps you cannot predict in one prompt.</li>
+        <li>You can define a real "done" check (tests, score, word count).</li>
+      </ul>
+      <p><strong>Just use a normal prompt when:</strong></p>
+      <ul>
+        <li>It is a one-time task.</li>
+        <li>You can finish it in one or two messages.</li>
+        <li>There is no clear way to check if it is done.</li>
+      </ul>
+      <p>Always set a <strong>max number of tries</strong>. Example: stop after 3 attempts or 10 minutes. This saves
+        tokens.</p>
+
+      <h2 id="skip">9. What to skip for now</h2>
+      <ul>
+        <li>24/7 swarms of agents prompting other agents</li>
+        <li>Loops with no stop limit</li>
+        <li>Trusting "looks done" with no real check</li>
+        <li>Looping a simple one-shot task you could just prompt once</li>
+      </ul>
+      <p>Start with one small repeatable task. Pick the right check type. Set a max try count. That is enough.</p>
+
+      <section class="blog-post-summary" id="summary">
+        <h2>Final summary</h2>
+        <p>Loop engineering is not magic. It is automated prompt engineering with structure.</p>
+        <ul>
+          <li>Prompt = one shot. Loop = trigger, execute, verify, state, repeat or stop.</li>
+          <li>JSON for loops looks like prompt JSON, but the goal must say exactly when it is done.</li>
+          <li>Verification and state are the heart of a good loop.</li>
+          <li>Use numbers (word count, score, pass rate), not vague words like "better."</li>
+          <li>Build step by step: manual → skill → trigger → verification + state → loop.</li>
+          <li>Always set max tries and a stop condition to save tokens.</li>
+        </ul>
+        <p>
+          Learn more with the interactive guide at
+          <a href="https://loop-engineering-with-mayank.netlify.app/" target="_blank"
+            rel="noopener noreferrer">loop-engineering-with-mayank.netlify.app</a>.
+        </p>
+      </section>
+
+      <div class="blog-post-footer-nav">
+        <a href="../index.html#blog"><i class="fa-solid fa-arrow-left"></i> Back to all blog posts</a>
+      </div>
+    </div>
+  </article>
+
+  <script>
+    (function () {
+      const toggleBtn = document.getElementById("blog-theme-toggle");
+      const text = document.getElementById("blog-theme-text");
+      const icon = toggleBtn.querySelector("i");
+
+      let theme = localStorage.getItem("theme") || "dark";
+
+      function applyTheme(t) {
+        document.documentElement.setAttribute("data-theme", t);
+        localStorage.setItem("theme", t);
+        if (t === "dark") {
+          icon.className = "fa-solid fa-sun";
+          text.textContent = "Light Mode";
+        } else {
+          icon.className = "fa-solid fa-moon";
+          text.textContent = "Dark Mode";
+        }
+      }
+
+      applyTheme(theme);
+
+      toggleBtn.addEventListener("click", () => {
+        theme = theme === "dark" ? "light" : "dark";
+        applyTheme(theme);
+      });
+    })();
+  </script>
+</body>
+
+</html>
