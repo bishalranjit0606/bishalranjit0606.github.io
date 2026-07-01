@@ -7,7 +7,7 @@ const skillsData = [
     id: "n8n",
     title: "n8n",
     desc: "Workflow Automation",
-    modalDesc: "Fair-code licensed workflow automation tool for building complex integrations and automations.",
+    modalDesc: "Workflow automation for multi-agent AI systems, API integrations, and production pipelines.",
     iconType: "image",
     icon: "https://cdn.simpleicons.org/n8n"
   },
@@ -15,23 +15,39 @@ const skillsData = [
     id: "python",
     title: "Python",
     desc: "Programming Language",
-    modalDesc: "High-level language for automation, scripting, and versatile coding.",
+    modalDesc: "Used for task automation, data processing, scripting, and backend development.",
     iconType: "class",
     icon: ["fa-brands", "fa-python"]
+  },
+  {
+    id: "nodejs",
+    title: "Node.js",
+    desc: "Backend Runtime",
+    modalDesc: "Server-side JavaScript for building scalable APIs and backend applications.",
+    iconType: "class",
+    icon: ["fa-brands", "fa-node-js"]
   },
   {
     id: "javascript",
     title: "JavaScript",
     desc: "Web Programming",
-    modalDesc: "Essential for web development, scripting, and building interactive user experiences.",
+    modalDesc: "Used for web development, scripting, and building interactive user experiences.",
     iconType: "class",
     icon: ["fa-brands", "fa-js"]
+  },
+  {
+    id: "bash",
+    title: "Bash",
+    desc: "Scripting",
+    modalDesc: "Command-line scripting and automation for deployment and system tasks.",
+    iconType: "image",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-plain.svg"
   },
   {
     id: "aws",
     title: "AWS",
     desc: "Cloud Platform",
-    modalDesc: "Leading cloud platform for scalable applications and infrastructure.",
+    modalDesc: "Cloud infrastructure with EC2, S3, RDS, IAM, VPC, and scalable deployments.",
     iconType: "class",
     icon: ["fa-brands", "fa-aws"]
   },
@@ -39,63 +55,55 @@ const skillsData = [
     id: "docker",
     title: "Docker",
     desc: "Containerization",
-    modalDesc: "Build once, run anywhere containerization platform.",
+    modalDesc: "Containerized app deployment on AWS EC2 and ECS.",
     iconType: "class",
     icon: ["fa-brands", "fa-docker"]
-  },
-  {
-    id: "kubernetes",
-    title: "Kubernetes",
-    desc: "Container Orchestration",
-    modalDesc: "Container orchestration and management at scale.",
-    iconType: "class",
-    icon: ["fa-solid", "fa-dharmachakra"]
   },
   {
     id: "terraform",
     title: "Terraform",
     desc: "Infrastructure as Code",
-    modalDesc: "Infrastructure as Code provisioning and management tool.",
+    modalDesc: "Infrastructure as Code for provisioning and managing AWS environments.",
     iconType: "image",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-plain.svg"
+  },
+  {
+    id: "postgresql",
+    title: "PostgreSQL",
+    desc: "Relational Database",
+    modalDesc: "PostgreSQL for structured data storage in backend applications.",
+    iconType: "image",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-plain.svg"
+  },
+  {
+    id: "mongodb",
+    title: "MongoDB",
+    desc: "NoSQL Database",
+    modalDesc: "MongoDB for flexible document-based data storage in backend apps.",
+    iconType: "image",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-plain.svg"
   },
   {
     id: "linux",
     title: "Linux",
     desc: "Operating System",
-    modalDesc: "Open-source OS for servers and cloud infrastructure.",
+    modalDesc: "Linux servers for cloud infrastructure and deployment environments.",
     iconType: "class",
     icon: ["fa-brands", "fa-linux"]
   },
   {
     id: "github",
     title: "GitHub",
-    desc: "Code Management",
-    modalDesc: "Code hosting and collaboration platform for version control.",
+    desc: "Version Control",
+    modalDesc: "Git and GitHub for code hosting, collaboration, and version control.",
     iconType: "class",
     icon: ["fa-brands", "fa-github"]
-  },
-  {
-    id: "jenkins",
-    title: "Jenkins",
-    desc: "CI/CD",
-    modalDesc: "Automates building, testing, and deployment pipelines.",
-    iconType: "class",
-    icon: ["fa-brands", "fa-jenkins"]
-  },
-  {
-    id: "bash",
-    title: "Bash",
-    desc: "Scripting",
-    modalDesc: "Command-line scripting and automation for system tasks.",
-    iconType: "image",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-plain.svg"
   },
   {
     id: "postman",
     title: "Postman",
     desc: "API Testing",
-    modalDesc: "API development and testing platform for building and testing APIs.",
+    modalDesc: "API development and testing for building and validating integrations.",
     iconType: "image",
     icon: "https://cdn.simpleicons.org/postman/FF6C37"
   },
@@ -103,7 +111,7 @@ const skillsData = [
     id: "prometheus",
     title: "Prometheus",
     desc: "Monitoring",
-    modalDesc: "Powerful monitoring and alerting toolkit for cloud infrastructure.",
+    modalDesc: "Monitoring and alerting toolkit for cloud infrastructure.",
     iconType: "image",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prometheus/prometheus-original.svg"
   },
@@ -111,7 +119,7 @@ const skillsData = [
     id: "grafana",
     title: "Grafana",
     desc: "Visualization",
-    modalDesc: "Analytics and interactive visualization web application.",
+    modalDesc: "Analytics and interactive visualization for system monitoring.",
     iconType: "image",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/grafana/grafana-original.svg"
   }
