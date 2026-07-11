@@ -1,0 +1,37 @@
+---
+description: How to add and order certificates in certificatesData
+globs: script.js
+alwaysApply: false
+---
+
+# Certificate Order
+
+Bishal is an AI Automation Engineer. Order `certificatesData` in `script.js` by
+skill importance for that role, not by date.
+
+## Rules
+
+1. AWS Solutions Architect Associate is always first.
+2. After it, show one top certificate per key skill in this order:
+   n8n, Claude, RAG, MCP, then backend (Node.js).
+3. Show only one important certificate per skill in this top group.
+4. Put all remaining certificates after the top group. Group them by skill:
+   extra n8n first, then extra Claude, then extra AWS, then cloud and security.
+5. Pick the strongest cert as the "top" one for each skill. For n8n, the
+   highest course level wins (Level 2 over Level 1 or intro courses).
+
+## When adding a new certificate
+
+- Add a new object with these fields: `link`, `title`, `certifiedTag`,
+  `issuer`, `date`, `image`.
+- Set `certifiedTag: true` only for a real proctored certification (like AWS
+  SAA). Otherwise use `false`.
+- Decide the skill it belongs to. If it is stronger than the current top cert
+  for that skill, make it the new top cert and move the old one down.
+- If it is not stronger, place it in the grouped section with its skill.
+- Keep the `image` path pointing to a file inside `certificate-image/`.
+
+## Example
+
+New "n8n Course Level 3" beats Level 2. So it becomes the top n8n cert (right
+after AWS), and Level 2 moves down into the extra n8n group.

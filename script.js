@@ -480,20 +480,20 @@ const certificatesData = [
     image: "certificate-image/aws.png"
   },
   {
+    link: "https://community.n8n.io/badges/105/completed-n8n-course-level-2?username=bishal_ranjit",
+    title: "Badges / Completed n8n Course Level 2",
+    certifiedTag: false,
+    issuer: "n8n",
+    date: "Issued: December 2025 • No Expiration",
+    image: "certificate-image/n8n Course Level 2.png"
+  },
+  {
     link: "https://verify.skilljar.com/c/z38s2z5iorey",
     title: "Claude Code in Action",
     certifiedTag: false,
     issuer: "Anthropic Education",
     date: "Issued: May 2026 • No Expiration",
     image: "certificate-image/claude_code_in_action.jpg"
-  },
-  {
-    link: "https://pwskills.com/learn/certificate/0ad98bda-0eb0-442c-8cf8-89a00415a39e/",
-    title: "Claude AI: From Basics to Build",
-    certifiedTag: false,
-    issuer: "PW Skills",
-    date: "Issued: April 29, 2026 • No Expiration",
-    image: "certificate-image/claude_ai_pwskills.png"
   },
   {
     link: "https://scrimba.com/learn-rag-c033;cert2JbLs3qgBXAdeqYLhKLyHZKWeyxk2KmY77JwBA",
@@ -512,12 +512,12 @@ const certificatesData = [
     image: "certificate-image/MCP.png"
   },
   {
-    link: "https://community.n8n.io/badges/105/completed-n8n-course-level-2?username=bishal_ranjit",
-    title: "Badges / Completed n8n Course Level 2",
+    link: "https://pwskills.com/learn/certificate/e42e71b5-7f83-49c8-8c37-77c4873d674d/",
+    title: "Backend Development Course",
     certifiedTag: false,
-    issuer: "n8n",
-    date: "Issued: December 2025 • No Expiration",
-    image: "certificate-image/n8n Course Level 2.png"
+    issuer: "PW Skills",
+    date: "Issued: February 2025 • No Expiration",
+    image: "certificate-image/backend-development.png"
   },
   {
     link: "https://www.datacamp.com/statement-of-accomplishment/course/592236acc54c3d46be46d30dfd9b96f892c6a0d3?raw=1",
@@ -534,6 +534,46 @@ const certificatesData = [
     issuer: "n8n",
     date: "Issued: December 2025 • No Expiration",
     image: "certificate-image/n8n Course Level 1.png"
+  },
+  {
+    link: "certificate-image/quick-start.jpg",
+    title: "n8n Quickstart",
+    certifiedTag: false,
+    issuer: "n8n Academy",
+    date: "Issued: July 2026 • No Expiration",
+    image: "certificate-image/quick-start.jpg"
+  },
+  {
+    link: "certificate-image/Essentials- Your First Workflows.jpg",
+    title: "Essentials: Your First Workflows",
+    certifiedTag: false,
+    issuer: "n8n Academy",
+    date: "Issued: July 2026 • No Expiration",
+    image: "certificate-image/Essentials- Your First Workflows.jpg"
+  },
+  {
+    link: "certificate-image/Integrations- APIs & Connected Workflows.jpg",
+    title: "Integrations: APIs & Connected Workflows",
+    certifiedTag: false,
+    issuer: "n8n Academy",
+    date: "Issued: July 2026 • No Expiration",
+    image: "certificate-image/Integrations- APIs & Connected Workflows.jpg"
+  },
+  {
+    link: "certificate-image/In Practice- AI, Testing & Best Practices.jpg",
+    title: "In Practice: AI, Testing & Best Practices",
+    certifiedTag: false,
+    issuer: "n8n Academy",
+    date: "Issued: July 2026 • No Expiration",
+    image: "certificate-image/In Practice- AI, Testing & Best Practices.jpg"
+  },
+  {
+    link: "https://pwskills.com/learn/certificate/0ad98bda-0eb0-442c-8cf8-89a00415a39e/",
+    title: "Claude AI: From Basics to Build",
+    certifiedTag: false,
+    issuer: "PW Skills",
+    date: "Issued: April 29, 2026 • No Expiration",
+    image: "certificate-image/claude_ai_pwskills.png"
   },
   {
     link: "https://github.com/bishalranjit0606/certified-aws-testing/blob/main/Advanced%20Testing%20Practices%20Using%20AWS%20DevOps%20Tools_page-0001.jpg",
@@ -574,14 +614,6 @@ const certificatesData = [
     issuer: "Forage",
     date: "Issued: June 2025 • No Expiration",
     image: "certificate-image/forage.jpg"
-  },
-  {
-    link: "https://pwskills.com/learn/certificate/e42e71b5-7f83-49c8-8c37-77c4873d674d/",
-    title: "Backend Development Course",
-    certifiedTag: false,
-    issuer: "PW Skills",
-    date: "Issued: February 2025 • No Expiration",
-    image: "certificate-image/backend-development.png"
   },
   {
     link: "https://cdn.pwskills.com/learn/certificates/0acafd53-dbd6-44ee-b183-389aeb70a01b.pdf",
