@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Observability: Trace, Score, Flag, and Fix Bad Answers | Bishal Ranjitkar</title>
+  <meta name="description"
+    content="AI observability means tracking what happened inside your AI system from the user question to the final answer. Learn traces, spans, RAG context, metrics, quality scores, bad answer flags, and the fix loop." />
+  <link rel="canonical" href="https://bishalranjitkar.tech/blog/ai-observability.html" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Bishal Ranjitkar" />
+  <meta property="og:title" content="AI Observability: Trace, Score, Flag, and Fix Bad Answers" />
+  <meta property="og:description"
+    content="Why AI apps fail even when servers look healthy, what a trace is, and an 8-step guide to capture, score, flag, and fix bad LLM answers." />
+  <meta property="og:url" content="https://bishalranjitkar.tech/blog/ai-observability.html" />
+  <meta property="og:image" content="https://bishalranjitkar.tech/images/ai-observability.png" />
+  <meta property="og:image:secure_url" content="https://bishalranjitkar.tech/images/ai-observability.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1672" />
+  <meta property="og:image:height" content="941" />
+  <meta property="og:image:alt" content="AI Observability cover: Trace, Score, Flag, Fix pipeline with metrics and Bad Answers panel" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AI Observability: Trace, Score, Flag, and Fix Bad Answers" />
+  <meta name="twitter:description"
+    content="Why AI apps fail even when servers look healthy, what a trace is, and an 8-step guide to capture, score, flag, and fix bad LLM answers." />
+  <meta name="twitter:image" content="https://bishalranjitkar.tech/images/ai-observability.png" />
+  <meta name="twitter:image:alt" content="AI Observability cover: Trace, Score, Flag, Fix pipeline with metrics and Bad Answers panel" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="icon" type="image/png" href="../images/devops.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+
+<body class="blog-post-page">
+  <header class="blog-post-header">
+    <a href="../index.html" class="blog-post-brand" aria-label="Home">
+      <img src="../images/logo.png" alt="" class="blog-post-brand-logo" />
+      <div class="blog-post-brand-info">
+        <span class="blog-post-brand-name">Bishal Ranjitkar</span>
+        <p class="blog-post-brand-title">AWS Solutions Architect Associate <span class="certified-tag">Certified</span></p>
+      </div>
+    </a>
+    <nav class="blog-post-header-actions" aria-label="Blog navigation">
+      <a href="../index.html#blog" class="blog-post-back">
+        <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+        <span>Back to Blog</span>
+      </a>
+      <button type="button" class="blog-post-theme-toggle" id="blog-theme-toggle" aria-label="Toggle theme">
+        <i class="bi bi-brightness-high-fill icon" aria-hidden="true"></i>
+        <span id="blog-theme-text">Light Mode</span>
+      </button>
+    </nav>
+  </header>
+
+  <article class="blog-post-container">
+    <p class="blog-post-meta">July 14, 2026 · LLM Engineering</p>
+    <h1>AI Observability: Trace, Score, Flag, and Fix Bad Answers</h1>
+
+    <figure class="blog-post-cover">
+      <img src="../images/ai-observability.png"
+        alt="AI Observability cover showing Trace, Score, Flag, Fix pipeline with metrics and Bad Answers panel"
+        width="1672" height="941" />
+    </figure>
+
+    <p class="blog-post-lead">
+      AI observability is becoming important because an AI app can fail even when nothing technically breaks.
+      Your server can still be healthy, your API can be fast, your dashboard can be all green, and your chatbot can
+      still give a completely wrong answer to a real customer. And you would never know.
+    </p>
+
+    <nav class="blog-post-toc" aria-label="Table of contents">
+      <h2>In this article</h2>
+      <ul>
+        <li><a href="#why-it-matters">Why AI apps fail in a weird way</a></li>
+        <li><a href="#what-is-trace">What is a trace?</a></li>
+        <li><a href="#refund-example">The refund policy example</a></li>
+        <li><a href="#monitoring-vs-observability">Monitoring vs observability</a></li>
+        <li><a href="#step-1">Step 1: Capture the request</a></li>
+        <li><a href="#step-2">Step 2: Trace the pipeline</a></li>
+        <li><a href="#step-3">Step 3: Store the important context</a></li>
+        <li><a href="#step-4">Step 4: Track system metrics</a></li>
+        <li><a href="#step-5">Step 5: Score answer quality</a></li>
+        <li><a href="#step-6">Step 6: Flag bad answers</a></li>
+        <li><a href="#step-7">Step 7: Build a Bad Answers dashboard</a></li>
+        <li><a href="#step-8">Step 8: Fix and retest</a></li>
+        <li><a href="#practice-project">A practical project you can build</a></li>
+        <li><a href="#summary">Final summary</a></li>
+      </ul>
+    </nav>
+
+    <div class="blog-post-body">
+      <p>
+        This is exactly why AI observability is becoming one of the most important ideas in LLM engineering.
+      </p>
+
+      <h2 id="why-it-matters">Why AI apps fail in a weird way</h2>
+      <p>
+        In normal software, when something breaks, it is usually obvious. The page crashes. The API call gets slow.
+        Or the database throws an error.
+      </p>
+      <p>
+        But LLM apps or AI apps fail in a much weirder way. The app can be online. The response can be fast.
+        And the answer can still be completely wrong.
+      </p>
+      <p>
+        So AI observability or LLM observability means tracking what happened inside your AI system from the
+        moment the user asked a question to the moment the final answer came out.
+      </p>
+
+      <h2 id="what-is-trace">What is a trace?</h2>
+      <p>
+        The most important technical word here is called a <strong>trace</strong>. A trace is a full step-by-step
+        journey of one AI request.
+      </p>
+
+      <h2 id="refund-example">The refund policy example</h2>
+      <p>
+        Imagine you own an online business and your customers ask your chatbot about a refund policy.
+        Something like: can I return this item after 30 days?
+      </p>
+      <p>
+        And the bot hallucinates a completely wrong answer. It says yes, you can return the product after 30 days.
+      </p>
+      <p>
+        Without observability, the team may never notice that one specific customer question and that one wrong bot
+        response. They only find out later when the customer leaves a frustrated review saying that they waited 30
+        days, tried to start the return, and the refund option was no longer available on the website.
+      </p>
+      <p>
+        But with observability rules inside the AI system, that response can be flagged the moment it looks
+        unsupported, risky, or inconsistent with the company policy. Then the team can open the trace and see exactly
+        what happened. Something like:
+      </p>
+      <ul>
+        <li>Did the retriever pull the wrong policy document?</li>
+        <li>Did the model ignore the right document?</li>
+        <li>Did the prompt version change yesterday?</li>
+        <li>Did the agent call the wrong tool?</li>
+      </ul>
+      <p>All of these answers can be answered when you look at a trace.</p>
+
+      <h2 id="monitoring-vs-observability">Monitoring vs observability</h2>
+      <p>
+        Monitoring basically asks: is the system alive?
+      </p>
+      <p>
+        Observability asks: why did the system behave this way? Why did the system give a wrong answer to the
+        customer?
+      </p>
+      <p>
+        For Gen AI systems, that second question matters more than anything. Because in AI products, quality is not
+        just uptime. Quality means the answer is useful, grounded, safe, not hallucinated, and not too expensive.
+        And not randomly worse after one prompt change.
+      </p>
+      <p>
+        That is how important AI observability is in 2026.
+      </p>
+
+      <h2 id="step-1">Step 1: Capture the request</h2>
+      <p>
+        Log the user question, session ID, timestamp, model name, prompt version, temperature, and environment.
+      </p>
+      <p>
+        If you do not capture the request details, you cannot debug later. You will only see a bad answer with no
+        context.
+      </p>
+
+      <h2 id="step-2">Step 2: Trace the pipeline</h2>
+      <p>
+        Break one AI request into smaller steps called <strong>spans</strong>:
+      </p>
+      <ol>
+        <li>User question</li>
+        <li>Intent router</li>
+        <li>Retriever</li>
+        <li>Retrieved chunks</li>
+        <li>LLM call</li>
+        <li>Tool calls</li>
+        <li>Final response</li>
+      </ol>
+      <p>
+        This full journey is called a <strong>trace</strong>.
+      </p>
+
+      <h2 id="step-3">Step 3: Store the important context</h2>
+      <p>
+        For a RAG app, store which documents were retrieved, which chunks were passed to the model, chunk IDs,
+        similarity scores, and source names.
+      </p>
+      <p>
+        Without this context, you cannot tell if the retriever failed or if the model ignored good documents.
+      </p>
+
+      <h2 id="step-4">Step 4: Track system metrics</h2>
+      <p>
+        Measure latency, token usage, model cost, error rate, retries, and failed tool calls.
+      </p>
+      <p>
+        A wrong answer is one problem. A slow, expensive, and wrong answer is a bigger problem.
+      </p>
+
+      <h2 id="step-5">Step 5: Score answer quality</h2>
+      <p>Add checks like:</p>
+      <ol>
+        <li>Was the answer grounded in the retrieved document?</li>
+        <li>Did it answer the actual question?</li>
+        <li>Did it hallucinate?</li>
+        <li>Was it safe?</li>
+        <li>Was it too expensive?</li>
+        <li>Did the user thumbs down the response?</li>
+      </ol>
+      <p>
+        These scores help you find weak answers before customers write angry reviews.
+      </p>
+
+      <h2 id="step-6">Step 6: Flag bad answers</h2>
+      <p>Create rules like:</p>
+      <ol>
+        <li>If no source was retrieved but the answer mentions policy, flag it.</li>
+        <li>If the retrieved document says one thing and the model says the opposite, flag it.</li>
+        <li>If cost suddenly spikes, flag it.</li>
+        <li>If a new prompt version performs worse, flag it.</li>
+      </ol>
+      <p>
+        Flagging turns observability into action. You do not just collect data. You catch problems early.
+      </p>
+
+      <h2 id="step-7">Step 7: Build a Bad Answers dashboard</h2>
+      <p>
+        This is where the real learning happens. For every failed answer, show:
+      </p>
+      <ol>
+        <li>User question</li>
+        <li>Retrieved chunks</li>
+        <li>Final answer</li>
+        <li>Prompt version</li>
+        <li>Model used</li>
+        <li>Cost</li>
+        <li>Latency</li>
+        <li>Faithfulness score</li>
+        <li>User feedback</li>
+        <li>Failure reason</li>
+      </ol>
+      <p>
+        One Bad Answers page can teach you more than weeks of guessing.
+      </p>
+
+      <h2 id="step-8">Step 8: Fix and retest</h2>
+      <p>
+        Once you know the failure point, you can fix the retriever, prompt, chunking strategy, tool logic, or model
+        choice.
+      </p>
+      <p>
+        And by building feedback loops like these, real AI teams are improving LLM apps:
+      </p>
+      <pre><code>Trace → Score → Flag → Debug → Fix → Test again</code></pre>
+
+      <h2 id="practice-project">A practical project you can build</h2>
+      <p>
+        If you want to build a practical project around this, build a tiny RAG chatbot with 20 documents. Add an
+        observability dashboard with a defined set of rules.
+      </p>
+      <p>So you can:</p>
+      <ul>
+        <li>Track every question</li>
+        <li>Track the retrieved chunks</li>
+        <li>Track the model response</li>
+        <li>Track latency, tokens, and cost</li>
+        <li>Track answer relevance and user feedback</li>
+      </ul>
+      <p>
+        Then create one page called Bad Answers. Every time the bot gives a weak answer or does not follow the rules,
+        open the full observability trace, find the failure point, fix the prompt or retriever, and test again.
+      </p>
+      <p>
+        That is how real AI products can improve.
+      </p>
+
+      <section class="blog-post-summary" id="summary">
+        <h2>Final summary</h2>
+        <p>
+          Monitoring asks if the system is alive. Observability asks why the system gave a wrong answer.
+        </p>
+        <p>
+          In AI products, quality is not just uptime. Quality means the answer is useful, grounded, safe, not
+          hallucinated, and not too expensive.
+        </p>
+        <p>Use this loop:</p>
+        <ul>
+          <li>Capture every request.</li>
+          <li>Break it into spans and save the full trace.</li>
+          <li>Store retrieved documents and chunks.</li>
+          <li>Track latency, tokens, cost, and errors.</li>
+          <li>Score answer quality.</li>
+          <li>Flag bad answers with clear rules.</li>
+          <li>Review them on a Bad Answers dashboard.</li>
+          <li>Fix the failure point and test again.</li>
+        </ul>
+        <p>
+          <strong>Trace → Score → Flag → Debug → Fix → Test again.</strong> That is how real AI teams improve LLM
+          apps.
+        </p>
+      </section>
+
+      <div class="blog-post-footer-nav">
+        <a href="../index.html#blog"><i class="fa-solid fa-arrow-left"></i> Back to all blog posts</a>
+      </div>
+    </div>
+  </article>
+
+  <script>
+    (function () {
+      const toggleBtn = document.getElementById("blog-theme-toggle");
+      const text = document.getElementById("blog-theme-text");
+      const icon = toggleBtn.querySelector("i");
+
+      let theme = localStorage.getItem("theme") || "dark";
+
+      function applyTheme(t) {
+        document.documentElement.setAttribute("data-theme", t);
+        localStorage.setItem("theme", t);
+        if (t === "dark") {
+          icon.className = "bi bi-brightness-high-fill icon";
+          text.textContent = "Light Mode";
+        } else {
+          icon.className = "bi bi-moon-stars-fill icon";
+          text.textContent = "Dark Mode";
+        }
+      }
+
+      applyTheme(theme);
+
+      toggleBtn.addEventListener("click", function () {
+        theme = theme === "dark" ? "light" : "dark";
+        applyTheme(theme);
+      });
+    })();
+  </script>
+</body>
+
+</html>

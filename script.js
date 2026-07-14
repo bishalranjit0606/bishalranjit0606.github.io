@@ -271,6 +271,13 @@ const projectsData = [
 
 const blogsData = [
   {
+    date: "July 14, 2026",
+    title: "AI Observability: Trace, Score, Flag, and Fix Bad Answers",
+    excerpt: "AI apps can fail even when servers look healthy. Learn traces, spans, RAG context, quality scores, bad answer flags, and the Trace → Score → Flag → Fix loop.",
+    link: "blog/ai-observability.html",
+    local: true
+  },
+  {
     date: "June 27, 2026",
     title: "Loop Engineering: Automated Prompt Engineering",
     excerpt: "A loop is cruise control for your AI agent. Learn trigger, execute, verification, state, and stop conditions for AI automation workflows.",

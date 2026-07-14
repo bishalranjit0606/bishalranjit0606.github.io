@@ -257,6 +257,12 @@
     "blogs": {
       "self_hosted": [
         {
+          "title": "AI Observability: Trace, Score, Flag, and Fix Bad Answers",
+          "date": "July 14, 2026",
+          "url": "https://bishalranjitkar.tech/blog/ai-observability.html",
+          "summary": "Why AI apps fail even when servers look healthy, what a trace is, and an 8-step guide to capture, score, flag, and fix bad LLM answers"
+        },
+        {
           "title": "Loop Engineering: Automated Prompt Engineering",
           "date": "June 27, 2026",
           "url": "https://bishalranjitkar.tech/blog/loop-engineering.html",
