@@ -134,6 +134,7 @@
     "skills": {
       "automation_and_ai": [
         "n8n workflow automation",
+        "LangChain",
         "Multi-agent AI orchestration",
         "RAG and vector databases",
         "Prompt engineering",
@@ -157,6 +158,7 @@
       ],
       "development": [
         "Python",
+        "FastAPI",
         "JavaScript",
         "GitHub",
         "Postman API testing"

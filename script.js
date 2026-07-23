@@ -12,12 +12,29 @@ const skillsData = [
     icon: "https://cdn.simpleicons.org/n8n"
   },
   {
+    id: "langchain",
+    title: "LangChain",
+    desc: "LLM App Framework",
+    modalDesc: "Framework for building LLM apps with chains, tools, and memory.",
+    iconType: "image",
+    icon: "images/langchain-icon.png",
+    iconClass: "langchain-icon"
+  },
+  {
     id: "python",
     title: "Python",
     desc: "Programming Language",
     modalDesc: "Used for task automation, data processing, scripting, and backend development.",
     iconType: "class",
     icon: ["fa-brands", "fa-python"]
+  },
+  {
+    id: "fastapi",
+    title: "FastAPI",
+    desc: "Python Web APIs",
+    modalDesc: "Fast Python framework for building APIs and backend services.",
+    iconType: "image",
+    icon: "https://cdn.simpleicons.org/fastapi"
   },
   {
     id: "nodejs",
@@ -806,7 +823,8 @@ function renderSkills() {
     if (skill.iconType === 'class') {
       iconHtml = `<i class="${skill.icon.join(' ')}"></i>`;
     } else {
-      iconHtml = `<img src="${skill.icon}" alt="${skill.title}" width="48" height="48" />`;
+      const classAttr = skill.iconClass ? ` class="${skill.iconClass}"` : '';
+      iconHtml = `<img src="${skill.icon}" alt="${skill.title}" width="48" height="48"${classAttr} />`;
     }
 
     card.innerHTML = `
@@ -1551,18 +1569,56 @@ function initChatTooltip() {
   const label = document.querySelector('.chat-label');
   if (!label) return;
 
-  // Use event delegation on body to handle dynamically injected chat icon
+  const isChatOpen = () => {
+    const win = document.querySelector('.chat-window-wrapper .chat-window');
+    return Boolean(win && window.getComputedStyle(win).display !== 'none');
+  };
+
+  const syncLabelWithChat = () => {
+    const chatOpen = isChatOpen();
+    label.classList.toggle('chat-open', chatOpen);
+    if (chatOpen) label.classList.remove('visible');
+  };
+
+  const showLabel = () => {
+    if (isChatOpen()) return;
+    label.classList.add('visible');
+  };
+
+  const hideLabel = () => {
+    label.classList.remove('visible');
+  };
+
+  syncLabelWithChat();
+
+  // Hover on the launcher icon
   document.body.addEventListener('mouseover', (e) => {
-    if (e.target.closest('[class*="chat-window-toggle"]')) {
-      label.classList.add('visible');
-    }
+    if (e.target.closest('.chat-window-toggle')) showLabel();
   });
 
   document.body.addEventListener('mouseout', (e) => {
-    if (e.target.closest('[class*="chat-window-toggle"]')) {
-      label.classList.remove('visible');
-    }
+    if (e.target.closest('.chat-window-toggle')) hideLabel();
   });
+
+  // Focus / keyboard path when hover is not used
+  document.body.addEventListener('focusin', (e) => {
+    if (e.target.closest('.chat-window-toggle')) showLabel();
+  });
+
+  document.body.addEventListener('focusout', (e) => {
+    if (e.target.closest('.chat-window-toggle')) hideLabel();
+  });
+
+  // n8n uses v-show, so the window stays in the DOM. Sync after toggle clicks.
+  document.body.addEventListener('click', (e) => {
+    if (!e.target.closest('.chat-window-toggle')) return;
+    requestAnimationFrame(syncLabelWithChat);
+    setTimeout(syncLabelWithChat, 50);
+    setTimeout(syncLabelWithChat, 250);
+  });
+
+  const observer = new MutationObserver(syncLabelWithChat);
+  observer.observe(document.body, { childList: true, subtree: true });
 }
 
 

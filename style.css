@@ -19,18 +19,29 @@
   --text-gradient: linear-gradient(135deg, #84a9ff 0%, #9c82e6 100%);
   --card-hover-shadow: rgba(118, 75, 162, 0.5);
   --button-text: #fff;
-  /* n8n Chat Variables (WhatsApp Green Theme) */
+  /*
+   * Chat UI stays light in both site themes.
+   * Hardcoded so dark mode site colors do not leak into the widget.
+   */
   --chat--color--primary: #128C7E;
   --chat--color--secondary: #25D366;
-  --chat--background-color: var(--bg-color);
+  --chat--color-white: #ffffff;
+  --chat--color-light: #f2f4f8;
+  --chat--color-dark: #2d3748;
   --chat--header--background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-  --chat--header--color: #fff;
-  --chat--message--bot--background: var(--secondary-bg);
-  --chat--message--bot--color: var(--text-color);
+  --chat--header--color: #ffffff;
+  --chat--body--background: #f2f4f8;
+  --chat--footer--background: #f2f4f8;
+  --chat--footer--color: #2d3748;
+  --chat--message--bot--background: #ffffff;
+  --chat--message--bot--color: #2d3748;
   --chat--message--user--background: #25D366;
-  --chat--message--user--color: #fff;
+  --chat--message--user--color: #ffffff;
+  --chat--input--background: #ffffff;
+  --chat--input--text-color: #2d3748;
+  --chat--input--container--background: #ffffff;
   --chat--toggle--background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-  --chat--toggle--color: #fff;
+  --chat--toggle--color: #ffffff;
   --chat--font-family: "Poppins", sans-serif;
 }
 
@@ -48,11 +59,6 @@
   --text-gradient: var(--accent-gradient);
   --card-hover-shadow: rgba(79, 70, 229, 0.2);
   --button-text: #fff;
-
-  /* n8n Chat Variables (Light Override) */
-  --chat--background-color: var(--bg-color);
-  --chat--message--bot--background: var(--secondary-bg);
-  --chat--message--message-bot--color: var(--text-color);
 }
 
 body {
@@ -472,6 +478,19 @@ a.profile:focus-visible {
 [data-theme="light"] .skill-card .icon img {
   filter: brightness(0);
   color: #000;
+}
+
+/* LangChain icon sizing; color follows the shared skill theme filters */
+.skill-card .icon img.langchain-icon {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+}
+
+.modal-icon img.langchain-icon {
+  width: 88px;
+  height: 88px;
+  object-fit: contain;
 }
 
 .skill-card:hover .icon {
@@ -1816,7 +1835,7 @@ a.profile:focus-visible {
   z-index: 10000;
   white-space: nowrap;
   pointer-events: none;
-  opacity: 0; /* Hidden by default */
+  opacity: 0;
   transform: translateX(10px);
   transition: opacity 0.3s ease, transform 0.3s ease;
   border: 1.5px solid #25D366;
@@ -1837,10 +1856,16 @@ a.profile:focus-visible {
   border-top: 1.5px solid #25D366;
 }
 
-/* Show when hovering via JS */
+/* Show on launcher hover / focus via JS */
 .chat-label.visible {
   opacity: 1;
   transform: translateX(0);
+}
+
+/* Stay hidden while the chat panel is open */
+.chat-label.chat-open {
+  opacity: 0;
+  transform: translateX(10px);
 }
 
 /* Hide chat label on mobile to keep it clean */
