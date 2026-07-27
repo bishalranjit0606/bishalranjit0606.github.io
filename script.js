@@ -434,7 +434,7 @@ const experienceData = [
     company: "Recruit Nepal",
     link: "https://recruitnepal.com/",
     type: "Full-time",
-    duration: "Apr 2026 to Present",
+    duration: "Jan 2026 to Present",
     description: [
       "Optimizing production AI automation workflows for cost and token efficiency. This cuts API spend and latency while keeping accuracy across multi-agent recruitment systems.",
       "Hardening workflow security with input validation, access controls, and threat-aware guardrails to protect AI pipelines from prompt injection and unauthorized data exposure.",
@@ -448,7 +448,7 @@ const experienceData = [
     company: "Intern/Recruit Nepal",
     link: "https://recruitnepal.com/",
     type: "Internship",
-    duration: "Jan 2026 to Apr 2026",
+    duration: "Oct 2025 to Dec 2025",
     description: [
       "Architected a multi-channel automation ecosystem using n8n, achieving a 90% reduction in manual operations for recruitment and marketing workflows.",
       "Engineered an AI Auto-Reply Bot using 5 specialized agents and Vector Database (RAG), delivering 99.99% accuracy in automated candidate engagement.",
@@ -462,7 +462,7 @@ const experienceData = [
     company: "Leo District Council 325D",
     link: "https://www.ldc325d.com/",
     type: "Part-time",
-    duration: "Jan 2024 to Present",
+    duration: "Jul 2024 to Jun 2026",
     description: [
       "Developed leadership skills by leading community service projects and coordinating club initiatives.",
       "Collaborated with team members to organize and execute high-impact volunteering acti vities.",
