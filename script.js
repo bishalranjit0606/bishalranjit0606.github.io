@@ -144,6 +144,16 @@ const skillsData = [
 
 const projectsData = [
   {
+    link: "https://github.com/bishalranjit0606/YouTube-Chatbot-using-LangChain",
+    image: "images/youtube_chatbot.png",
+    title: "YouTube Chatbot Using LangChain",
+    description: "RAG chatbot that lets you ask questions about any YouTube video. It fetches the transcript, embeds chunks with HuggingFace, stores them in FAISS, and answers with an LLM.",
+    tech: ["LangChain", "FAISS", "RAG"],
+    buttons: [
+      { text: "Code", link: "https://github.com/bishalranjit0606/YouTube-Chatbot-using-LangChain", icon: ["fa-brands", "fa-github"] }
+    ]
+  },
+  {
     link: "https://medium.com/@bishalranjit2002/i-built-a-free-website-uptime-monitor-using-automation-and-open-sourced-it-4ac2d866dd5f",
     image: "images/website uptime monitoring workflow.png",
     title: "Website Uptime Monitor Using Automation",
@@ -287,6 +297,12 @@ const projectsData = [
 ];
 
 const blogsData = [
+  {
+    date: "July 24, 2026",
+    title: "How to Post to Facebook, LinkedIn and Instagram Using Buffer MCP",
+    excerpt: "A practical guide to posting on Facebook, LinkedIn, and Instagram with Buffer MCP. Covers setup, JSON payloads, assets, common mistakes, and ready recipes.",
+    link: "https://medium.com/@bishalranjit2002/how-to-post-to-facebook-linkedin-and-instagram-using-buffer-mcp-20411e897d4f"
+  },
   {
     date: "July 14, 2026",
     title: "AI Observability: Trace, Score, Flag, and Fix Bad Answers",
