@@ -27,3 +27,7 @@ When optimizing prompts, improving LLM output, designing prompt templates, or de
 `.agents/skills/prompt-engineering-patterns/SKILL.md`
 
 Apply its patterns for few-shot learning, chain-of-thought, structured outputs, and production prompt design.
+
+### chatbot prompt
+
+When you add or change a blog, project, skill, certificate, or other profile fact, also update `docs/chatbot-system-prompt-v2.json`. Follow `.cursor/rules/chatbot-prompt.mdc`. Keep the prompt small. Do not paste full articles.
