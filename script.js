@@ -1525,49 +1525,11 @@ style.textContent = `
     `;
 document.head.appendChild(style);
 
-/* --- AGGRESSIVE BRANDING REMOVAL --- */
 function hideN8nBranding() {
-  const findAndHide = () => {
-    // 1. Try direct CSS selector
-    const footers = document.querySelectorAll('[class*="chat-window-footer"]');
-    footers.forEach(f => {
-      f.style.display = 'none';
-      f.style.visibility = 'hidden';
-      f.style.height = '0';
-      f.style.padding = '0';
-    });
-
-    // 2. Try reaching into potential custom elements/shadow roots
-    const allElements = document.querySelectorAll('*');
-    allElements.forEach(el => {
-      if (el.shadowRoot) {
-        const shadowFooter = el.shadowRoot.querySelector('[class*="chat-window-footer"]');
-        if (shadowFooter) {
-          shadowFooter.style.display = 'none';
-          shadowFooter.style.visibility = 'hidden';
-          shadowFooter.style.height = '0';
-          shadowFooter.style.padding = '0';
-        }
-      }
-    });
-
-    // 3. Target links containing n8n.io specifically
-    const links = document.querySelectorAll('a[href*="n8n.io"]');
-    links.forEach(l => {
-      const container = l.closest('div');
-      if (container) {
-        container.style.display = 'none';
-        container.style.visibility = 'hidden';
-      }
-    });
-  };
-
-  // Run immediately and then start interval
-  findAndHide();
-  const brandingInterval = setInterval(findAndHide, 1000);
-
-  // Stop after 15 seconds to save resources - by then it should be loaded
-  setTimeout(() => clearInterval(brandingInterval), 15000);
+  const footers = document.querySelectorAll('.chat-window-wrapper .chat-window-footer');
+  footers.forEach((f) => {
+    f.style.display = 'none';
+  });
 }
 
 // Initialize on DOMContentLoaded
@@ -1586,8 +1548,8 @@ function initChatTooltip() {
   if (!label) return;
 
   const isChatOpen = () => {
-    const win = document.querySelector('.chat-window-wrapper .chat-window');
-    return Boolean(win && window.getComputedStyle(win).display !== 'none');
+    const wrap = document.querySelector('.chat-window-wrapper');
+    return Boolean(wrap && wrap.classList.contains('is-open'));
   };
 
   const syncLabelWithChat = () => {
@@ -1607,7 +1569,6 @@ function initChatTooltip() {
 
   syncLabelWithChat();
 
-  // Hover on the launcher icon
   document.body.addEventListener('mouseover', (e) => {
     if (e.target.closest('.chat-window-toggle')) showLabel();
   });
@@ -1616,7 +1577,6 @@ function initChatTooltip() {
     if (e.target.closest('.chat-window-toggle')) hideLabel();
   });
 
-  // Focus / keyboard path when hover is not used
   document.body.addEventListener('focusin', (e) => {
     if (e.target.closest('.chat-window-toggle')) showLabel();
   });
@@ -1625,16 +1585,17 @@ function initChatTooltip() {
     if (e.target.closest('.chat-window-toggle')) hideLabel();
   });
 
-  // n8n uses v-show, so the window stays in the DOM. Sync after toggle clicks.
   document.body.addEventListener('click', (e) => {
-    if (!e.target.closest('.chat-window-toggle')) return;
+    if (
+      !e.target.closest('.chat-window-toggle') &&
+      !e.target.closest('.chat-close-button')
+    ) {
+      return;
+    }
     requestAnimationFrame(syncLabelWithChat);
     setTimeout(syncLabelWithChat, 50);
     setTimeout(syncLabelWithChat, 250);
   });
-
-  const observer = new MutationObserver(syncLabelWithChat);
-  observer.observe(document.body, { childList: true, subtree: true });
 }
 
 

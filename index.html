@@ -12,7 +12,6 @@
   <link rel="icon" type="image/png" href="images/devops.png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-  <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -239,21 +238,49 @@
     </div>
   </div>
 
-  <script type="module">
-    import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
-
-    createChat({
-      webhookUrl: 'https://automation.recruitnepal.com/webhook/30bc5365-c735-4a92-a64c-c45c4dd62fd1/chat',
-      title: 'Chat with Bishal\'s AI',
-      subtitle: 'Ask me anything about my work!',
-      initialMessages: [
-        'Hi there! 👋 I\'m Bishal\'s AI assistant. How can I help you today?'
-      ],
-      showWelcomeScreen: true,
-    });
-  </script>
-  <script src="script.js"></script>
+  <div class="chat-window-wrapper">
+    <div class="chat-window">
+      <div class="chat-layout">
+        <div class="chat-header">
+          <div class="chat-heading">
+            <h1>Chat with Bishal's AI</h1>
+            <button type="button" class="chat-close-button" aria-label="Close chat">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M18 6L6 18M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          <p>Ask me anything about my work!</p>
+        </div>
+        <div class="chat-body">
+          <div class="chat-messages-list"></div>
+        </div>
+        <div class="chat-footer">
+          <form class="chat-input-form" autocomplete="off">
+            <div class="chat-inputs">
+              <textarea class="chat-input-text" rows="1" placeholder="Type your message..." aria-label="Chat message"></textarea>
+              <div class="chat-inputs-controls">
+                <button type="submit" class="chat-input-send-button" aria-label="Send">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <button type="button" class="chat-window-toggle" aria-label="Open chat" aria-expanded="false">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" />
+      </svg>
+    </button>
+  </div>
   <div class="chat-label">AI chatbot here! 👋</div>
+  <script src="config.example.js"></script>
+  <script src="chat.js"></script>
+  <script src="script.js"></script>
 </body>
 
 </html>

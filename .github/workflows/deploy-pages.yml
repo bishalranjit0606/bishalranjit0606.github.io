@@ -1,0 +1,50 @@
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches: [main, chatbot]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Write Groq key for the live site
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+        run: |
+          set -euo pipefail
+          if [ -z "${GROQ_API_KEY}" ]; then
+            echo "Add a GitHub secret named GROQ_API_KEY."
+            exit 1
+          fi
+          python3 -c 'import json, os; open("config.local.js", "w").write("window.GROQ_API_KEY = " + json.dumps(os.environ["GROQ_API_KEY"]) + ";\n")'
+          rm -f .env
+          rm -rf .git
+
+      - name: Set up Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
