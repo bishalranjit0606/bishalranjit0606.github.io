@@ -35,14 +35,40 @@
   function cleanBotText(text) {
     if (!text) return '';
     let out = String(text);
+    out = out.replace(/<function=[^>]*\/>/gi, '');
+    out = out.replace(/<function=[^>]*>[\s\S]*?<\/function>/gi, '');
+    out = out.replace(/```(?:json|JSON)?\s*([\s\S]*?)```/g, '$1');
+    out = unwrapJsonReply(out.trim());
     out = out.replace(/\*\*/g, '').replace(/\*/g, '');
     out = out.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
     out = out.replace(/^#{1,6}\s+/gm, '');
-    out = out.replace(/<function=[^>]*\/>/gi, '');
-    out = out.replace(/<function=[^>]*>[\s\S]*?<\/function>/gi, '');
-    out = out.replace(/```[\s\S]*?```/g, '');
     out = out.replace(/\n{3,}/g, '\n\n');
     return out.trim();
+  }
+
+  function unwrapJsonReply(text) {
+    const start = text.indexOf('{');
+    const end = text.lastIndexOf('}');
+    if (start === -1 || end <= start) return text;
+    try {
+      const data = JSON.parse(text.slice(start, end + 1));
+      if (!data || typeof data.answer !== 'string' || !data.answer.trim()) {
+        return text;
+      }
+      const parts = [data.answer.trim()];
+      if (Array.isArray(data.key_points)) {
+        const points = data.key_points.filter(function (item) {
+          return typeof item === 'string' && item.trim();
+        });
+        if (points.length) parts.push(points.join('\n'));
+      }
+      if (data.recommended_next_step) {
+        parts.push(String(data.recommended_next_step).trim());
+      }
+      return parts.join('\n\n');
+    } catch (err) {
+      return text;
+    }
   }
 
   function setOpen(open) {
@@ -91,7 +117,9 @@
     const res = await fetch(PROMPT_URL);
     if (!res.ok) throw new Error('prompt');
     const data = await res.json();
-    systemPrompt = JSON.stringify(data);
+    systemPrompt =
+      JSON.stringify(data) +
+      '\n\nAlways reply in plain text only. Never return JSON.';
     promptReady = true;
   }
 
