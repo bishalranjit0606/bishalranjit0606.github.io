@@ -9,7 +9,7 @@
   const FAIL_TEXT =
     'Sorry, I could not reply. Please try again or email bishalranjitofficial@gmail.com.';
   const KEY_MISSING_TEXT =
-    'The chat key is not set. Copy .env.example to .env, add your Groq key, then reload this page.';
+    'The chat key is not set. On your computer, add GROQ_API_KEY to .env and reload. On the live site, GitHub Actions must deploy the GROQ_API_KEY secret.';
 
   const wrap = document.querySelector('.chat-window-wrapper');
   const toggle = document.querySelector('.chat-window-toggle');
@@ -139,7 +139,8 @@
       body: JSON.stringify({
         model: MODEL,
         temperature: 0.7,
-        max_tokens: 400,
+        max_completion_tokens: 1024,
+        reasoning_effort: 'low',
         messages: [
           { role: 'system', content: systemPrompt },
           ...history
@@ -271,12 +272,9 @@
       .catch(function () {});
   }
 
-  loadScript('config.local.js')
-    .then(function () {
-      const host = location.hostname;
-      const local = host === 'localhost' || host === '127.0.0.1';
-      if (local) return loadEnvFile();
-    })
+  loadScript('config.local.js').then(function () {
+    return loadEnvFile();
+  })
     .then(function () {
       bindEvents();
       addMessage('bot', WELCOME);
