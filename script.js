@@ -298,6 +298,13 @@ const projectsData = [
 
 const blogsData = [
   {
+    date: "September 22, 2026",
+    title: "Jev: An AI That Decides, Not Writes",
+    excerpt: "Jev is TypeSafe AI's model for fast, structured decisions. Learn the three question types, the cost, and when to use code or GPT instead.",
+    link: "blog/what-is-jev.html",
+    local: true
+  },
+  {
     date: "July 24, 2026",
     title: "How to Post to Facebook, LinkedIn and Instagram Using Buffer MCP",
     excerpt: "A practical guide to posting on Facebook, LinkedIn, and Instagram with Buffer MCP. Covers setup, JSON payloads, assets, common mistakes, and ready recipes.",

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jev: An AI That Decides, Not Writes | Bishal Ranjitkar</title>
+  <meta name="description"
+    content="Jev is a TypeSafe AI model built for fast, structured decisions. Learn what it is, how Noul, Choice, and Score questions work, what it costs, and when to skip it." />
+  <link rel="canonical" href="https://bishalranjitkar.tech/blog/what-is-jev.html" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Bishal Ranjitkar" />
+  <meta property="og:title" content="Jev: An AI That Decides, Not Writes" />
+  <meta property="og:description"
+    content="Jev is TypeSafe AI's System One model. It reads state, answers a typed question, and returns a decision your code can use." />
+  <meta property="og:url" content="https://bishalranjitkar.tech/blog/what-is-jev.html" />
+  <meta property="og:image" content="https://bishalranjitkar.tech/images/jev.png" />
+  <meta property="og:image:secure_url" content="https://bishalranjitkar.tech/images/jev.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1672" />
+  <meta property="og:image:height" content="941" />
+  <meta property="og:image:alt" content="Jev cover: tickets, reviews, and APIs flow into a decision engine, then yes or no, choice, score, and confidence" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Jev: An AI That Decides, Not Writes" />
+  <meta name="twitter:description"
+    content="A simple guide to Jev: fast structured decisions, three question types, cost, and when not to use it." />
+  <meta name="twitter:image" content="https://bishalranjitkar.tech/images/jev.png" />
+  <meta name="twitter:image:alt" content="Jev cover: tickets, reviews, and APIs flow into a decision engine, then yes or no, choice, score, and confidence" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="icon" type="image/png" href="../images/devops.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    .jev-quote {
+      font-size: 1.2rem;
+      font-weight: 600;
+      line-height: 1.5;
+      color: var(--text-color);
+    }
+
+    .jev-types {
+      display: grid;
+      gap: 14px;
+      margin: 20px 0 28px;
+    }
+
+    @media (min-width: 720px) {
+      .jev-types {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .jev-type {
+      margin: 0;
+      padding: 16px 18px;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      background: var(--secondary-bg);
+    }
+
+    .jev-type .label {
+      margin-bottom: 8px;
+    }
+
+    .jev-type p {
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    .jev-type strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--text-color);
+    }
+  </style>
+</head>
+
+<body class="blog-post-page">
+  <header class="blog-post-header">
+    <a href="../index.html" class="blog-post-brand" aria-label="Home">
+      <img src="../images/logo.png" alt="" class="blog-post-brand-logo" />
+      <div class="blog-post-brand-info">
+        <span class="blog-post-brand-name">Bishal Ranjitkar</span>
+        <p class="blog-post-brand-title">AWS Solutions Architect Associate <span class="certified-tag">Certified</span></p>
+      </div>
+    </a>
+    <nav class="blog-post-header-actions" aria-label="Blog navigation">
+      <a href="../index.html#blog" class="blog-post-back">
+        <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+        <span>Back to Blog</span>
+      </a>
+      <button type="button" class="blog-post-theme-toggle" id="blog-theme-toggle" aria-label="Toggle theme">
+        <i class="bi bi-brightness-high-fill icon" aria-hidden="true"></i>
+        <span id="blog-theme-text">Light Mode</span>
+      </button>
+    </nav>
+  </header>
+
+  <article class="blog-post-container">
+    <p class="blog-post-meta">September 22, 2026 · AI Automation</p>
+    <h1>Jev: An AI That Decides, Not Writes</h1>
+
+    <figure class="blog-post-cover">
+      <img src="../images/jev.png"
+        alt="Jev cover showing tickets, reviews, and APIs flowing into a decision engine, then yes or no, choice, score, and confidence"
+        width="1672" height="941" />
+    </figure>
+
+    <p class="blog-post-lead">
+      A customer writes: “I have contacted you three times, and I am still waiting.”
+      Your shop code can count items in a cart. It cannot read the feeling in that sentence.
+      Jev is built for that second job.
+    </p>
+
+    <nav class="blog-post-toc" aria-label="Table of contents">
+      <h2>In this article</h2>
+      <ul>
+        <li><a href="#what-is-jev">What is Jev?</a></li>
+        <li><a href="#why-use-it">Why use it?</a></li>
+        <li><a href="#vs-gpt">Jev vs GPT and Claude</a></li>
+        <li><a href="#cost">How much does it cost?</a></li>
+        <li><a href="#how-it-works">How does it work?</a></li>
+        <li><a href="#get-started">How do you get started?</a></li>
+        <li><a href="#when">When to use it, and when to skip it</a></li>
+        <li><a href="#summary">Final summary</a></li>
+      </ul>
+    </nav>
+
+    <div class="blog-post-body">
+      <h2 id="what-is-jev">What is Jev?</h2>
+      <p>
+        Jev is an AI model from
+        <a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev" target="_blank" rel="noopener noreferrer">TypeSafe AI</a>.
+        TypeSafe released it in September 2026. They call it a System One model.
+        The job is simple: look at information, then make a decision your software can use.
+      </p>
+      <p>
+        Think of it like a smart if else.
+      </p>
+      <p>
+        In a store, you can write this in normal code: if an order has more than three items, show an offer.
+        That rule is clear. You do not need AI.
+      </p>
+      <p>
+        Now look at the customer message again.
+      </p>
+      <div class="blog-post-example">
+        <div class="label">Customer message</div>
+        <p class="jev-quote">I have contacted you three times, and I am still waiting.</p>
+      </div>
+      <p>
+        You could hunt for words like “waiting” or “three times.” That is brittle.
+        A polite complaint and a joke can use the same words.
+        Jev reads the text and returns a structured decision, not a paragraph.
+      </p>
+
+      <h3>What does System One mean?</h3>
+      <p>
+        The name comes from the book <em>Thinking, Fast and Slow</em> by Daniel Kahneman.
+        System 1 is fast judgment. System 2 is slow, careful thinking.
+        TypeSafe built Jev for the fast kind of call your app has to make again and again.
+      </p>
+      <p>
+        The name Jev points to Jevons Paradox. William Stanley Jevons saw that better steam engines used less coal
+        for the same work, but people then used far more coal overall.
+        If a decision becomes cheap and fast, teams start putting that decision in more places.
+      </p>
+
+      <h2 id="why-use-it">Why use it?</h2>
+      <p>
+        You use Jev when your code needs a judgment, and you already know what a valid answer looks like.
+      </p>
+      <p>
+        TypeSafe says end to end response time is about 70ms to 500ms.
+        That is fast enough to sit inside a live app, not only in a slow chat.
+      </p>
+      <p>
+        The other reason is structure. Jev does not write you a story.
+        It returns values you defined: yes or no with a probability, one option from a list, or a score on your scale.
+        Your n8n workflow or API can branch on that value right away.
+      </p>
+      <p>
+        TypeSafe also says every answer comes with a probability or confidence.
+        That lets you set a rule: act only if the model is sure enough. If not, send it to a person.
+      </p>
+
+      <h2 id="vs-gpt">Jev vs GPT and Claude</h2>
+      <p>
+        Yes, GPT and Claude can judge text too. They can also write a reply, explain a topic, summarize a page,
+        and generate code.
+      </p>
+      <p>
+        Jev is not built for those other jobs. It gives up free text on purpose.
+        TypeSafe trains it for calibrated decisions and typed outputs.
+      </p>
+      <ul>
+        <li><strong>GPT and Claude:</strong> write, chat, plan, code, and also judge when you ask.</li>
+        <li><strong>Jev:</strong> judge only. Fast. Cheap. Output is a value your code already expects.</li>
+      </ul>
+      <p>
+        TypeSafe says Jev can be about 40x to 200x faster than a frontier chat model on this kind of question.
+        They also compare cost. Chat models often charge more for output tokens. Jev output tokens are free.
+      </p>
+      <p>
+        If you need a kind email back to the customer, use GPT or Claude.
+        If you only need “frustrated: yes, probability 0.9,” Jev fits better.
+      </p>
+
+      <h2 id="cost">How much does it cost?</h2>
+      <p>
+        TypeSafe lists input tokens at <strong>$0.042 per million</strong>. That is about $42 per billion input tokens.
+        Output tokens are free.
+      </p>
+      <p>
+        Say you get 10,000 customer messages a day. Each call uses about 500 input tokens
+        for the message plus your question. That is about 5 million input tokens a day.
+        At this price, that is about <strong>21 cents a day</strong>.
+      </p>
+      <p>
+        So the cost per decision can stay very low when the same judgment runs all day.
+        Prices can change. Check TypeSafe before you plan a budget.
+      </p>
+
+      <h2 id="how-it-works">How does it work?</h2>
+      <p>The flow is small:</p>
+      <pre><code>State + Question → Structured answer</code></pre>
+      <p>
+        <strong>State</strong> is the information Jev looks at. It can be plain text, JSON, or a list.
+        Example state: “I have contacted you three times, and I am still waiting.”
+      </p>
+      <p>
+        Then you ask a typed question. TypeSafe has three main types.
+        They call the yes or no type <strong>Noul</strong>.
+      </p>
+
+      <div class="jev-types">
+        <div class="blog-post-example jev-type">
+          <div class="label">1. Noul</div>
+          <p><strong>Yes or no</strong> You ask: is this customer frustrated? Jev returns a probability from 0 to 1. Near 1 means likely yes. Near 0 means likely no. Near 0.5 means unsure.</p>
+        </div>
+        <div class="blog-post-example jev-type">
+          <div class="label">2. Choice</div>
+          <p><strong>Pick from your list</strong> You ask why they wrote in. You give the options: update, refund, replacement, or something else. Jev picks one and can show a probability for each option.</p>
+        </div>
+        <div class="blog-post-example jev-type">
+          <div class="label">3. Score</div>
+          <p><strong>Rate on your scale</strong> You define the levels. 0 is no frustration. 1 is unhappy. 2 is strong anger. Jev returns a score on that scale.</p>
+        </div>
+      </div>
+
+      <p>
+        You can send more than one question in the same request.
+        Jev can score them in parallel against the same state.
+      </p>
+
+      <h3>What the response looks like</h3>
+      <ul>
+        <li><strong>Noul:</strong> the yes chance, as a number from 0 to 1.</li>
+        <li><strong>Choice:</strong> the winning option, plus probabilities for the other options.</li>
+        <li><strong>Score:</strong> the score, probabilities, and the levels you defined.</li>
+      </ul>
+      <p>
+        A Jev answer is not always right. Set a threshold.
+        Example: auto route only if the Noul value is above 0.85. Below that, a human reviews it.
+      </p>
+      <p>
+        The response can also include token use, so you can track cost.
+      </p>
+
+      <h2 id="get-started">How do you get started?</h2>
+      <p>
+        TypeSafe opened Jev in early access. You start at
+        <a href="https://typesafe.ai" target="_blank" rel="noopener noreferrer">typesafe.ai</a>.
+        You do not need a chat window. You send a request from your app or from n8n.
+      </p>
+      <ol>
+        <li>Write one real judgment you already make by hand.</li>
+        <li>Name the state. Name the question. Pick Noul, Choice, or Score.</li>
+        <li>Write the options or the scale yourself. Do not let the model invent labels.</li>
+        <li>Call the TypeSafe API with that state and those questions.</li>
+        <li>Set a confidence rule before the workflow takes an action.</li>
+      </ol>
+      <p>A first Choice question can look like this:</p>
+      <pre><code>{
+  "state": "I have contacted you three times, and I am still waiting.",
+  "questions": {
+    "reason": {
+      "type": "choice",
+      "instructions": "Why is this customer contacting us?",
+      "criteria": {
+        "update": "Asking for an update",
+        "refund": "Requesting a refund",
+        "replacement": "Requesting a replacement",
+        "other": "Something else"
+      }
+    }
+  }
+}</code></pre>
+      <p>
+        Keep secrets out of the state. Do not send API keys or <code>.env</code> values.
+        Jev will judge whatever you put in the state, so send only what the decision needs.
+      </p>
+
+      <h2 id="when">When to use it, and when to skip it</h2>
+      <p><strong>Jev can help when you need to:</strong></p>
+      <ul>
+        <li>Route a customer request</li>
+        <li>Sort a document into a known set of labels</li>
+        <li>Check if a passage supports a claim</li>
+        <li>Pick which bigger model should handle the next step</li>
+        <li>Make a quick in-app or game choice</li>
+        <li>Guard an LLM output before you show it or run it</li>
+      </ul>
+      <p><strong>Do not use Jev when you need to:</strong></p>
+      <ul>
+        <li>Write a reply</li>
+        <li>Summarize an article</li>
+        <li>Generate code</li>
+      </ul>
+      <p>
+        Those jobs need a model that writes text.
+        Also skip AI when normal code is enough.
+        If you only need to check that a basket has three items, write an if statement.
+      </p>
+      <p>Ask three questions before you add Jev:</p>
+      <ol>
+        <li>Is there a judgment to make?</li>
+        <li>Can you name the possible answers?</li>
+        <li>Does speed, cost, or high volume matter?</li>
+      </ol>
+      <p>If all three are yes, Jev is worth a test.</p>
+
+      <section class="blog-post-summary" id="summary">
+        <h2>Final summary</h2>
+        <p>Jev decides. It does not write.</p>
+        <ul>
+          <li>State plus a typed question gives a structured answer.</li>
+          <li>Noul is yes or no. Choice picks from your list. Score uses your scale.</li>
+          <li>TypeSafe prices input low and output at zero. Speed is in the milliseconds.</li>
+          <li>Use GPT or Claude when you need prose. Use code when the rule is already exact.</li>
+          <li>Never trust one score blindly. Set a threshold. Send weak cases to a person.</li>
+        </ul>
+      </section>
+
+      <div class="blog-post-footer-nav">
+        <a href="../index.html#blog"><i class="fa-solid fa-arrow-left"></i> Back to all blog posts</a>
+      </div>
+    </div>
+  </article>
+
+  <script>
+    (function () {
+      const toggleBtn = document.getElementById("blog-theme-toggle");
+      const text = document.getElementById("blog-theme-text");
+      const icon = toggleBtn.querySelector("i");
+
+      let theme = localStorage.getItem("theme") || "dark";
+
+      function applyTheme(t) {
+        document.documentElement.setAttribute("data-theme", t);
+        localStorage.setItem("theme", t);
+        if (t === "dark") {
+          icon.className = "bi bi-brightness-high-fill icon";
+          text.textContent = "Light Mode";
+        } else {
+          icon.className = "bi bi-moon-stars-fill icon";
+          text.textContent = "Dark Mode";
+        }
+      }
+
+      applyTheme(theme);
+
+      toggleBtn.addEventListener("click", function () {
+        theme = theme === "dark" ? "light" : "dark";
+        applyTheme(theme);
+      });
+    })();
+  </script>
+</body>
+
+</html>
