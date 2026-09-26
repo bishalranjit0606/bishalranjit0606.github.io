@@ -14,8 +14,8 @@ const skillsData = [
   {
     id: "langchain",
     title: "LangChain",
-    desc: "LLM App Framework",
-    modalDesc: "Framework for building LLM apps with chains, tools, and memory.",
+    desc: "LangChain / LangGraph / LangSmith",
+    modalDesc: "LangChain, LangGraph, and LangSmith for LLM apps, graphs, and traces.",
     iconType: "image",
     icon: "images/langchain-icon.png",
     iconClass: "langchain-icon"
@@ -143,6 +143,16 @@ const skillsData = [
 ];
 
 const projectsData = [
+  {
+    link: "https://github.com/bishalranjit0606/langgraph-streamlit-chat-persistence",
+    image: "images/langgraph-chat-persistence.svg",
+    title: "LangGraph Streamlit Chat Persistence",
+    description: "Streamlit chat app built with LangGraph. Each conversation is its own thread. SQLite saves the full history so you can reopen old chats after the app restarts.",
+    tech: ["LangGraph", "Streamlit", "SQLite"],
+    buttons: [
+      { text: "Code", link: "https://github.com/bishalranjit0606/langgraph-streamlit-chat-persistence", icon: ["fa-brands", "fa-github"] }
+    ]
+  },
   {
     link: "https://github.com/bishalranjit0606/YouTube-Chatbot-using-LangChain",
     image: "images/youtube_chatbot.png",

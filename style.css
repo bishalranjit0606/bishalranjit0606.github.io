@@ -510,6 +510,10 @@ a.profile:focus-visible {
   object-fit: contain;
 }
 
+.skill-card[data-skill="langchain"] p {
+  font-size: 0.85rem;
+}
+
 .modal-icon img.langchain-icon {
   width: 88px;
   height: 88px;
