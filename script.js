@@ -150,7 +150,8 @@ const projectsData = [
     description: "Streamlit chat app built with LangGraph. Each conversation is its own thread. SQLite saves the full history so you can reopen old chats after the app restarts.",
     tech: ["LangGraph", "Streamlit", "SQLite"],
     buttons: [
-      { text: "Code", link: "https://github.com/bishalranjit0606/langgraph-streamlit-chat-persistence", icon: ["fa-brands", "fa-github"] }
+      { text: "Code", link: "https://github.com/bishalranjit0606/langgraph-streamlit-chat-persistence", icon: ["fa-brands", "fa-github"] },
+      { text: "Live Demo", link: "https://langgraph-app-chat-persistence-fvm4mttbzpbvwzkwigncvi.streamlit.app/", icon: ["fa-solid", "fa-external-link-alt"] }
     ]
   },
   {
