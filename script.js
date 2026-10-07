@@ -432,13 +432,13 @@ const teachingData = [
     date: "March 2026",
     title: "100 Days of Machine Learning",
     excerpt: "Step-by-step ML life cycle course — from basics to production. Daily lessons covering supervised/unsupervised learning, batch vs online, overfitting, and real-world applications.",
-    link: "https://bishalranjitkar.tech/100-days-machine-learning/"
+    link: "https://bishalranjitkar.com.np/100-days-machine-learning/"
   },
   {
     date: "January 2026",
     title: "Learn Claude Code — Complete Guide",
     excerpt: "Interactive guide to Claude Code: agents, skills, hooks, plugins, MCP, plan mode, and project memory (CLAUDE.md). Built for developers learning agentic AI workflows.",
-    link: "https://bishalranjitkar.tech/Learn-Claude-Code/"
+    link: "https://bishalranjitkar.com.np/Learn-Claude-Code/"
   }
 ];
 
