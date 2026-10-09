@@ -49,7 +49,7 @@
     "dev": ["Python", "FastAPI", "Node.js", "JavaScript", "Streamlit", "GitHub"]
   },
   "projects": [
-    {"title": "LangGraph Streamlit Chat Persistence", "summary": "LangGraph chat threads saved in SQLite. Live demo on Streamlit.", "url": "https://github.com/bishalranjit0606/langgraph-streamlit-chat-persistence", "demo": "https://langgraph-app-chat-persistence-fvm4mttbzpbvwzkwigncvi.streamlit.app/"},
+    {"title": "LangGraph Chatbot: Constitution of Nepal RAG", "summary": "Streamlit chatbot with Constitution FAISS RAG, general tools, LangSmith traces, and SQLite threads", "url": "https://github.com/bishalranjit0606/langgraph-streamlit-chat-persistence", "demo": "https://langgraph-app-chat-persistence-fvm4mttbzpbvwzkwigncvi.streamlit.app/"},
     {"title": "Website Uptime Monitor", "summary": "n8n uptime alerts, open source", "url": "https://github.com/bishalranjit0606/website-downtime-alert-workflow"},
     {"title": "LinkedIn Job Post Automation", "summary": "n8n plus multimodal AI, zero-touch posts", "url": "https://github.com/bishalranjit0606/n8n-linkedin-job-post-automation"},
     {"title": "Free AI Job Hunter", "summary": "n8n, Groq, and Jina AI at zero API cost", "url": "https://github.com/bishalranjit0606/Free-AI-Job-Hunter-with-n8n-Groq-and-Jina-AI"},
