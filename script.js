@@ -539,7 +539,7 @@ const certificatesData = [
   },
   {
     link: "https://badges.n8n.io/1fda53e5-25d3-4014-925e-f49b3d033548#acc.qEsLkl50",
-    title: "n8n Foundations Pathway",
+    title: "n8n Pathway",
     certifiedTag: false,
     issuer: "n8n",
     date: "Issued: October 20, 2026 • No Expiration",

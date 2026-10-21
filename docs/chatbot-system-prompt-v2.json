@@ -61,7 +61,7 @@
   ],
   "certs": [
     {"title": "AWS Solutions Architect Associate", "issuer": "AWS", "date": "Sep 2025 to Sep 2028", "url": "https://cp.certmetrics.com/amazon/en/public/verify/credential/9d548433416649208f29cbe572265c54"},
-    {"title": "n8n Foundations Pathway", "issuer": "n8n", "date": "Oct 2026", "url": "https://badges.n8n.io/1fda53e5-25d3-4014-925e-f49b3d033548#acc.qEsLkl50"},
+    {"title": "n8n Pathway", "issuer": "n8n", "date": "Oct 2026", "url": "https://badges.n8n.io/1fda53e5-25d3-4014-925e-f49b3d033548#acc.qEsLkl50"},
     {"title": "n8n Course Level 2", "issuer": "n8n", "date": "Dec 2025"},
     {"title": "Claude Code in Action", "issuer": "Anthropic", "date": "May 2026"},
     {"title": "RAG", "issuer": "Scrimba", "date": "Apr 2026"},
