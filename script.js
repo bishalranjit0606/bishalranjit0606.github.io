@@ -538,12 +538,12 @@ const certificatesData = [
     image: "certificate-image/aws.png"
   },
   {
-    link: "https://community.n8n.io/badges/105/completed-n8n-course-level-2?username=bishal_ranjit",
-    title: "Badges / Completed n8n Course Level 2",
+    link: "https://badges.n8n.io/1fda53e5-25d3-4014-925e-f49b3d033548#acc.qEsLkl50",
+    title: "n8n Foundations Pathway",
     certifiedTag: false,
     issuer: "n8n",
-    date: "Issued: December 2025 • No Expiration",
-    image: "certificate-image/n8n Course Level 2.png"
+    date: "Issued: October 20, 2026 • No Expiration",
+    image: "certificate-image/n8n Foundations Pathway.png"
   },
   {
     link: "https://verify.skilljar.com/c/z38s2z5iorey",
@@ -576,6 +576,14 @@ const certificatesData = [
     issuer: "PW Skills",
     date: "Issued: February 2025 • No Expiration",
     image: "certificate-image/backend-development.png"
+  },
+  {
+    link: "https://community.n8n.io/badges/105/completed-n8n-course-level-2?username=bishal_ranjit",
+    title: "Badges / Completed n8n Course Level 2",
+    certifiedTag: false,
+    issuer: "n8n",
+    date: "Issued: December 2025 • No Expiration",
+    image: "certificate-image/n8n Course Level 2.png"
   },
   {
     link: "https://www.datacamp.com/statement-of-accomplishment/course/592236acc54c3d46be46d30dfd9b96f892c6a0d3?raw=1",
