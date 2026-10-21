@@ -271,13 +271,20 @@
         </div>
       </div>
     </div>
-    <button type="button" class="chat-window-toggle" aria-label="Open chat" aria-expanded="false">
-      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" />
-      </svg>
+    <button type="button" class="chat-window-toggle" aria-label="Chat here" aria-expanded="false">
+      <span class="chat-launcher-bot" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 48 48" fill="none">
+          <circle class="bot-antenna-dot" cx="24" cy="5" r="3" fill="#ffffff" />
+          <path d="M24 8v5" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          <rect x="8" y="14" width="32" height="27" rx="10" fill="currentColor" />
+          <circle class="bot-eye" cx="18" cy="26" r="2.7" fill="#241b45" />
+          <circle class="bot-eye bot-eye-late" cx="30" cy="26" r="2.7" fill="#241b45" />
+          <path d="M17.5 34c1.8 1.7 4 2.5 6.5 2.5s4.7-.8 6.5-2.5" stroke="#241b45" stroke-width="2" stroke-linecap="round" />
+        </svg>
+      </span>
+      <span class="chat-launcher-say">Chat here</span>
     </button>
   </div>
-  <div class="chat-label">AI chatbot here! 👋</div>
   <script src="config.example.js"></script>
   <script src="chat.js"></script>
   <script src="script.js"></script>
