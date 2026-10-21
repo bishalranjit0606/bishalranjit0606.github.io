@@ -3,7 +3,7 @@
   const GROQ_URL = 'https://api.groq.com/openai/v1/chat/completions';
   const MODEL = 'openai/gpt-oss-20b';
   const MAX_HISTORY = 20;
-  const PROMPT_URL = 'docs/chatbot-system-prompt-v2.json';
+  const PROMPT_URL = 'docs/chatbot-system-prompt-v2.json?v=2';
   const WELCOME =
     "Hi there! 👋 I'm Bishal's AI assistant. How can I help you today?";
   const FAIL_TEXT =
@@ -107,10 +107,33 @@
     return bubble;
   }
 
+  function suggestionsBox() {
+    return document.querySelector('.chat-suggestions');
+  }
+
+  function hideSuggestions() {
+    const box = suggestionsBox();
+    if (box) box.remove();
+  }
+
+  function bindSuggestions() {
+    const box = suggestionsBox();
+    if (!box) return;
+    box.querySelectorAll('.chat-suggestion').forEach(function (button) {
+      button.addEventListener('click', function () {
+        hideSuggestions();
+        handleSend(button.textContent);
+      });
+    });
+  }
+
   function setBusy(next) {
     busy = next;
     input.disabled = next;
     sendBtn.disabled = next;
+    document.querySelectorAll('.chat-suggestion').forEach(function (button) {
+      button.disabled = next;
+    });
   }
 
   async function loadSystemPrompt() {
@@ -119,7 +142,7 @@
     const data = await res.json();
     systemPrompt =
       JSON.stringify(data) +
-      '\n\nAlways reply in plain text only. Never return JSON.';
+      '\n\nAlways reply in plain text only. Never return JSON. Spell the company as Recruit Nepal. Spell Nepal in full. Never write Nebal.';
     promptReady = true;
   }
 
@@ -138,7 +161,7 @@
       },
       body: JSON.stringify({
         model: MODEL,
-        temperature: 0.7,
+        temperature: 0.2,
         max_completion_tokens: 1024,
         reasoning_effort: 'low',
         messages: [
@@ -178,6 +201,7 @@
     const userText = text.trim();
     if (!userText || busy) return;
 
+    hideSuggestions();
     input.value = '';
     addMessage('user', userText);
     setBusy(true);
@@ -271,6 +295,8 @@
       })
       .catch(function () {});
   }
+
+  bindSuggestions();
 
   loadScript('config.local.js').then(function () {
     return loadEnvFile();
