@@ -21,6 +21,14 @@ const skillsData = [
     iconClass: "langchain-icon"
   },
   {
+    id: "llm-evals",
+    title: "LLM Evals",
+    desc: "Quality Scoring & Testing",
+    modalDesc: "Eval datasets, scoring, and regression checks to measure and improve LLM answer quality.",
+    iconType: "class",
+    icon: ["fa-solid", "fa-vial"]
+  },
+  {
     id: "python",
     title: "Python",
     desc: "Programming Language",
