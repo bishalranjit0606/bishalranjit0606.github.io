@@ -152,6 +152,16 @@ const skillsData = [
 
 const projectsData = [
   {
+    link: "https://recruitnepal.com/",
+    image: "images/recruitnepal.png",
+    title: "Recruit Nepal Automation",
+    description: "n8n automations for Recruit Nepal. HootBot chats for candidates and employers use live jobs only. Vacancy posts go to Facebook, LinkedIn, and Instagram. A Gmail bot saves resumes and replies with real openings.",
+    tech: ["n8n", "Azure OpenAI", "LangChain"],
+    buttons: [
+      { text: "Live Demo", link: "https://recruitnepal.com/", icon: ["fa-solid", "fa-external-link-alt"] }
+    ]
+  },
+  {
     link: "https://github.com/bishalranjit0606/langgraph-streamlit-chat-persistence",
     image: "images/langgraph-chat-persistence.svg",
     title: "LangGraph Chatbot: Constitution of Nepal RAG",
@@ -743,7 +753,7 @@ const ThemeManager = {
     const text = document.getElementById("theme-text");
     const icon = document.querySelector("#theme-toggle i");
 
-    let theme = localStorage.getItem("theme") || "dark";
+    let theme = localStorage.getItem("theme") || "light";
     this.apply(theme);
 
     toggleBtn.onclick = () => {

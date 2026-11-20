@@ -25,6 +25,7 @@
   --chat-launcher-say-bg: #5b4bdb;
   --chat-launcher-say-color: #ffffff;
   --chat-launcher-focus: #c4b5fd;
+  --chat-launcher-bot-bg: var(--accent-gradient);
   /*
    * Chat UI stays light in both site themes.
    * Hardcoded so dark mode site colors do not leak into the widget.
@@ -82,18 +83,19 @@
   --border-color: #e2e8f0;
   --text-color: #2d3748;
   --secondary-text: #4a5568;
-  --highlight-color: #4f46e5;
+  --highlight-color: #3a84c6;
   /* In Light Mode, Text matches Button exactly */
-  --accent-gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
-  --text-gradient: var(--accent-gradient);
-  --card-hover-shadow: rgba(79, 70, 229, 0.2);
+  --accent-gradient: #3a84c6;
+  --text-gradient: #3a84c6;
+  --card-hover-shadow: rgba(58, 132, 198, 0.2);
   --button-text: #fff;
-  --chat-launcher-bg: #312e81;
-  --chat-launcher-border: #6366f1;
-  --chat-launcher-shadow: rgba(49, 46, 129, 0.28);
-  --chat-launcher-say-bg: #ffffff;
-  --chat-launcher-say-color: #312e81;
-  --chat-launcher-focus: #4f46e5;
+  --chat-launcher-bg: #ffffff;
+  --chat-launcher-border: #e6eef6;
+  --chat-launcher-shadow: rgba(37, 78, 122, 0.16);
+  --chat-launcher-say-bg: #3a84c6;
+  --chat-launcher-say-color: #ffffff;
+  --chat-launcher-focus: #3a84c6;
+  --chat-launcher-bot-bg: #3a84c6;
 }
 
 body {
@@ -267,9 +269,11 @@ a.profile:focus-visible {
   font-size: 0.9rem;
 }
 
-[data-theme="light"] #theme-toggle:hover {
-  background: var(--accent-gradient);
+[data-theme="light"] #theme-toggle:hover,
+[data-theme="light"] .btn-primary:hover {
+  background: #3a84c6;
   color: #fff;
+  box-shadow: 0 5px 15px rgba(58, 132, 198, 0.4);
 }
 
 /* --- SIDEBAR FOOTER (CTRL + K Hint) --- */
@@ -2179,7 +2183,7 @@ a.profile:focus-visible {
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
-  background: var(--accent-gradient);
+  background: var(--chat-launcher-bot-bg);
   color: #ffffff;
   animation: chat-bot-bob 2.6s ease-in-out infinite;
 }
@@ -2206,6 +2210,11 @@ a.profile:focus-visible {
   padding: 9px 12px;
   border-radius: 12px;
   white-space: nowrap;
+}
+
+[data-theme="light"] .chat-launcher-say {
+  border-radius: 999px;
+  padding: 10px 14px;
 }
 
 .chat-launcher-say::before {
